@@ -159,7 +159,7 @@ $(document).ready(function() {
     var portfolioElement = el;
     var projectName = portfolioElement.parent('li').data("project");
     $.ajax({
-      url: 'http://brimwd.github.io/portfolio/showcase/'+projectName+'.html',
+      url: 'http://brimwd.github.io/showcase/'+projectName+'.html',
       dataType: 'html',
       success: function(response) {
         portfolioElement.html(response);
