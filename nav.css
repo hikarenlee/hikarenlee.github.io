@@ -180,8 +180,8 @@ nav.subNav a {padding:4px 8px;border-radius:6px;transition:all .3s;border:1px so
 #browser a:hover, #browser a.active {border-color:white;}
 #browser img {width:180px;height:auto;position:relative;}
 #browser li {margin-bottom:10px;}
-#browser+div {display:block;position:absolute;top:0;right:0;bottom:0;left:0;background-color:#000;opacity:0;transition:opacity .5s;z-index:0} /*overlay*/
-#browser.open+div {opacity:.2;z-index:1;} /*overlay VISIBLE*/
+#overlay {display:block;position:absolute;top:0;right:0;bottom:0;left:0;background-color:#000;opacity:0;transition:opacity .5s;z-index:0} /*overlay*/
+#browser.open #overlay {opacity:.2;z-index:1;} /*overlay VISIBLE*/
 #feature {position:absolute;top:0;bottom:44px;right:0;left:0;padding-left:20px;color:white;text-shadow:-1px -1px #333,0 -1px #333,1px -1px #333,1px 0 #333,1px 1px #333,0 1px #333,-1px 1px #333,-1px 0 #333;letter-spacing:1px;background:url() no-repeat center;background-size:auto 100%;background-color:#333;}
 #showcase .nav {position:absolute;bottom:0;left:0;right:0;}
 #playbutton {margin-left:5px;border-radius:5px;padding:5px;background-color:#F5E6E3;color:#666;text-decoration:none;}
@@ -279,8 +279,7 @@ footer li .mix:hover span {border-color:white;}
 	#info p, #info a {width:800px;margin-left:auto;margin-right:auto;font-size:12px;line-height:1.5em;padding:5px 0;-webkit-user-select:none;user-select:none;}
 	#prevproject, #nextproject {display:inline-block;}
 	#browser {left:0;}
-	#overlay {display:none;}
-	#tab {display:none;}
+	#tab, #overlay, #browser.open #overlay {display:none;}
 	#feature, #showcase .nav {left:220px;}
 	.mobile-instructions {display:none;}
 	.mobile-instructions+span {display:inline;}
