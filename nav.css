@@ -107,11 +107,11 @@ nav.subNav a {padding:4px 8px;border-radius:6px;transition:all .3s;border:1px so
 .bl:after{top:-3px;right:-3px;}
 
 #about {background-color:#F5E6E3;color:#666;font-family:'Open Sans',sans-serif;text-align:left;position:relative;width:100%;margin:0;padding:0;}
-#about div {width:auto;max-width:80%;display:inline-block;margin:0;vertical-align:top;}
+#about div {width:auto;display:inline-block;margin:0;vertical-align:top;}
 #about h1 {color:#444;font-size:26pt;border-bottom:4px solid #FF7D6A;width:220px;margin-top:8%;font-weight:lighter;}
 #about a {color:#FF7D6A;text-decoration:none;font-weight:bold;display:inline-block;margin-bottom:40px;}
 #about a:hover {color:#666;}
-#about .text {padding-left:50px;position:relative;}
+#about .text {padding-left:20px;padding-right:20px;position:relative;}
 #about .text > p {max-width:800px;}/*color:#F5E6E3;color:inherit;*/
 #about .contact {display:none;max-width:100%;position:absolute;bottom:80px;}
 #about .contact a {color:#666;display:block;padding-left:55px;line-height:1.3em;position:relative;margin-top:50px;}
@@ -238,6 +238,7 @@ footer li .mix:hover span {border-color:white;}
 	#UX aside h4 {margin:.5em 0 1em;}
 	#UX article ul {margin-top:1.3em;}
 	#PRINT a img {border:4px solid #4B4A50;}
+	#about .text {padding-left:30px;padding-right:30px;}
 	#about img, #about .img:before {display:block;}
 	#about div {max-width:50%;}
 	#about .inner-img {display:none;}
@@ -270,6 +271,7 @@ footer li .mix:hover span {border-color:white;}
 	.fa-envelope {padding:3px 3px 0;} .fa-skype {padding:3px 0 0 1px;} .fa-steam, .fa-twitter {padding:3px 0 0 4px;} .fa-linkedin, .fa-jsfiddle, .fa-codepen {padding-top:3px;}
 }
 @media(min-width:800px){
+	#about .text {padding-left:45px;padding-right:35px;}
 	#star-box a {color:white;text-decoration:none;display:inline;}
 	#star-box a:hover {color:#70BCB8;}
 	#starfield {z-index:-1;position:absolute;top:0;left:0;right:0;height:630px;display:block;}
