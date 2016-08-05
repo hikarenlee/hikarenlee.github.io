@@ -170,7 +170,7 @@ nav.subNav a {padding:4px 8px;border-radius:6px;transition:all .3s;border:1px so
 #experience #showmore {background-color:#FF7D6A;color:white;}
 #experience .hide {display:none;}
 
-#showcase {display:none;position:fixed;top:2%;bottom:2%;left:2%;right:2%;box-shadow:0 0 50px 50px rgba(0,0,0,.9);background-color:#666;z-index:15;border-radius:8px;overflow:hidden;}
+#showcase {display:none;position:fixed;top:0;right:0;bottom:0;left:0;background-color:#666;z-index:15;overflow:hidden;}
 #closeshowcase {float:right;padding:10px;}
 #browser {left:-220px;top:0;bottom:0;text-align:center;padding:10px;width:200px;position:absolute;overflow:scroll;color:white;background-color:#666;font-weight:normal;font-size:12pt;-webkit-border-top-left-radius:8px;-webkit-border-bottom-left-radius:8px;-moz-border-radius-topleft:8px;-moz-border-radius-bottomleft:8px;border-top-left-radius:8px;border-bottom-left-radius:8px;-webkit-transition:left .5s;transition:left .5s;}
 #browser.open {left:0;z-index:15;}
@@ -277,6 +277,7 @@ footer li .mix:hover span {border-color:white;}
 	#gamecanvas.hide, #display-font.hide, #info.hide, #starfield.hide {display:none;}
 	#info {display:block;}
 	#info p, #info a {width:800px;margin-left:auto;margin-right:auto;font-size:12px;line-height:1.5em;padding:5px 0;-webkit-user-select:none;user-select:none;}
+	#showcase{top:2%;bottom:2%;left:2%;right:2%;box-shadow:0 0 50px 50px rgba(0,0,0,.9);border-radius:8px;}
 	#prevproject, #nextproject {display:inline-block;}
 	#browser {left:0;}
 	#tab, #overlay, #browser.open+#overlay {display:none;}
