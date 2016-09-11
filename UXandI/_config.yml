@@ -20,7 +20,7 @@ description: # > means to ignore newlines until "baseurl:"
   An inside look at what makes products great
 baseurl: "/UXandI" # the subpath of your site, e.g. /blog
 # url: "http://localhost:4000" # local host URL. Comment out before posting
-url: "http://brimwd.github.io" # the base hostname & protocol for your site
+url: "https://brimwd.github.io/brimwd.github.io" # the base hostname & protocol for your site
 twitter_username: _bmd
 github_username:  brimwd
 
