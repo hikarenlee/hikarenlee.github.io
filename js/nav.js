@@ -403,6 +403,22 @@ function updateFrame ($newFrameIndex) {
   }
 };
 
+$('#ux a.player').on('click', function(){
+  var vidSrc = $(this).attr('id');
+  showPlayer(vidSrc);
+})
+
+function showPlayer ($targetVid){
+  var player = $('#demo-player'),
+      newImage = '<img src="'+$targetVid+'" alt="" />';
+
+  player.prepend(newImage).show();
+  player.click(function(){
+    player.children('img').remove();
+    player.hide();
+  })
+}
+
 function toggleArrows ($selectedFrame){
   //show both arrows
   var $leftArrow = $selectedFrame.siblings().first(),
