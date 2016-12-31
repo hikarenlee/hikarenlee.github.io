@@ -403,22 +403,6 @@ function updateFrame ($newFrameIndex) {
   }
 };
 
-$('#ux a.player').on('click', function(){
-  var vidSrc = $(this).attr('id');
-  showPlayer(vidSrc);
-})
-
-function showPlayer ($targetVid){
-  var player = $('#demo-player'),
-      newImage = '<img src="'+$targetVid+'" alt="" />';
-
-  player.prepend(newImage).show();
-  player.click(function(){
-    player.children('img').remove();
-    player.hide();
-  })
-}
-
 function toggleArrows ($selectedFrame){
   //show both arrows
   var $leftArrow = $selectedFrame.siblings().first(),
@@ -437,6 +421,24 @@ function toggleArrows ($selectedFrame){
   }
 };
 
+//#UX Portfolio Video/Animation Overlay
+$('#ux a.player').on('click', function(){
+  var vidSrc = $(this).attr('id');
+  showPlayer(vidSrc);
+})
+
+function showPlayer ($targetVid){
+  var player = $('#demo-player'),
+      newImage = '<img src="'+$targetVid+'" alt="" />';
+
+  player.prepend(newImage).show();
+  player.click(function(){
+    player.children('img').remove();
+    player.hide();
+  })
+}
+
+//justified text wordbreak & hyphenation
 function _wordwrap(inputText) {
   var unformattedArray = inputText.text().split(' ');
   var formatted = [];
