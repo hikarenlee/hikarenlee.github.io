@@ -6,6 +6,16 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/5d44595dd9.css" media="all">
 <link rel="stylesheet" href="case-study.css" media="all">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<style type="text/css">
+	a.player {border:none;}
+	#page {position:relative;}
+	#demo-player {position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,0.8);z-index:5;padding-top:35%;display:none;margin-top:0;}
+	#demo-player .container {position:absolute;top:0;left:0;right:0;}
+	#demo-player * {text-align:center;color:white;}
+	#demo-player p {font-size:36px;padding-top:120px;}
+	#demo-player footer {background:none;padding-top:160px;}
+	#demo-player img {z-index:7;position:absolute;top:0;left:0;right:0;margin:0 auto;max-width:600px;width:90%;}
+</style>
 <script type="text/javascript">
 $('document').ready(function(){
 	$('div nav').slideUp();
@@ -17,13 +27,37 @@ $('document').ready(function(){
 		event.preventDefault();
 		var newScroll = $(this).attr('href');
 		$('body').animate({
-	      scrollTop: $(newScroll).offset().top -30
-	    }, 600);
+			scrollTop: $(newScroll).offset().top -30
+		}, 600);
 	});
 
 	$('.can-zoom').on('click',function(){
 		$(this).toggleClass('zoom');
-	})
+	});
+
+
+	//Video/Animation Overlay
+	$('.player').on('click', function(){
+		var vidSrc = $(this).attr('id'),
+				vidPos = $(this).parent().prevAll('h2').offset().top - 20;
+		showPlayer(vidSrc, vidPos);
+	});
+
+	function showPlayer ($targetVid, $vidPos){
+		var $div = '<div id="demo-player"><div class="container"><img src="" alt=""/><p>Loading...</p><footer>(click anywhere to close this overlay)</footer></div></div>';
+
+		$($div).appendTo($('#page')).fadeTo("slow", 1.0);
+
+		var player = $('#demo-player');
+		
+		player.find('.container').css('top',$vidPos);
+		player.find('img').attr('src',$targetVid);
+		
+		player.on('click',function(){
+			this.remove();
+		});
+	}
+	//end Video/Animation Overlay
 });
 </script>
 </head>
@@ -44,7 +78,6 @@ $('document').ready(function(){
 </ul>
 <h2><a href="#conclusion">Conclusion</a></h2>
 </nav>
-
 <article>
 <h1 id="overview">Game Prototyping</h1>
 <p>This is a project my friend Michael Afrides and I worked on together in early 2014.</p>

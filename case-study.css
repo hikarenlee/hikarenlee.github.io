@@ -41,5 +41,3 @@ footer {text-align:center;font-size:14px;margin:0;padding:30px 0;}
 footer a {border-bottom:1px dotted #333;}
 footer p {margin:0;}
 @media (max-width:799px){footer{background-color:#333;} footer p{color:white;} footer a{color:white;border-bottom-color:white;}}
-
-a.player {text-decoration:line-through;color:#AAA;border:none;}

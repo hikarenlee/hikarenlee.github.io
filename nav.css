@@ -66,12 +66,6 @@ header .fa {font-size:90%;}
 #UX .portfolio-menu {background-color:#245675;color:white;border:1px solid white;}
 #UX .portfolio-menu:hover {background-color:white;border-color:#245675;color:#245675;}
 
-#demo-player {position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,0.8);z-index:5;padding-top:35%;display:none;}
-#demo-player * {position:absolute;z-index:6;text-align:center;top:35%;left:0;right:0;margin:0 auto;}
-#demo-player p {top:45%;font-size:36px;padding:0 0 8%;}
-#demo-player footer {background:none;top:62%;}
-#demo-player img {z-index:7;top:35%;left:0;right:0;margin:0 auto;max-width:600px;width:90%;}
-
 nav.subNav {width:auto;background-color:initial;padding:5px 0;}
 nav.subNav a {padding:4px 8px;border-radius:6px;transition:all .3s;border:1px solid #9DC7E1;color:white;background-color:#1B79B3;vertical-align:top;display:inline-block;margin:0 2px;}
 #UX nav.subNav a:hover, #UX nav.subNav a.ux-active {background-color:white;border-color:#245675;color:#245675;}
