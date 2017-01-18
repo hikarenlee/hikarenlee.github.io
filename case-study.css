@@ -14,8 +14,8 @@ h1, h2, h3 {font-weight:900;}
 h2, h3 {margin:1.3em 0 .3em;}
 article a {border-bottom:1px dotted #333;}
 h2+p, h3+p, h2+img {margin-top:0;}
-article img.can-zoom {max-width:30%;float:right;margin:0 0 10px 20px;transition:max-width .5s, border .3s, margin-left .3s;cursor:zoom-in;border:1px solid white;}
-article img.can-zoom:hover {border-color:grey;}
+img.can-zoom {max-width:30%;float:right;margin:0 0 10px 20px;transition:max-width .5s, border .3s, margin-left .3s;cursor:zoom-in;border:1px solid white;}
+img.can-zoom:hover {border-color:grey;}
 img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
 
 aside {margin:0;padding:30px 45px 30px;cursor:pointer;}
