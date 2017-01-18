@@ -1,8 +1,8 @@
 body {padding:0;margin:0 auto;max-width:800px;}
 * {font-family:'Open Sans', Georgia, Helvetica;color:#333;}
 
-div {max-width:800px;margin:10px auto;padding:0;border:2px #777;box-shadow:0px 3px 18px rgba(125,125,125,0.4);}
-@media(max-width:799px){div{margin:0;border:none;box-shadow:none;}}
+#page {max-width:800px;margin:10px auto;padding:0;border:2px #777;box-shadow:0px 3px 18px rgba(125,125,125,0.4);}
+@media(max-width:799px){#page{margin:0;border:none;box-shadow:none;}}
 
 article {padding:0 40px 30px;margin:0;border-top:1px dashed #888;}
 @media(max-width:799px){article{padding:15px;}}
@@ -24,11 +24,11 @@ aside h1 {font-size:20px;margin:0;}
 aside h1 span {font-size:14px;color:#888;display:none;line-height:inherit;font-weight:normal;font-family:monospace;}
 aside:hover span {display:inline;}
 
-div nav{margin:-10px 0 0;padding:0 45px 30px;}
-div nav li, div nav h2, div nav h3 {font-family:monospace;font-size:14px;}
-div nav ul {margin-top:0;}
-div nav h2 {margin-bottom:.2em;text-decoration:underline;}
-div nav h2:first-of-type {margin-top:0;}
+#page nav{margin:-10px 0 0;padding:0 45px 30px;}
+#page nav li, #page nav h2, #page nav h3 {font-family:monospace;font-size:14px;}
+#page nav ul {margin-top:0;}
+#page nav h2 {margin-bottom:.2em;text-decoration:underline;}
+#page nav h2:first-of-type {margin-top:0;}
 
 #mainNav {padding:20px 5px;}
 #mainNav a {background-color:#E4E4E4;transition:all .3s;}
