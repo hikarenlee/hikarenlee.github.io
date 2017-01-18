@@ -74,7 +74,6 @@ $(document).ready(function() {
     }
   });
 
-
   /* PORTFOLIO & SHOWCASE */
   /* THIS LOOP REPLACED WITH THE FOREACH BELOW
   var portfolioTypes = $('#portfolio-top a p');
@@ -92,35 +91,14 @@ $(document).ready(function() {
     $('#portfolio-top').slideUp();
     $('#UX').slideDown();
   });
-  $('.subNav a').on('click',function(el){
+/*  $('.subNav a').on('click',function(el){
     $('.subNav .ux-active').removeClass('ux-active');
     $('#UX article').hide().removeClass('ux-active');
     var index = $(this).index();
     $(this).addClass('ux-active');
     $($('#UX article')[index]).fadeIn().addClass('ux-active');
-  });
-  $('#UX article nav a').on('click',function(el){
-    var $clickedFrameNumber = $(el.target).parent('li');
-    $clickedFrameNumber.parents('ul').find('.selected').removeClass('selected');
-    $clickedFrameNumber.addClass('selected');
-    toggleArrows($clickedFrameNumber);
-    updateFrame($('#UX .ux-active nav .selected').index());
-  });
+  });*/
 
-  $('#UX article nav i').on('click',function(el){
-    var $clickedArrow = $(el.target);
-    var $selectedFrameNumber = $clickedArrow.parents('ul').find('.selected');
-    if($clickedArrow.hasClass('fa-chevron-left') && $selectedFrameNumber.index() != 1){
-      //prev arrow clicked && not first frame
-      $selectedFrameNumber.removeClass('selected').prev().addClass('selected');
-    } else if ($clickedArrow.hasClass('fa-chevron-right') && $selectedFrameNumber.index() != $selectedFrameNumber.siblings().length -1){
-      //next arrow clicked && not last frame
-      $selectedFrameNumber.removeClass('selected').next().addClass('selected');
-    }
-    //check selected position function
-    toggleArrows($selectedFrameNumber.parent().find('.selected'));
-    updateFrame($('#UX .ux-active nav .selected').index());
-  });
   $('#FED-link').on('click', function(){
     $('#portfolio-top').slideUp();
     $('#FED').slideDown();
@@ -396,12 +374,36 @@ $(document).ready(function() {
   });
 });
 
+/*Code for toggling frames within UX Process*/
 function updateFrame ($newFrameIndex) {
   var $currentProject = $('#UX .ux-active ol');
   if ($currentProject.children('.selected').index() != $newFrameIndex-1) {
     $currentProject.children().hide().removeClass('selected').eq($newFrameIndex-1).fadeIn().addClass('selected');
   }
 };
+/*move by arrow*/
+$('#UX article nav i').on('click',function(el){
+  var $clickedArrow = $(el.target);
+  var $selectedFrameNumber = $clickedArrow.parents('ul').find('.selected');
+  if($clickedArrow.hasClass('fa-chevron-left') && $selectedFrameNumber.index() != 1){
+    //prev arrow clicked && not first frame
+    $selectedFrameNumber.removeClass('selected').prev().addClass('selected');
+  } else if ($clickedArrow.hasClass('fa-chevron-right') && $selectedFrameNumber.index() != $selectedFrameNumber.siblings().length -1){
+    //next arrow clicked && not last frame
+    $selectedFrameNumber.removeClass('selected').next().addClass('selected');
+  }
+  //check selected position function
+  toggleArrows($selectedFrameNumber.parent().find('.selected'));
+  updateFrame($('#UX .ux-active nav .selected').index());
+});
+/*move by frame number*/
+$('#UX article nav a').on('click',function(el){
+  var $clickedFrameNumber = $(el.target).parent('li');
+  $clickedFrameNumber.parents('ul').find('.selected').removeClass('selected');
+  $clickedFrameNumber.addClass('selected');
+  toggleArrows($clickedFrameNumber);
+  updateFrame($('#UX .ux-active nav .selected').index());
+});
 
 function toggleArrows ($selectedFrame){
   //show both arrows
