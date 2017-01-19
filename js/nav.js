@@ -117,10 +117,12 @@ $(document).ready(function() {
   //Handle deep linking
   var hash = window.location.hash;
   if(hash){
-    var deepLink = hash+'-link';
-    $(deepLink).trigger('click');
+    /*var deepLink = hash+'-link';
+    $(deepLink).trigger('click');*/
+    $('#portfolio-top').css('display','none');
+    $(hash).css('display','block');
     $('body').animate({
-      scrollTop: $('#mainNav').offset().top
+      scrollTop: $(hash).offset().top - 30
     }, 400);
   }
 
