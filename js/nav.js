@@ -113,6 +113,16 @@ $(document).ready(function() {
       $('#portfolio-top').slideDown();
     }
   });
+  
+  //Handle deep linking
+  var hash = window.location.hash;
+  if(hash){
+    var deepLink = hash+'-link';
+    $(deepLink).trigger('click');
+    $('body').animate({
+      scrollTop: $('#mainNav').offset().top
+    }, 400);
+  }
 
   var browser = $('#browser'),
       tab = $("#tab"),
