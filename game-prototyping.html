@@ -13,8 +13,10 @@
 	#demo-player .container {position:absolute;top:0;left:0;right:0;}
 	#demo-player * {text-align:center;color:white;}
 	#demo-player p {font-size:36px;padding-top:120px;}
-	#demo-player footer {background:none;padding-top:160px;}
-	#demo-player img {z-index:7;position:absolute;top:0;left:0;right:0;margin:0 auto;max-width:600px;width:90%;}
+	#demo-player footer {background:none;padding:10px 0;}
+	#demo-player span {z-index:7;position:absolute;top:0;left:0;right:0;}
+	#demo-player img {max-width:600px;width:90%;margin:0 auto;}
+	@media(max-width:500px){#demo-player p {font-size:28px;padding-top:60px;}}
 </style>
 <script type="text/javascript">
 $('document').ready(function(){
@@ -43,7 +45,7 @@ $('document').ready(function(){
 	});
 
 	function showPlayer ($targetVid, $vidPos){
-		var $div = '<div id="demo-player"><div class="container"><img src="" alt=""/><p>Loading...</p><footer>(click anywhere to close this overlay)</footer></div></div>';
+		var $div = '<div id="demo-player"><div class="container"><span><img src="" alt=""/><footer>(click anywhere to close this overlay)</footer></span><p>Loading...</p></div></div>';
 
 		$($div).appendTo($('#page')).fadeTo("slow", 1.0);
 
