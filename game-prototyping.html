@@ -10,7 +10,7 @@
 	a.player {border:none;}
 	#page {position:relative;}
 	#demo-player {position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,0.8);z-index:5;padding-top:35%;display:none;margin-top:0;cursor:pointer;}
-	#demo-player .container {position:absolute;top:0;left:0;right:0;}
+	#demo-player .container {position:absolute;bottom:0;left:0;right:0;}
 	#demo-player * {text-align:center;color:white;}
 	#demo-player p {font-size:36px;padding-top:120px;}
 	#demo-player footer {background:none;padding:10px 0;}
@@ -40,7 +40,7 @@ $('document').ready(function(){
 	//Video/Animation Overlay
 	$('.player').on('click', function(){
 		var vidSrc = $(this).attr('id'),
-				vidPos = $(this).parent().prevAll('h2').offset().top - 20;
+			vidPos = ($(document).height()) - ($(this).parent().offset().top);
 		showPlayer(vidSrc, vidPos);
 	});
 
@@ -51,7 +51,7 @@ $('document').ready(function(){
 
 		var player = $('#demo-player');
 		
-		player.find('.container').css('top',$vidPos);
+		player.find('.container').css('bottom',$vidPos);
 		player.find('img').attr('src',$targetVid);
 		
 		player.on('click',function(){
