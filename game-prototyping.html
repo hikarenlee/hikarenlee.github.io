@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="case-study.css" media="all">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <style type="text/css">
+	header {background-image:url(images/candd/candd.gif);padding:245px 20px 30px;}
+	@media(max-width:649px){header{padding-top:170px;}}
+	@media(max-width:499px){header{padding-top:100px;}}
 	a.player {border:none;}
 	#page {position:relative;}
 	#demo-player {position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,0.8);z-index:5;padding-top:35%;display:none;margin-top:0;cursor:pointer;}
@@ -50,10 +53,10 @@ $('document').ready(function(){
 		$($div).appendTo($('#page')).fadeTo("slow", 1.0);
 
 		var player = $('#demo-player');
-		
+
 		player.find('.container').css('bottom',$vidPos);
 		player.find('img').attr('src',$targetVid);
-		
+
 		player.on('click',function(){
 			this.remove();
 		});
@@ -66,25 +69,33 @@ $('document').ready(function(){
 <body>
 <nav id="mainNav"><a class="leftArrow" href="http://brimwd.github.io#UX">Return to Portfolio</a></nav>
 <div id="page">
+<header>
+	<h1 id="overview">Game Prototyping</h1>
+	<p>Building a UX Proof-of-Concept for Bob Books</p>
+</header>
 <aside id="outline">
 <h1>Outline <span>show/hide</span></h1>
 </aside>
 <nav>
-<h2><a href="#overview">Overview</a></h2>
-<h2><a href="#gameplay">Gameplay Concepts</a></h2>
-<ul>
-<li><a href="#concept1">Concept 1</a></li>
-<li><a href="#concept2">Concept 2</a></li>
-<li><a href="#concept3">Concept 3</a></li>
-</ul>
-<h2><a href="#conclusion">Conclusion</a></h2>
+	<h2><a href="#overview">Overview</a></h2>
+	<h2><a href="#gameplay">Gameplay Concepts</a></h2>
+	<ul>
+		<li><a href="#concept1">Gameplay Concept 1</a></li>
+		<li><a href="#concept2">Gameplay Concept 2</a></li>
+		<li><a href="#concept3">Gameplay Concept 3</a></li>
+	</ul>
+	<h2><a href="#conclusion">Conclusion</a></h2>
 </nav>
 <article>
-<h1 id="overview">Game Prototyping</h1>
-<p>This is a project my friend Michael Afrides and I worked on together in early 2014.</p>
+<h2>Overview</h2>
+<p>Thrilled with my work on their new font, Adam, the marketing director at Bob Books asked me to make a bid for their next game development contract.</p>
+<p>Adam asked me to create a proposal that would demonstrate other gameplay methods and generally make the games more engaging.</p>
+<p>Over the following month I designed a variety of spelling games; wrote a script; created illustrations, sound effects, and animations; and programmed a game in Unity with my friend Michael Afrides.</p>
+
 <h2>Research</h2>
 <img class="can-zoom" src="https://lh3.googleusercontent.com/q798hsCzwv-SMnaYH9j4YabUyt8J6gtTclBiYeGYtmi6R9nwmxL3FFpgLBeKrwkI9w=h900" alt="Bob Books' original game" />
-<p>Thrilled with my work on their new font and dissatisfied with their current line of games (see image right -->), the marketing director at Bob Books asked me to make a bid for their next game development contract.</p>
+<p>Bob Books' existing games feature a single gameplay concept and individual spelling challenges. Each level is composed of simple line drawings and lacks any animation or color.</p>
+<p>I believe that by telling a story with the challenges interspersed, the curiosity about story could become the compelling reason for progressing through the levels as opposed to simply completing each challenge for its own sake.</p>
 <p><a href="https://play.google.com/store/apps/details?id=com.learningtouch.bobbooksrm1&hl=en" target="new">Click here <i class="fa fa-external-link"></i></a> to see Bob Books' original app that we were competing against.</p>
 
 <h2 id="#concept1">Gameplay Concept 1</h2>
@@ -116,7 +127,7 @@ $('document').ready(function(){
 </div>
 
 <footer>
-<p>Written by <a href="http://brimwd.github.io/">Brian Donahue</a> in January of 2017</p>
+<p>Written and programmed by <a href="http://brimwd.github.io/">Brian Donahue</a> in January of 2017</p>
 </footer>
 </body>
 </html>
