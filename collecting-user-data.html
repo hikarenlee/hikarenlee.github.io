@@ -5,6 +5,11 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
 <link rel="stylesheet" href="case-study.css" media="all">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<style>
+	header {background-image:url(images/user-data/userdata.jpg);background-position:70%;padding:200px 20px 30px;}
+	@media(max-width:649px){header{padding-top:170px;}}
+	@media(max-width:499px){header{padding-top:100px;}}
+</style>
 <script type="text/javascript">
 $('document').ready(function(){
 	$('div nav').slideUp();
@@ -26,6 +31,10 @@ $('document').ready(function(){
 <body>
 <nav id="mainNav"><a class="leftArrow" href="http://brimwd.github.io#UX">Return to Portfolio</a></nav>
 <div id="page">
+<header>
+	<h1>Collecting User Data</h1>
+	<p>Learning about our users while protecting customer trust</p>
+</header>
 <aside id="outline">
 <h1>Outline <span>show/hide</span></h1>
 </aside>
@@ -63,7 +72,7 @@ $('document').ready(function(){
 </nav>
 
 <article>
-<h1 id="overview">Collecting User Data</h1>
+<h1 id="overview">Overview</h1>
 <p>During my time at Amazon, one of my major projects revolved around learning how to collect demographic data from customers. The research I conducted is protected under NDA, so I can't disclose any specifics, but I can share the process and general learnings.</p>
 
 <h2 id="challenges">The Challenge</h2>
@@ -120,7 +129,7 @@ $('document').ready(function(){
 </div>
 
 <footer>
-<p>Written by <a href="http://brimwd.github.io/">Brian Donahue</a> in January of 2017</p>
+<p>Written and programmed by <a href="http://brimwd.github.io/">Brian Donahue</a> in January of 2017</p>
 </footer>
 </body>
 </html>
