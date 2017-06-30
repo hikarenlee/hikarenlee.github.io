@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>OfferUp Filters Prototype</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$.ajax({
+  url : 'img/',
+  success: function (data) {
+    $(data).find("a").attr("href", function (i, val) {
+      if( val.match(/\.(jpe?g|png|gif)$/) ) {
+        $("body").append('<img src="'+ folder + val +'" data-tags="">' );
+      }
+    });
+  }
+});
+function appendImages(images) {
+
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>
