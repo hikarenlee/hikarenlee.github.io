@@ -40,7 +40,11 @@ $(document).ready(function(){
 		$('input').val("");
 		$('.thumbnails div').removeClass('searchHidden');
 		$(this).fadeOut();
+		$.makeArray($('#subnav span')).forEach(function(filterElement){
+			$('.selected').click();
+		})
 		if($('#subnav').is(':visible')) { $('#subnav').slideUp(); }
+
 	});
 
 	$('#subnav').on('click','span',function(el){
