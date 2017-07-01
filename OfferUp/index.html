@@ -2,24 +2,199 @@
 <html>
 <head>
 <title>OfferUp Filters Prototype</title>
+<style>
+body, html {padding:0;margin:0;}
+
+#searchbar {background-color:#2f922f;padding:3px 0;text-align:center;}
+	input {font-size:16px;padding:5px;border-radius:4px;border:1px solid #046304;outline:none;display:inline-block;width:96%;text-align:left;}
+	#clear {position:absolute;top:9px;right:2%;font-size:11px;font-family:sans-serif;background-color:#4790ad;color:white;text-decoration:none;cursor:pointer;width:18px;height:18px;line-height:20px;padding-right:1px;border-radius:100%;text-align:center;display:none;}
+
+#subnav {border-bottom:2px solid grey;padding:3px;text-align:left;overflow-x:scroll;white-space:nowrap;display:none;}
+	#subnav span {background-color:#444;color:white;border:1px solid #444;padding:3px 5px;margin:2px 4px;display:inline-block;border-radius:3px;cursor:pointer;transition:all .4s}
+	#subnav .selected {color:black;background-color:white;position:relative;}
+	#subnav .X {text-decoration:none;padding-left:8px;display:inline-block;}
+
+.thumbnails {text-align:center;padding:3px;}
+	.thumbnails div {width:113px;height:113px;background-size:cover;background-position:center;background-repeat:no-repeat;display:inline-block;}
+	.thumbnails .searchHidden, .thumbnails [class*='-filtered'] {display:none;}
+
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-$.ajax({
-  url : 'img/',
-  success: function (data) {
-    $(data).find("a").attr("href", function (i, val) {
-      if( val.match(/\.(jpe?g|png|gif)$/) ) {
-        $("body").append('<img src="'+ folder + val +'" data-tags="">' );
-      }
-    });
-  }
-});
-function appendImages(images) {
+$(document).ready(function(){
+	var imgs = $.makeArray($('.thumbnails div'));
 
-}
+	$('input').on('keyup',function(){
+		var searchQuery = $(this).val();
+
+		if(searchQuery) {
+			$('#clear').fadeIn();
+			$('.thumbnails div').addClass('searchHidden');
+			$("[class*='"+searchQuery+"']").removeClass('searchHidden');
+
+			if($('#subnav').is(':not(:visible)'))	{ $('#subnav').slideDown(); }
+		}
+	});
+
+	$('#clear').on('click',function(){
+		$('input').val("");
+		$('.thumbnails div').removeClass('searchHidden');
+		$(this).fadeOut();
+		if($('#subnav').is(':visible')) { $('#subnav').slideUp(); }
+	});
+
+	$('#subnav').on('click','span',function(el){
+		var filterSpan = $(this);
+		var filterWord = filterSpan.attr('class');
+
+		//DESELECT FILTER
+		if($(el.target).hasClass('X') || $(el.target).hasClass('selected')){
+			//de-select filter
+			$(this).removeClass('selected').find('.X').remove();
+			filterWord = filterSpan.attr('class');
+
+			//un-filter images
+			imgs.forEach(function(div){
+
+				if($(div).hasClass(filterWord+'-filtered')){ $(div).removeClass(filterWord+'-filtered'); }
+			});
+
+			//restore hidden filters
+			var selectedType = $(this).data('type')
+			$.makeArray($('#subnav span')).forEach(function(filterElement){
+				if($(filterElement).data('type') === selectedType) { $(filterElement).css('display','inline-block'); }
+			});
+		} else { //SELECT FILTER
+
+			//modify filters
+			filterSpan.addClass('selected').append($('<a class="X">x</a>'));
+			$('#subnav span').attr('display','inline-block');
+
+			var selectedType = $(this).data('type')
+			$.makeArray($('#subnav span')).forEach(function(filterElement){
+				if($(filterElement).data('type') === selectedType) { $(filterElement).hide(); }
+			});
+			$(this).css('display','inline-block');
+
+			//filter images
+			imgs.forEach(function(div){
+				if($(div).hasClass(filterWord)) {}
+				else { $(div).addClass(filterWord+'-filtered'); }
+			});
+
+			//move new filter to beginning of list
+			$('#subnav').prepend(filterSpan);
+		}
+	});
+});
 </script>
 </head>
 <body>
-
+	<nav id="searchbar">
+		<input type="text" placeholder="Search" /><a id="clear">X</a>
+	</nav>
+	<nav id="subnav">
+		<span data-type="price" class="5k">&lt;$5k</span><span data-type="price" class="10k">&lt;$10k</span><span data-type="make" class="bmw">BMW</span><span data-type="make" class="honda">Honda</span><span class="75m">&lt;75k miles</span><span data-type="condition" class="parts">For parts</span><span data-type="condition" class="certified">Certified</span>
+	</nav>
+	<article class="thumbnails">
+		<div style="background-image:url('img/1.jpg')" class="certified 5k 10k bmw cars"></div>
+		<div style="background-image:url('img/10.jpg')" class="75m cars"></div>
+		<div style="background-image:url('img/11.jpg')" class="10k 75m cars"></div>
+		<div style="background-image:url('img/56.jpg')"></div>
+		<div style="background-image:url('img/12.jpg')" class="75k cars"></div>
+		<div style="background-image:url('img/13.jpg')" class="certified 75k cars"></div>
+		<div style="background-image:url('img/57.jpg')"></div>
+		<div style="background-image:url('img/14.jpg')" class="certified bmw 10k cars"></div>
+		<div style="background-image:url('img/58.jpg')"></div>
+		<div style="background-image:url('img/15.jpg')" class="honda 10k cars"></div>
+		<div style="background-image:url('img/59.jpg')"></div>
+		<div style="background-image:url('img/16.jpg')" class="honda parts 5k 10k cars"></div>
+		<div style="background-image:url('img/17.jpg')" class="honda certified cars"></div>
+		<div style="background-image:url('img/6.jpg')" class="honda 5k 10k cars"></div>
+		<div style="background-image:url('img/18.jpg')" class="certified 10k cars"></div>
+		<div style="background-image:url('img/60.jpg')"></div>
+		<div style="background-image:url('img/19.jpg')" class="10k 5k cars"></div>
+		<div style="background-image:url('img/61.jpg')"></div>
+		<div style="background-image:url('img/2.jpg')" class="parts 5k 10k cars"></div>
+		<div style="background-image:url('img/62.jpg')"></div>
+		<div style="background-image:url('img/20.jpg')" class="10k cars"></div>
+		<div style="background-image:url('img/63.jpg')"></div>
+		<div style="background-image:url('img/21.jpg')" class="10k 5k cars"></div>
+		<div style="background-image:url('img/64.jpg')"></div>
+		<div style="background-image:url('img/22.jpg')" class="honda 10k cars"></div>
+		<div style="background-image:url('img/65.jpg')"></div>
+		<div style="background-image:url('img/23.jpg')" class="bmw 10k 75m cars"></div>
+		<div style="background-image:url('img/66.jpg')"></div>
+		<div style="background-image:url('img/24.jpg')" class="10k 75m cars"></div>
+		<div style="background-image:url('img/67.jpg')"></div>
+		<div style="background-image:url('img/25.jpg')" class="75m cars"></div>
+		<div style="background-image:url('img/26.jpg')" class="certified 10k 75m cars"></div>
+		<div style="background-image:url('img/68.jpg')"></div>
+		<div style="background-image:url('img/27.jpg')" class="honda 75m 10k cars"></div>
+		<div style="background-image:url('img/28.jpg')" class="honda cars"></div>
+		<div style="background-image:url('img/69.jpg')"></div>
+		<div style="background-image:url('img/7.jpg')" class="honda 10k 75m cars"></div>
+		<div style="background-image:url('img/29.jpg')" class="bmw cars"></div>
+		<div style="background-image:url('img/70.jpg')"></div>
+		<div style="background-image:url('img/71.jpg')"></div>
+		<div style="background-image:url('img/3.jpg')" class="parts 5k 10k 75m cars"></div>
+		<div style="background-image:url('img/72.jpg')"></div>
+		<div style="background-image:url('img/30.jpg')" class="10k 75m cars"></div>
+		<div style="background-image:url('img/31.jpg')" class="honda 10k cars"></div>
+		<div style="background-image:url('img/73.jpg')"></div>
+		<div style="background-image:url('img/74.jpg')"></div>
+		<div style="background-image:url('img/32.jpg')" class="bmw 10k cars"></div>
+		<div style="background-image:url('img/75.jpg')"></div>
+		<div style="background-image:url('img/33.jpg')" class="bmw parts cars"></div>
+		<div style="background-image:url('img/76.jpg')"></div>
+		<div style="background-image:url('img/34.jpg')" class="75m cars"></div>
+		<div style="background-image:url('img/77.jpg')"></div>
+		<div style="background-image:url('img/35.jpg')" class="10k cars"></div>
+		<div style="background-image:url('img/36.jpg')" class="10k cars"></div>
+		<div style="background-image:url('img/78.jpg')"></div>
+		<div style="background-image:url('img/37.jpg')" class="10k cars"></div>
+		<div style="background-image:url('img/79.jpg')"></div>
+		<div style="background-image:url('img/8.jpg')" class="bmw parts cars"></div>
+		<div style="background-image:url('img/80.jpg')"></div>
+		<div style="background-image:url('img/81.jpg')"></div>
+		<div style="background-image:url('img/38.jpg')" class="parts 5k 10k cars"></div>
+		<div style="background-image:url('img/39.jpg')" class="10k 75m cars"></div>
+		<div style="background-image:url('img/82.jpg')"></div>
+		<div style="background-image:url('img/4.jpg')" class="5k 10k 75m cars"></div>
+		<div style="background-image:url('img/40.jpg')" class="75m cars"></div>
+		<div style="background-image:url('img/84.jpg')"></div>
+		<div style="background-image:url('img/41.jpg')" class="10k cars"></div>
+		<div style="background-image:url('img/83.jpg')"></div>
+		<div style="background-image:url('img/42.jpg')" class="honda cars"></div>
+		<div style="background-image:url('img/43.jpg')" class="bmw cars"></div>
+		<div style="background-image:url('img/85.jpg')"></div>
+		<div style="background-image:url('img/86.jpg')"></div>
+		<div style="background-image:url('img/44.jpg')" class="bmw cars"></div>
+		<div style="background-image:url('img/45.jpg')" class="75m cars"></div>
+		<div style="background-image:url('img/46.jpg')" class="cars"></div>
+		<div style="background-image:url('img/87.jpg')"></div>
+		<div style="background-image:url('img/88.jpg')"></div>
+		<div style="background-image:url('img/47.jpg')" class="cars"></div>
+		<div style="background-image:url('img/89.jpg')"></div>
+		<div style="background-image:url('img/48.jpg')" class="cars"></div>
+		<div style="background-image:url('img/9.jpg')" class="5k 10k cars"></div>
+		<div style="background-image:url('img/90.jpg')"></div>
+		<div style="background-image:url('img/49.jpg')" class="cars"></div>
+		<div style="background-image:url('img/5.jpg')" class="bmw cars"></div>
+		<div style="background-image:url('img/91.jpg')"></div>
+		<div style="background-image:url('img/92.jpg')"></div>
+		<div style="background-image:url('img/93.jpg')"></div>
+		<div style="background-image:url('img/50.jpg')" class="cars"></div>
+		<div style="background-image:url('img/51.jpg')" class="cars"></div>
+		<div style="background-image:url('img/95.jpg')"></div>
+		<div style="background-image:url('img/96.jpg')"></div>
+		<div style="background-image:url('img/52.jpg')" class="cars"></div>
+		<div style="background-image:url('img/53.jpg')" class="cars"></div>
+		<div style="background-image:url('img/97.jpg')"></div>
+		<div style="background-image:url('img/54.jpg')" class="cars"></div>
+		<div style="background-image:url('img/98.jpg')"></div>
+		<div style="background-image:url('img/55.jpg')" class="cars"></div>
+		<div style="background-image:url('img/94.png')"></div>
+	</article>
 </body>
 </html>
