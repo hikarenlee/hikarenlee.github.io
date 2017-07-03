@@ -28,7 +28,7 @@ body, html {padding:0;margin:0;max-width:100%;}
 $(document).ready(function(){
 	var imgs = $.makeArray($('.thumbnails div'));
 
-	$('input').on('keyup',function(){
+	$('input').on('keyup change',function(){
 		var searchQuery = $(this).val();
 
 		if(searchQuery) {
