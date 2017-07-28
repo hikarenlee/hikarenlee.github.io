@@ -158,6 +158,11 @@ nav.subNav a {padding:4px 8px;border-radius:6px;transition:all .3s;border:1px so
 #experience h1, #education h1 {text-align:center;border-bottom:4px solid #FF7D6A;font-weight:lighter;font-size:30pt;width:250px;margin:1em auto;}
 #education h1 {width:100%;max-width:420px;}
 #experience h2, #experience h3, #education h2, #education h3 {margin:.1em 0;font-size:18pt;}
+#experience h2 > a, #education h2 > a {text-decoration:none;color:#444;position:relative;}
+#experience h2 > a:hover, #education h2 > a:hover {color:#444;}
+#experience h2 > a:after, #education h2 > a:after {font-family:FontAwesome;content:"\f0c1";margin-left:6px;}
+#experience h2 > a:hover:after, #education h2 > a:hover:after {color:#FF7D6A;}
+#experience h2 > a.external:after, #education h2 > a.external:after {font-family:FontAwesome;content:"\f08e";}
 #experience h3, #education h3 {font-size:14pt;font-weight:normal;}
 #experience ol, #education ol {padding:0;margin:.5em 0;list-style:none;display:block;vertical-align:top;position:relative;}
 .date li {font-weight:lighter;background-color:#FF7D6A;margin:0 0 1px;padding:.5em;text-align:left;font-size:14pt;color:white;}
