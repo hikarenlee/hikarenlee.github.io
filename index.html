@@ -1,647 +1,378 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>Brian Donahue -  UX Design, Front-End Development</title>
-<meta name="description" content="UX, web design, & front-end development portfolio for Brian Donahue, designer based in Seattle, WA">
-<meta name="keywords" content="UX,UX design,user experience,design,UI,HTML,CSS,JavaScript,Illustrator,Adobe,Photoshop,freelance,contractor,designer,developer,front-end,front end,portfolio,graphic design,graphics,web development,for hire,resume,jQuery,storyboarding,prototyping,user research">
-<meta name="author" content="Brian Donahue">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="format-detection" content="telephone=no">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="https://use.fontawesome.com/5d44595dd9.js"></script>
-<link href="nav.css" rel="stylesheet">
+	<title></title>
+	<style>
+		*, body {line-height:1.5em;font-family:sans-serif;}
+		#container > * {margin:40px auto 0;}
+		.case-study > * {margin-right:auto;margin-left:auto;}
+		.case-study > :last-child {margin-bottom:0;}
+
+		@media(min-width:1030px){
+			body {max-width:1200px;overflow-x:hidden;}
+			#container {width:3600px;overflow-y:hidden;padding:40px 60px 0;}
+			#container > * {display:inline-block;vertical-align:top;margin-right:30px;margin-left:30px;}
+		}
+
+		/* RESUME */
+		#resume {box-shadow:0 3px 30px -7px rgba(0,0,0,0.7);padding:50px 10% 20px;}
+		#resume section {margin-bottom:2em;}
+		#resume h2 {margin-bottom:0;font-size:1.5rem}
+		#resume h4 {font-size:.9em;margin:0;padding-right:.5rem;color:#555;text-transform:uppercase;}
+		@media (min-width:650px){
+			#resume {max-width:650px;padding:90px 80px 50px;}
+		}
+
+		#resume header h1 {margin:0;font-size:1.9rem;line-height:1.9rem;font-weight:normal;}
+		#resume header a {font-size:1.2rem;line-height:1.8rem;display:block;text-decoration:none;}
+
+		#summary p {margin:0 auto .5rem;}
+
+		#skills ul {padding-left:0;margin-top:0;}
+		#skills li {list-style:none;display:inline-block;}
+		#skills li::after {content:",";display:inline;padding-right:5px;}
+		#skills li:last-of-type::after {content:none;}
+		@media (min-width:650px){
+			#skills {display:grid;grid-template-columns:150px auto;grid-column-gap:10px;grid-row-gap:15px;}
+			#skills ul {margin:0;}
+		}
+
+		#experience p {margin:.3em auto 0;}
+		#experience strong {font-size:.9em;padding-right:.5rem;text-transform:uppercase;}
+		.job-title, .major {font-weight:normal;font-size: 1.2rem;margin-top:1.8rem;margin-bottom:0;}
+		.job-title:first-of-type, .major:first-of-type {margin-top:0;}
+		.major {margin-top:.8rem;}
+
+		.company, .school {font-weight:normal;font-size:.9rem;margin:.3rem 0 .5rem;}
+		.company span, .school span {font-weight:bold;}
+
+		@media print{
+			#resume {max-width:auto;box-shadow:none;padding:none;}
+			#summary, #skills, #experience, #education {page-break-before:avoid;page-break-inside:avoid;}
+		}
+
+		/* BLUETOOTH CASE STUDY */
+		.case-study > * {box-shadow:0 3px 30px -7px rgba(0,0,0,0.7);padding:8% 8% 5%;margin-bottom:2em;}
+		@media (min-width:650px){
+			.case-study > * {width:650px;padding:60px 80px 50px;}
+			.case-study > header {padding-top:10%;}
+		}
+
+		.case-study > header {color:white;background-color:#40a0fc;position:relative;}
+		.case-study > header > * {position:relative;z-index:10;}
+		.case-study > header img {max-width:140px;}
+		.case-study > header h1 {font-size:2.2rem;margin-top:4.5rem;margin-bottom:.5rem;}
+		.case-study > header p {border-bottom:1px solid white;padding-bottom:1.2rem;font-size:1.4rem;margin-top:.5rem;}
+		.case-study > header time {font-size:1.2rem;display:block;margin-bottom:1.2rem;}
+
+		#bluetooth > header::before, #bluetooth > header::after {content:'';background:url('./chevrons-blue.png');background-size:78px 78px;position:absolute;top:0;right:0;bottom:0;left:0;opacity:.5;z-index:1;}
+		#bluetooth > header::after {background:white;top:auto;height:30px;opacity:1;z-index:0;}
+
+		.case-study h2 {color:#0082FC;font-size:1.8em;border-bottom:1px solid #0082FC;padding-bottom:1rem;margin:0 0 2rem;}
+
+		#game a {color:#333;text-decoration:none;cursor:pointer;}
+		#game ul {list-style-type:none;padding-left:0;}
+		#game h2 {color:#8b6a40;border-color:#d2b893;clear:both;}
+		#game h1, h2, h3 {font-weight:900;}
+		#game h3 {margin:1.3em 0 .3em;}
+		#game article a {border-bottom:1px dotted #333;}
+		#game h2+p, h3+p, h2+img {margin-top:0;}
+		#game img.can-zoom {max-width:30%;float:right;margin:0 0 10px 20px;transition:max-width .5s, border .3s, margin-left .3s;cursor:zoom-in;border:1px solid white;}
+		#game img.can-zoom:hover {border-color:grey;}
+		#game img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
+
+		#game > header {background-image:url(images/candd/candd.gif);background-size:cover;color:white;}
+		#game header > img {max-width:100px;}
+		#game > header h1 {margin-top:2rem;}
+		#game a.player {border:none;}
+		#game {position:relative;}
+		#game #demo-player {position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,0.8);z-index:5;padding-top:35%;display:none;margin-top:0;cursor:pointer;}
+		#game #demo-player .container {position:absolute;bottom:0;left:0;right:0;}
+		#game #demo-player * {text-align:center;color:white;}
+		#game #demo-player p {font-size:36px;padding-top:120px;}
+		#game #demo-player footer {background:none;padding:10px 0;}
+		#game #demo-player span {z-index:7;position:absolute;top:0;left:0;right:0;}
+		#game #demo-player img {max-width:600px;width:90%;margin:0 auto;}
+		@media(max-width:500px){#game #demo-player p {font-size:28px;padding-top:60px;}}
+
+		#userdata > header {background-color:#f90;}
+		#userdata > header h1 {margin-top:4.2rem;}
+		#userdata > header p {border-color:#fff;}
+		#userdata h2 {color:#232f3e;border-color:#f90;}
+	</style>
+	<link rel="stylesheet" href="https://use.fontawesome.com/5d44595dd9.css" media="all">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript">
+	$('document').ready(function(){
+		$('.can-zoom').on('click',function(){
+			$(this).toggleClass('zoom');
+
+			var article = $(this).parents('.case-study');
+			window.setTimeout(function(){article.click();}, 500);
+		});
+
+		//Video/Animation Overlay
+		$('.player').on('click', function(event){
+			var eventTarget = $(event.target);
+			var vidSrc = $(this).attr('id'),
+				vidPos = $(document).height() - $(this).parent().offset().top + 50;
+			showPlayer(vidSrc, vidPos, eventTarget);
+		});
+
+		function showPlayer ($targetVid, $vidPos, eventTarget){
+			var $div = '<div id="demo-player"><div class="container"><span><img src="" alt=""/><footer>(click anywhere to close this overlay)</footer></span><p>Loading...</p></div></div>';
+
+			$($div).appendTo($(eventTarget).parents('section')).fadeTo("slow", 1.0);
+
+			var player = $('#demo-player');
+
+			player.find('.container').css('bottom',$vidPos);
+			player.find('img').attr('src',$targetVid);
+
+			player.on('click',function(){
+				this.remove();
+			});
+		}
+		//end Video/Animation Overlay
+		$('#container').on('click', 'article', function(event) {
+			if (window.innerWidth < 1030 || $(this).hasClass('active')) { return;}
+
+			$('.active').removeClass('active');
+			$(this).addClass('active');
+
+			$(this).parents('div').css('margin-left', $(this).index() * -875 + 'px');
+			$('body').stop().animate({scrollTop:0}, 'swing');
+			adjustPageHeight(this);
+		});
+		function adjustPageHeight(element) {
+			$('#container').css('height', ($(element).outerHeight(true) + 40) + 'px');
+		};
+
+		adjustPageHeight($('#resume'));
+	});
+	</script>
 </head>
 <body>
-	<div class="content">
+	<nav>
+		<!-- <picture>
+			<source media="(min-width: 650px)" srcset="img_pink_flowers.jpg">
+  			<img src="img_orange_flowers.jpg" alt="" />
+		</picture> -->
+	</nav>
+<div id="container">
+	<article id="resume" class="active">
 		<header>
-			<div class="center">
-				<h1><span>[</span>Brian Donahue<span>]</span></h1>
-				<h3>brimwd<span>@</span>gmail.com</h3>
-			</div>
+			<h1>Brian Donahue</h1>
+			<a>brimwd@gmail.com</a>
+			<a>971-222-9892</a>
 		</header>
 
-		<div id="container"><nav id="mainNav">
-			<a id="collapse">Show Navigation</a>
-			<div id="nav"><a id="portfoliobtn">Portfolio</a><a id="aboutbtn">About</a><a id="skillsbtn">Skills</a><a id="goalsbtn">Goals</a><a id="experiencebtn">Experience</a><a id="educationbtn">Education</a><a id="contactbtn">Contact</a></div>
-		</nav></div>
+		<h2>Summary</h2>
+		<section id="summary">
+			<p>I am a UX Engineer - I can design your experiences and build them too. I've spent most of my career as a freelancer and contractor, seeking new challenges, learning opportunities, and the chance to use my skills.</p>
+			<p>I have a background in the service industry, and after years freelancing, I'm comfortable talking to &#8209;and taking feedback from&#8209; anyone: I can pitch ideas to CEOs; I can discuss design rationale with my org-director at Amazon; I can keep research participants smiling while they wait for their session.</p>
+			<p>I thrive in environments where I can have ownership, where teams collaborate and communicate, and where there are clear goals. Goal&#8209;oriented design allows us to identify the needs of all parties, and to be intentional about what we prioritize and why; It means less pivoting and more transparency around progress.</p>
+			<p>Outside of work, I volunteer my skills for non&#8209;profit organizations. I’m also an avid reader, a muralist and 	painter, a farmer's market enthusiast, and I build my own hobby websites and products.</p>
+		</section>
 
-		<article id="portfolio">
-			<section id="portfolio-top">
-				<h1>Select Portfolio</h1>
-				<a id="UX-link">
-					<h3>&nbsp;UX&nbsp;<span>DESIGN</span></h3>
-					<p>User Experience Design is designing with a focus on the quality and enjoyment of the total experience</p>
-				</a>
-				<a id="FED-link">
-					<h3>WEB<span>DEVELOPMENT</span></h3>
-					<p>Front-End Development pertains to the portions of a website that visitors can see and interact with</p>
-				</a>
-				<a id="PRINT-link">
-					<h3>PRINT<span>DESIGN</span></h3>
-					<p>Print projects can range from stickers to billboards and must be created with vector-based graphics</p>
-				</a>
-			</section>
-			<section id="UX">
-				<h1>UX DESIGN</h1>
-				<p>Case Studies</p>
-				<nav class="subNav">
-					<a class="ux-active">Process</a>
-					<a href="collecting-user-data.html">Collecting User Data</a>
-					<a href="game-prototyping.html">Game Prototyping</a>
-				</nav>
-				<article class="ux-active">
-					<ol>
-						<li class="selected">
-							<img src="images/ux-process/1.png" alt=""/>
-							<aside>
-								<h4>Step 1: Ask questions</h4>
-								<p>The most important factor in crafting a successful UX is understanding your audience, and that means asking questions. The more narrowly you can define your audience, the more targeted your messaging can be. In short:</p>
-								<blockquote class="haiku">Beautiful haikus<br />won't impress the smartest dog,<br />but a biscuit might.</blockquote>
-								<p><a style="margin-top:3.5em;font-weight:bold;font-size:1.1em;text-align:left;" href="mailto:brimwd@gmail.com">Email me for additional case studies <i class="fa fa-envelope"></i></a></p><p>Currently revamping this portfolio for 2017.</p>
-							</aside>
-						</li>
-						<li>
-							<img src="images/ux-process/2.png" alt="" />
-							<aside>
-								<h4>Step 2: Draft a solution</h4>
-								<p class="anecdote">My favorite "low-fi" drafting tool is an iOS app called <a href="http://www.fiftythree.com/paper" target="_blank">Paper <i class="fa fa-external-link"></i></a>. I feel like having access to color allows me to be a little more expressive without the effort of tracking down a variety of pens, and working in a digital format enables me to share, import, and iterate on my designs without wasting any time.</p>
-								<p>Drafts usually start with a basic objective in mind - "Solve for X", if you will. Solving for any individual challenge is pretty easy; the real work is in solving for many, occasionally conflicting, Xs all at once.</p>
-							</aside>
-						</li>
-						<li>
-							<img src="images/ux-process/3.png" alt="" />
-							<aside>
-								<h4>Step 3: Wireframe &amp; Prototype</h4>
-								<p class="anecdote">As I drafted a mock-up with Axure, I realized that my solution did solve some issues, but it still didn't give me the ability to talk about my process. Undeterred, I did a little research ("asked questions") and designed something new.</p>
-								<p>It's possible to catch design issues at any stage in the process, so for small teams, wireframing isn't always necessary. Even so, it's usually worthwhile because the sooner you notice something is wrong, the less it costs to fix it.
-								<p><a href="http://6n65em.axshare.com/" target="_blank">Click here to see my (rough) prototype <i class="fa fa-external-link"></i></a></p>
-							</aside>
-						</li>
-						<li>
-							<img src="images/ux-process/4.png" alt="" />
-							<aside>
-								<h4>Step 4: Build &amp; Test</h4>
-								<p class="anecdote">Not only can I design it, but I can build it too! As an experienced Front-End Developer with a solid understanding of browsers and of my website, I knew which designs I could implement quickly, and what changes I'd need to make to keep my portfolio responsive.</p>
-								<p>This is where the designers typically step out of the picture, but when I'm working, I can iterate upon my design at any point. Dev. Tools are invaluable here, because you can quickly swap in an out images and text to test a variety of scenarios and content without risking any of your existing code.</p>
-							</aside>
-						</li>
-						<li>
-							<img src="images/ux-process/5.png" alt="" />
-							<aside>
-								<h4>Step 5: Publish, Observe, &amp; Iterate</h4>
-								<p class="anecdote">Observing first-time user behavior can often be tricky, because by now just about everybody on your team and their significant others have already seen your work. In this case I'll run my site past a few colleagues, and I'll wait to receive additional feedback from recruiters.</p>
-								<p>User Experience Design is all about process: craft the best solution you can within time and budget constraints, observe people using your interface, research similar solutions, ask questions, and then find a way to make your solution better.</p>
-							</aside>
-						</li>
-					</ol>
-					<nav><ul>
-						<li class="off"><i class="fa fa-chevron-left fa-2x"></i></li>
-						<li class="selected"><a>1</a></li>
-						<li><a>2</a></li>
-						<li><a>3</a></li>
-						<li><a>4</a></li>
-						<li><a>5</a></li>
-						<li><i class="fa fa-chevron-right fa-2x"></i></li>
-					</ul></nav>
-				</article>
-				<a class="portfolio-menu">Return to Portfolio Menu</a>
-			</section>
-			<section id="FED">
-				<h1>FRONT-END DEVELOPMENT</h1>
-				<p><span class="mobile-instructions">Tap</span><span>Click</span> on any piece to launch the portfolio showcase.</p>
-				<ul>
-					<!--1--><li class="project" data-project="b2d"><a><span><i class="fa fa-expand fa-3x"></i></span><img src="images/b2d/d1.png" alt="DOCS Education Membership Page - After"/></a><h3>b2d Marketing</h3></li>
-					<!--2--><li class="project" data-project="mwweb"><a><span><i class="fa fa-expand fa-3x"></i></span><img src="images/mwweb/opp-web.png" alt="Opportunity Page"/></a><h3>MW Web Design</h3></li>
-					<!--3--><li class="project" data-project="landing"><a><span><i class="fa fa-expand fa-3x"></i></span><img src="images/landing/physics.png" alt="Physics Forceps"/></a><h3>Landing Pages</h3></li>
-					<!--4--><li class="project" data-project="email"><a><span><i class="fa fa-expand fa-3x"></i></span><img src="images/email/i1.png" alt="Incisor Newsletter"/></a><h3>Email</h3></li>
-					<!--5--><li class="project" data-project="kiosk"><a><span><i class="fa fa-expand fa-3x"></i></span><img src="images/kiosk/k2a.jpg" alt="Kiosk Prototype Home"/></a><h3>Kiosk Sites</h3></li>
-				</ul>
-				<a class="portfolio-menu">Return to Portfolio Menu</a>
-			</section>
-			<section id="PRINT">
-				<h1>PRINT DESIGN</h1>
-				<p><span class="mobile-instructions">Tap</span><span>Click</span> on any piece to launch the portfolio showcase.</p>
-				<ul>
-					<!--1--><li class="project" data-project="pride"><a><span><i class="fa fa-expand fa-3x"></i></span><img src="images/pride/badge.png" alt="Credential Badge"/></a><h3>Seattle Pride</h3></li>
-					<!--2--><li class="project" data-project="mwb2b"><a><span><i class="fa fa-expand fa-3x"></i></span><img src="images/mwb2b/doc1.png" alt="Document Cover Page"/></a><h3>B2B Templates</h3></li>
-					<!--3--><li class="project" data-project="shirt"><a><span><i class="fa fa-expand fa-3x"></i></span><img src="images/shirt/1.png" alt="Red Watch Band"/></a><h3>T-shirts</h3></li>
-					<!--4--><li class="project" data-project="flyer"><a><span><i class="fa fa-expand fa-3x"></i></span><img src="images/flyer/5.png" alt="Espresso Dosage Card"/></a><h3>Flyers &amp; Cards</h3></li>
-					<!--5--><li class="project" data-project="font"><a><span><i class="fa fa-expand fa-3x"></i></span><img src="images/font/font.png" alt="Bob Books Font"/></a><h3>Font Design</h3></li>
-					<!--6--><li class="project" data-project="sticker"><a><span><i class="fa fa-expand fa-3x"></i></span><img src="images/sticker/1.png" alt="Flaming Zombie Paratroopers"/></a><h3>Stickers</h3></li>
-					<!--7--><li class="project" data-project="oak"><a><span><i class="fa fa-expand fa-3x"></i></span><img src="images/oak/finaldraft.png" alt="Final Draft"/></a><h3>Oak Menu</h3></li>
-				</ul>
-				<a class="portfolio-menu">Return to Portfolio Menu</a>
-				<!-- crop marks -->
-				<u class="crop tl"></u><u class="crop tr"></u><u class="crop br"></u><u class="crop bl"></u>
-			</section>
-		</article>
-
-		<article id="about">
-			<div class="img"><img src="images/shovel.jpg" alt="A photo of Brian"/></div>
-			<div class="text">
-				<img src="images/shovel.jpg" alt="A photo of Brian" class="inner-img"/>
-				<h1>About Brian</h1>
-				<p>Brian Donahue is a Seattle-based user experience designer and front-end developer; you may have seen some of his work at the 2014 Seattle Pride Festival or in your T&#8209;Mobile bill. Brian believes that design is creative problem-solving, and he wants to use it to make the world a better place.</p>
-				<p>A life-long artist, passionate about his craft, Brian spent nearly 5 years as a barista perfecting his espresso skills, and currently volunteers as a brewing instructor at Street Bean Coffee. Brian has also volunteered his graphic design skills for several non-profits, and a previous employer said that "giving back is a huge part of [Brian's] ethos."</p>
-				<div class="contact">
-					<a><i class="fa fa-envelope fa-fw fa-2x"></i>brimwd@gmail.com</a>
-					<a href="tel:971-222-9892"><i class="fa fa-phone fa-fw fa-2x"></i><tel>971-222-9892</tel></a>
-					<a href="http://brimwd.github.io/Brian-Donahue-Resume-7.16.17.pdf" target="_blank"><i class="fa fa-file-text fa-fw fa-2x"></i>Resume</a>
-				</div>
-				<a>Contact Brian</a>
-			</div>
-		</article>
-
-		<article id="star-box">
-		<div id="starfield" class="hide"></div><canvas id="gameCanvas" class="hide"><!-- Your browser doesn't support HTML Canvas. Try again with a <a href="https://www.google.com/chrome/browser/">different browser</a>. --></canvas>
-			<div id="display-font">
-				<h1>nine-bit font</h1>
-				<p>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
-				<h2><a>(Play Space Invaders)</a></h2>
-			</div>
-			<div id="info" class="hide">
-	            <p>Move with arrow keys, fire with the space bar. The invaders get faster and drop
-	                more bombs as you complete each level.</p>
-	            <p><a id="muteLink" onclick="toggleMute()">mute</a> |
-	                <a href="http://github.com/dwmkerr/spaceinvaders">spaceinvaders on github</a> |
-	                <a href="http://www.dwmkerr.com/experiments">more experiments</a> |
-	                <a href="http://www.dwmkerr.com">dwmkerr.com</a></p>
-        	</div>
-        </article>
-
-		<article id="skills">
-			<h1><span>Skill Proficiency</span><i id="skillsmenu" class="fa fa-chevron-down"></i></h1>
-			<div class="frequency hide">
-				<img src="images/daily.png" alt="A clock icon" />
-				<span class="chart">
-					<h2>Daily</h2>
-					<ul><li>usability research</li><li>UX design</li><li>Sketch</li><li>illustration</li></ul>
-				</span>
-			</div>
-			<div class="frequency hide">
-				<img src="images/weekly.png" alt="A weekly calendar icon" />
-				<span class="chart">
-					<h2>Weekly</h2>
-					<ul><li>Illustrator</li><li>HTML</li><li>CSS</li><li>copy editing</li><li>creative writing</li></ul>
-				</span>
-			</div>
-			<div class="frequency hide">
-				<img src="images/monthly.png" alt="A monthly caledar icon" />
-				<span class="chart">
-					<h2>Monthly</h2>
-					<ul><li>Flinto</li><li>typography</li><li>photography</li><li>jQuery</li><li>Photoshop</li></ul>
-				</span>
-			</div>
-			<div class="proficiency">
-				<span class="expert icons"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-				<span class="chart">
-					<h2>Expert</h2>
-					<ul><li>HTML</li><li>Photoshop</li><li>illustration</li></ul>
-				</span>
-			</div>
-			<div class="proficiency">
-				<span class="icons"><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-				<span class="chart">
-					<h2>Advanced</h2>
-					<ul><li>CSS</li><li>Illustrator</li><li>copy editing</li><li>UX design</li><li>Balsamiq</li></ul>
-				</span>
-			</div>
-			<div class="proficiency">
-				<span class="icons"><i class="fa fa-star"></i></span>
-				<span class="chart">
-					<h2>Proficient</h2>
-					<ul><li>js/jQuery</li><li>user research</li><li>Sketch</li><li>inDesign</li><li>Flinto</li></ul>
-				</span>
-			</div>
-			<div class="proficiency">
-				<span class="icons"><i class="fa fa-star-o"></i></span>
-				<span class="chart">
-					<h2>Learning</h2>
-					<ul><li>Google Analytics</li><li>Unity 3D</li><li>3D modeling</li></ul>
-				</span>
-			</div>
-		</article>
-
-		<article id="goals">
-			<h1>Where I want to be 3 years from now</h1>
-			<div>
-				<span class="expert icons"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-				<span class="chart">
-					<h2>Expert</h2>
-					<ul><li>HTML</li><li class="moved">CSS</li><li>Photoshop</li><li>illustration</li><li class="moved">UX design</li></ul>
-				</span>
-			</div>
-			<div>
-				<span class="icons"><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-				<span class="chart">
-					<h2>Advanced</h2>
-					<ul><li class="moved">js/jQuery</li><li class="moved">user research</li><li class="moved">typography</li><li>Illustrator</li></ul>
-				</span>
-			</div>
-			<div>
-				<span class="icons"><i class="fa fa-star"></i></span>
-				<span class="chart">
-					<h2>Proficient</h2>
-					<ul><li class="moved">Unity 3D</li><li>Sketch</li><li>inDesign</li><li>Flinto</li></ul>
-				</span>
-			</div>
-		</article>
-
-		<article id="experience">
-			<h1>Experience</h1>
-			<div>
-				<ol class="date">
-					<i class="fa fa-heart"></i>
-					<li>Jul 2017</li>
-					<li>Present</li>
-				</ol>
-				<span class="text">
-					<h2>Bluetooth SIG</h2>
-					<h3>Contract</h3>
-					<h3>UX engineer</h3>
-					<p>Reimagining (and rebuilding) the style guide for Bluetooth SIG's B2B tools:</p>
-					<ul>
-						<li>Product analysis</li>
-						<li>User research (interviews)</li>
-						<li>Wireframes (Whiteboard / Balsamiq)</li>
-						<li>HTML / CSS (Sass) / Javascript (jQuery) / Bootstrap 4</li>
-					</ul>
-					<p>Executive-oriented 'Product &amp; Program Health' dashboard:</p>
-					<ul>
-						<li>User interviews</li>
-						<li>Data analysis</li>
-						<li>Wireframes (Whiteboard / Balsamiq)</li>
-						<li>Hi-Fi Mockups (Sketch)</li>
-						<li>Mobile &amp; desktop prototypes (Flinto)</li>
-						<li>Microsoft Power BI implementation</p></li>
-					</ul>
-				</span>
-			</div>
-			<div>
-				<ol class="date">
-					<i class="fa fa-heart"></i>
-					<li>Jan 2017</li>
-					<li>Present</li>
-				</ol>
-				<span class="text">
-					<h2><a href="http://scheduleux.com" class="external" etarget="new">ScheduleUX.com</a></h2>
-					<h3>Hobby</h3>
-					<h3>Product designer, developer</h3>
-					<p>Working at Amazon I often wished there was a service to easily schedule participants for usability studies; I designed ScheduleUX to address that need.</p>
-					<p>I am responsible for all of the product design, UX and UI design, workflows, data processing, and front-end development.</p>
-				</span>
-			</div>
-			<div>
-				<ol class="date">
-					<i class="fa fa-heart"></i>
-					<li>Mar 2016</li>
-					<li>Dec 2016</li>
-				</ol>
-				<span class="text">
-					<h2>Amazon.com</h2>
-					<h3>Contract</h3>
-					<h3>UX designer</h3>
-					<p>As part of the Amazon Campus team I worked on several initiatives including customer-facing information architecture challenges, user data collection objectives, and administrative tools for both internal and external users.</p>
-					<p>The majority of my day-to-day work involved defining and solving for user issues. I also supported the team with design annotation and illustration tasks, improved on-boarding materials, improved product documentation, and mentored other designers in a variety of things ranging from web design to marketing copywriting.</p>
-					<p>I also conducted and documented 6 usability studies with real users and supported or created materials for many more.</p>
-				</span>
-			</div>
-			<div>
-				<ol class="date">
-					<i class="fa fa-heart"></i>
-					<li>Nov 2015</li>
-					<li>Dec 2015</li>
-				</ol>
-				<span class="text">
-					<h2>Wunderman</h2>
-					<h3>Contract</h3>
-					<h3>web developer</h3>
-					<p>Last year I worked as a developer for Wunderman Seattle. My duties included supporting the Digital Production team with UX mockups for a T&#8209;Mobile asset-management service and with responsive HTML email production for T&#8209;Mobile and Microsoft.</p>
-				</span>
-			</div>
-			<div>
-				<ol class="date">
-					<i class="fa fa-heart"></i>
-					<li>Oct 2014</li>
-					<li>Nov 2015</li>
-				</ol>
-				<span class="text">
-					<h2>b2d Marketing</h2>
-					<h3>Full-Time</h3>
-					<h3>web designer / front-end developer</h3>
-					<p>I worked for just over 1 year as the lead developer for b2d Marketing. During my tenure I was tasked with maintaining more than a dozen sites for 8 different companies, as well as improving the look, feel, and usability of each site.</p>
-					<p>Beyond production work, I also mentored junior designers and developers, lead the creative team on many marketing campaigns, and worked closely with clients and stakeholders to deliver exactly what was asked for.</p>
-				</span>
-			</div>
-			<div>
-				<ol class="date">
-					<i class="fa fa-heart"></i>
-					<li>April 2015</li>
-					<li>July 2015</li>
-				</ol>
-				<span class="text">
-					<h2>DevDraft</h2>
-					<h3>Freelance</h3>
-					<h3>UX designer, front-end developer</h3>
-					<p>Working with the team at DevDraft, I made design and workflow proposals for their two different customer groups, mocked up dashboard and landing pages, and created assets and code for content to integrate into their Microsoft Partner Network page.</p>
-				</span>
-			</div>
-			<div>
-				<ol class="date">
-					<i class="fa fa-heart"></i>
-					<li>Nov 2014</li>
-					<li>Dec 2014</li>
-				</ol>
-				<span class="text">
-					<h2>Siren</h2>
-					<h3>Freelance</h3>
-					<h3>UX designer</h3>
-					<p>Passionate about UX, and (I'm not ashamed to admit) familiar with online dating, I approached Siren about contributing redlines, design drafts, and UX insights for their app. I worked with the CEO and CTO to plan out new features, discuss the benefits of existing features, and I drafted new designs and layouts to make their service more engaging.</p>
-				</span>
-			</div>
-			<span class="xp hide">
-				<div>
-					<ol class="date">
-						<i class="fa fa-heart"></i>
-						<li>May 2014</li>
-						<li>Oct 2014</li>
-					</ol>
-					<span class="text">
-						<h2>MovingWorlds</h2>
-						<h3>Freelance</h3>
-						<h3>web / print designer, front-end developer</h3>
-						<p>Working with the team at MovingWorlds, I made design and workflow proposals, created balsamiq mockups, and assisted in the front-end development of a completely redesigned site. I also created new marketing templates to match their new site design.</p>
-					</span>
-				</div>
-				<div>
-					<ol class="date">
-						<i class="fa fa-heart"></i>
-						<li>Aug 2014</li>
-						<li>Sep 2014</li>
-					</ol>
-					<span class="text">
-						<h2>CriminalWatchDog</h2>
-						<h3>Agency: Distilled</h3>
-						<h3>web designer / developer</h3>
-						<p>Distilled contracted me to create a new landing page for CriminalWatchDog.com. The agency worked through the project goals with the client and wrote the copy for the page. From there I designed and hand-coded a responsive page based on the agency's balsamiq mockup.</p>
-					</span>
-				</div>
-				<div>
-					<ol class="date">
-						<i class="fa fa-heart"></i>
-						<li>July 2014</li>
-						<li>Aug 2014</li>
-					</ol>
-					<span class="text">
-						<h2>Bob Books</h2>
-						<h3>Freelance</h3>
-						<h3>font developer</h3>
-						<p>Bob Books hired me to create a new, cleaner font for their apps and books. Using the existing font, I created a proposal for revised letters, then produced vectors of the letters, and finally kerned and published the font.</p>
-					</span>
-				</div>
-				<div>
-					<ol class="date">
-						<i class="fa fa-heart"></i>
-						<li>June 2014</li>
-						<li>July 2014</li>
-					</ol>
-					<span class="text">
-						<h2>Seattle Pride 2014</h2>
-						<h3>Freelance</h3>
-						<h3>visual director, graphic designer</h3>
-						<p>For Seattle Pride 2014 I designed all of the materials for the Pride Idol campaign, as well as most of the signs, banners, and ads for the parade.</p>
-					</span>
-				</div>
-				<div>
-					<ol class="date">
-						<i class="fa fa-heart"></i>
-						<li>May 2014</li>
-						<li>Aug 2014</li>
-					</ol>
-					<span class="text">
-						<h2>SLU: Chamber of Commerce</h2>
-						<h3>Freelance</h3>
-						<h3>graphic designer, web developer</h3>
-						<p>I built the landing page for the South Lake Union Chamber of Commerce's annual trade show event, and contributed to the production of the print assets.</p>
-					</span>
-				</div>
-				<div>
-					<ol class="date">
-						<i class="fa fa-heart"></i>
-						<li>Apr 2014</li>
-						<li>May 2014</li>
-					</ol>
-					<span class="text">
-						<h2>What's Good 206</h2>
-						<h3>Freelance</h3>
-						<h3>art director, graphic designer</h3>
-						<p>Using photos and a brief provided by WG206, I designed the a two-sided donation campaign flier for WG206's 2014 Give Big Campaign.</p>
-					</span>
-				</div>
-				<div>
-					<ol class="date">
-						<i class="fa fa-heart"></i>
-						<li>Jun 2013</li>
-						<li>Oct 2013</li>
-					</ol>
-					<span class="text">
-						<h2>Japanese Cultural Center</h2>
-						<h3>Internship</h3>
-						<h3>graphic designer</h3>
-						<p>At the JCCCW I designed event fliers, tabletop displays, &amp; museum signs, and I made general design and branding recommendations.</p>
-					</span>
-				</div>
-				<div>
-					<ol class="date">
-						<i class="fa fa-heart"></i>
-						<li>Aug 2012</li>
-						<li>Sep 2012</li>
-					</ol>
-					<span class="text">
-						<h2>Oak Restaurant</h2>
-						<h3>Freelance</h3>
-						<h3>graphic designer</h3>
-						<p>For the Oak I designed a sleek menu to match the modern-rustic fusion style of the restaurant interior.</p>
-					</span>
-				</div>
-			</span>
-			<a id="showmore">Show More Work</a>
-		</article>
-
-		<article id="education">
-			<h1>Education &amp; Training</h1>
-			<div>
-				<ol>
-					<i class="fa fa-university"></i>
-					<li>Spring 2016</li>
-				</ol>
-				<span class="text">
-					<h2>Udacity</h2>
-					<h3>JavaScript</h3>
-					<p>Courses: JavaScript Basics, Object-Oriented Javascript</p>
-					<a href="http://www.udacity.com/" target="new">+ http://udacity.com</a>
-				</span>
-			</div>
-			<div>
-				<ol>
-					<i class="fa fa-university invert"></i>
-					<li>Fall 2015</li>
-					<li>Spring 2014</li>
-				</ol>
-				<span class="text">
-					<h2>CodeSchool</h2>
-					<h3>HTML &amp; CSS, JavaScript, jQuery</h3>
-					<p>Courses: Try jQuery, JavaScript Road Trip Part 1, JavaScript Road Trip Part 2, JavaScript Road Trip Part 3, CSS Cross-Country, Functional HTML5 &amp; CSS3, Rails for Zombies Redux, Try Ruby</p>
-					<a href="https://www.codeschool.com/users/292087" target="new">+ http://codeschool.com</a>
-				</span>
-			</div>
-			<div>
-				<ol>
-					<i class="fa fa-university"></i>
-					<li>Fall 2014</li>
-				</ol>
-				<span class="text">
-					<h2>CodeAcademy</h2>
-					<h3>HTML &amp; CSS, JavaScript, jQuery</h3>
-					<p>Courses: Make a Website, Make an Interactive Website</p>
-					<a href="http://www.codecademy.com/brimwd" target="new">+ http://codeacademy.com</a>
-				</span>
-			</div>
-			<div>
-				<ol>
-					<i class="fa fa-university invert"></i>
-					<li>Spring 2012</li>
-					<li>Fall 2007</li>
-				</ol>
-				<span class="text">
-					<h2>University of Iowa</h2>
-					<h3>Iowa City, IA</h3>
-					<h3>graphic design, Japanese, &amp; accounting</h3>
-					<p>One semester of design and economics.</p>
-					<p>Two semesters of Japanese</p>
-				</span>
-			</div>
-			<div>
-				<ol>
-					<i class="fa fa-university"></i>
-					<li>Fall 2010</li>
-				</ol>
-				<span class="text">
-					<h2>Iowa Lakes Community College</h2>
-					<h3>Spirit Lake, IA</h3>
-					<h3>graphic design</h3>
-					<p>One semester of design and writing</p>
-				</span>
-			</div>
-			<div>
-				<ol>
-					<i class="fa fa-university"></i>
-					<li>Fall 2006</li>
-				</ol>
-				<span class="text">
-					<h2>Ringling College of Art and Design</h2>
-					<h3>Sarasota, FL</h3>
-					<h3>illustration</h3>
-					<p>One semester of illustration</p>
-				</span>
-			</div>
-		</article>
-
-		<article id="contact">
-			<h1>Get in touch!</h1>
-			<p><a href="mailto:brimwd@gmail.com"><i class="fa fa-envelope-o fa-fw"></i></a>brimwd@gmail.com</p>
-			<p><a href="tel:971-222-9892"><i class="fa fa-phone fa-fw"></i></a>971-222-9892</p>
-			<p><a href="https://twitter.com/intent/tweet?screen_name=_bmd" target="new"><i class="fa fa-twitter fa-fw"></i></a>_bmd<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-			</p>
-		</article>
-
-		<aside id="showcase">
-			<div id="browser">
-				<h4></h4>
-				<ul></ul>
-			</div>
-			<div id="overlay"></div>
-			<a id="tab"><span></span><i class="fa fa-picture-o"></i></a>
-			<div id="feature">
-				<a id="closeshowcase"><i class="fa fa-times fa-2x"></i></a>
-				<h3></h3>
-				<a id="expand"><i class="fa fa-external-link"></i></a>
-			</div>
-			<div class="nav">
-				<p></p>
-				<a id="prevproject"><i class="fa fa-chevron-left"></i> Previous Project</a>
-				<a id="nextproject">Next Project <i class="fa fa-chevron-right"></i></a>
-			</div>
-		</aside>
-
-		<footer>
-			<h1>Connect</h1>
+		<h2>Skills</h2>
+		<section id="skills">
+			<h4>UX &amp; Visual Design</h4>
 			<ul>
-				<li><a href="https://twitter.com/_bmd" target="new"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="https://www.linkedin.com/pub/brian-donahue/57/409/18b" target="new"><i class="fa fa-linkedin"></i></a></li>
-				<li><a href="http://stackoverflow.com/users/4206282/brian-d" target="new"><i class="fa fa-stack-overflow"></i></a></li>
-				<li><a href="https://mix.fiftythree.com/77430-Brian-Donahue" target="new" class="mix"><i class="fa fa-steam"></i><span>mix</span></a></li>
+				<li>Usability research</li><li>prototypes</li><li>user flows</li><li>site maps</li><li>drafting</li><li>information architecture</li><li>mockups</li><li>wireframes</li><li>illustration</li><li>icons</li><li>branding</li><li>graphic design for print and web</li>
 			</ul>
-			<h3>Built with <i class="fa fa-heart"></i>. Hosted with <a href="https://github.com/brimwd/brimwd.github.io" target="new">github</a>.</h3>
-		</footer>
+			<h4>Development &amp; Frameworks</h4>
+			<ul>
+				<li>HTML (HTML5)</li><li>CSS (CSS3)</li><li>JavaScript</li><li>jQuery</li><li>Bootstrap 4</li><li>SASS</li><li>mobile-first responsive design</li><li>responsive emails</li>
+			</ul>
+			<h4>Preferred Tools</h4>
+			<ul>
+				<li>Sketch</li><li>Flinto</li><li>Photoshop</li><li>Illustrator</li><li>Sublime Text</li><li>Balsamiq</li><li>GitHub</li>
+			</ul>
+			<h4>Soft Skills</h4>
+			<ul>
+				<li>Natural leader</li><li>project management experience</li><li>hiring experience</li><li>consulting</li><li>pitches &amp; presentations</li><li>empathy</li><li>integrity</li>
+			</ul>
+		</section>
 
-	</div>
-	<script type="text/javascript" src="js/nav.js"></script>
-	<script type="text/javascript" src="js/starfield.js"></script>
-	<script type="text/javascript" src="js/spaceinvaders.js"></script>
-	<script>
-		//  Create the starfield.
-		var container = document.getElementById('starfield');
-		var starfield = new Starfield();
-		starfield.initialise(container);
+		<h2>Experience</h2>
+		<section id="experience">
+			<h3 class="job-title">Contracting UX Engineer</h3>
+			<h3 class="company"><span>Aquent / The Creative Group / Distilled</span> - November 2015 to Present</h3>
+			<p><strong>Role</strong>Production Web Developer, UX Designer, UX Engineer</p>
+			<p><strong>Technologies</strong>HTML5, CSS3, Bootstrap 4, SASS, Handlebars, jQuery, Node, Github</p>
+			<p><strong>Brands</strong>Bluetooth, Amazon, Microsoft, X&#8209;Box, T&#8209;Mobile, Wal&#8209;Mart</p>
+			<p class="summary"><strong>Summary</strong>Integrating with multi&#8209;functional teams to deliver designs and software. I've worked on a variety of products including a self&#8209;documenting style&#8209;guide; mobile UI prototypes for iOS and web; product taxonomies; information architecture for b2b tools; and responsive e&#8209;mail templates in English &amp; Spanish.</p>
 
-		//  Setup the canvas.
-		var canvas = document.getElementById("gameCanvas");
-		canvas.width = 800;
-		canvas.height = 600;
+			<h3 class="job-title">Lead Web Developer</h3>
+			<h3 class="company"><span>b2d Marketing</span> - October 2014 to November 2015</h3>
+			<p><strong>Role</strong>Front-End Web Developer and Creative Department Team-Lead</p>
+			<p><strong>Technologies</strong>HTML5, CSS3, jQuery, Bootstrap 3, Drupal 6 &amp; 7, Wordpress</p>
+			<p><strong>Product</strong> Responsive web marketing campaigns and collateral, online&#8209;store maintenance, E&#8209;mail newsletters, logos, branding</p>
+			<p class="summary"><strong>Summary</strong>Lead designer and developer on a team of 6, directing and delivering marketing campaigns and site maintenance for a rotating set of 5 to 7 clients.</p>
 
-		function clearCanvasGrid(canvasID){
-			canvas = document.getElementById(canvasID); //because we are looping //each location has its own canvas ID
-			context = canvas.getContext('2d');
-			//context.beginPath();
+			<h3 class="job-title">Consulting Designer &amp; Developer</h3>
+			<h3 class="company"><span>Freelance / Self-Employed</span> - December 2007 to November 2015</h3>
+			<p><strong>Role</strong>Graphic Designer, Front&#8209;End Developer, Human&#8209;Centered Design Consultant</p>
+			<p><strong>Technologies</strong>HTML, CSS, jQuery, Bootstrap 3, Wordpress</p>
+			<p><strong>Product</strong>Mobile app designs, responsive web development, branding, marketing strategy and collateral, information architecture, user research</p>
+			<p><strong>Clients</strong>Seattle PRIDE, Moving Worlds, Bob Books, Siren, University of Iowa</p>
+			<p class="summary"><strong>Summary</strong>Using 'design thinking' and a human&#8209;centered approach, I've helped my clients understand their customers and deliver their brands. I've developed responsive websites and email campaigns, online stores, and mobile video games. I've designed logos, fonts, T&#8209;shirts, menus, event banners, and marketing collateral.</p>
+		</section>
 
-			// Store the current transformation matrix
-			context.save();
+		<h2>Education</h2>
+		<section id="education">
+			<h3 class="major">Graphic Design &amp; Computer Science</h3>
+			<h3 class="school"><span>University of Iowa</span> - Fall 2007, Spring 2012</h3>
 
-			// Use the identity matrix while clearing the canvas
-			context.setTransform(1, 0, 0, 1, 0, 0);
-			context.clearRect(0, 0, canvas.width, canvas.height);
+			<h3 class="major">Graphic Design</h3>
+			<h3 class="school"><span>Iowa Lakes Community College</span> - Fall 2010</h3>
 
-			// Restore the transform
-			context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
-		}
+			<h3 class="major">Illustration</h3>
+			<h3 class="school"><span>Ringling School of Art &amp; Design</span> - Fall 2007</h3>
+		</section>
+	</article>
+	<article class="case-study" id="bluetooth">
+		<header>
+			<img src="images/bluetooth.svg" alt="" />
+			<h1>Case Study: UX Style Guide</h1>
+			<p>Building a self-documenting style guide for Bluetooth</p>
+			<time datetime="2017-08-21">In Progress</time>
+		</header>
+		<section>
+			<h2>Overview: Problem &amp; Goal Statements</h2>
+			<p><strong>Role:</strong> UX Engineer - contractor - 8 weeks</p>
+			<p><strong>Task:</strong> Assist the UX team in completing their style guide</p>
+			<p><strong>Problem:</strong> The style guide is incomplete and seldom used</p>
+			<p><strong>Goal:</strong></p>
+				<ul>
+					<li>Determine why the developers aren't using the style guide</li>
+					<li></li>
+				</ul>
+		</section>
+		<section>
+			<h2>Research: User Interviews</h2>
+			personas
+		</section>
+		<section>
+			sketches
+			prototype
+			testing
+		</section>
+	</article>
+	<article class="case-study" id="game">
+		<header>
+			<img src="images/bob.svg" alt="" />
+			<h1>Case Study: Game Prototyping</h1>
+			<p>Building a UX Proof-of-Concept for Bob Books</p>
+			<time datetime="2017-01-20">January 20, 2017</time>
+		</header>
+		<section>
+			<h2>Overview</h2>
+			<p>Thrilled with my work on their new font, Adam, the marketing director at Bob Books asked me to make a bid for their next game development contract.</p>
+			<p>Adam asked me to create a proposal that would demonstrate other gameplay methods and generally make the games more engaging.</p>
+			<p>Over the following month I designed a variety of spelling games; wrote a script; created illustrations, sound effects, and animations; and programmed a game in Unity with my friend Michael Afrides.</p>
+		</section>
+		<section>
+			<h2>Research</h2>
+			<img class="can-zoom" src="https://lh3.googleusercontent.com/q798hsCzwv-SMnaYH9j4YabUyt8J6gtTclBiYeGYtmi6R9nwmxL3FFpgLBeKrwkI9w=h900" alt="Bob Books' original game" />
+			<p>Bob Books' existing games feature a single gameplay concept and individual spelling challenges. Each level is composed of simple line drawings and lacks any animation or color.</p>
+			<p>I believe that by telling a story with the challenges interspersed, the curiosity about story could become the compelling reason for progressing through the levels as opposed to simply completing each challenge for its own sake.</p>
+			<p><a href="https://play.google.com/store/apps/details?id=com.learningtouch.bobbooksrm1&hl=en" target="new">Click here <i class="fa fa-external-link"></i></a> to see Bob Books' original app that we were competing against.</p>
+		</section>
+		<section>
+			<h2 id="#concept1">Gameplay Concept 1</h2>
+			<img class="can-zoom" src="http://brimwd.github.io/images/candd/dog.jpg" alt="Basic Gameplay Concept" />
+			<p>To win the contract, we would need to show a better UX while also proving that we could reproduce their current gameplay modes.</p>
+			<p>The basic gameplay mode required spelling a word in left-to-right order. This is an easy task, so we spiced it up a little with some 3D animations.</p>
+			<p><a class="player" id="images/candd/dog.gif">Watch Gameplay (16s) <i class="fa fa-play-circle"></i></i></a></p>
+		</section>
+		<section>
+			<h2 id="#concept2">Gameplay Concept 2</h2>
+			<img class="can-zoom" src="http://brimwd.github.io/images/candd/cat.jpg" alt="Second Gameplay Concept" />
+			<p>We also wanted to show something new and different that would still be something a young child could accomplish.</p>
+			<p>Our second gameplay mode drops "random" letters from the top of the screen. To add a little silliness and playfulness, the letters are trapped inside raindrops, which the player has to catch and drop onto sponges to wring out the water.</p>
+			<p>We also used this opportunity to create an animated 'cut-scene' - a feature the existing games don't have.</p>
+			<p><a class="player" id="images/candd/cat.gif">Watch Gameplay (26s) <i class="fa fa-play-circle"></i></a></p>
+		</section>
+		<section>
+			<h2 id="#concept3">Gameplay Concept 3</h2>
+			<img class="can-zoom" src="http://brimwd.github.io/images/candd/home.jpg" alt="Game 'Home' Screen" />
+			<p>To create a sense of accomplishment, I wanted each section of our proposed game to feel like an immersive experience with hidden animations and environmental changes that reflect game progress.</p>
+			<p>We created a challenge navigation screen (this farm scene) where the rain diminishes and the cats and dogs stop 'raining' once you save them.</p>
+			<p>By the end of the demo the rain has cleared and the scene is pleasant and sunny.</p>
+			<p><a class="player" id="images/candd/home.gif">Watch Home Screen Interaction (15s) <i class="fa fa-play-circle"></i></a></p>
+		</section>
+		<section>
+			<h2 id="conclusion">Conclusion</h2>
+			<p>In the end the client decided to stick with their overseas developers who work for far less than we were willing to, so we didn't get the contract. Although it was disappointing that we weren't hired, it was a great experience creating this game from scratch on a new platform, and Michael used his experience here and at his next job to get a full-time game development role.</p>
+			<p><a href="http://brimwd.github.io/candd.html" target="new">Play the final demo <i class="fa fa-external-link"></i></a> (requires free Unity Web Player plug-in)</p>
+			<p><a href="http://brimwd.github.io/candd-journal.pdf" target="new">Development Journal <i class="fa fa-external-link"></i></a> (low-fis &amp; concepts - PDF)</p>
+		</section>
+	</article>
+	<article class="case-study" id="userdata">
+		<header>
+			<img src="images/amazon-white.svg" alt="" />
+			<h1>Case Study: Collecting User Data</h1>
+			<p>Learning about customers in ways that build trust</p>
+			<time datetime="2017-03-14">March 14, 2017</time>
+		</header>
+		<section>
+			<h2 id="overview">Overview</h2>
+			<p>During my time at Amazon, one of my major projects revolved around learning how to collect demographic data from customers. The research I conducted is protected under NDA, so I can't disclose any specifics, but I can share the process and general learnings.</p>
+		</section>
+		<section>
+			<h2 id="challenges">The Challenge</h2>
+			<p>Some of the obvious solutions for collecting information are to ask for the information on user sign-up, to provide a gift in exchange for the information, or requiring the information in exchange for access to certain features.</p>
+			<p>Over the course of my research, I identified 5 key challenges to collecting demographic information from customers and designed solutions to address them.</p>
+			<p>The challenges I identified are detailed below.</p>
 
-		//  Create the game.
-		var game = new Game();
+			<ol>
+			<li><a href="#coa">Cost of acquisition</a></li>
+			<li><a href="#ia">Information accuracy</a></li>
+			<li><a href="#cp">Coverage percentage</a></li>
+			<li><a href="#pct">Preserving customer trust</a></li>
+			<li><a href="#ocf">Overcoming customer fear</a></li>
+			</ol>
 
-		//  Initialise it with the game canvas.
-		game.initialise(canvas);
+			<h3 id="coa">Cost of Acquisition</h3>
+			<p>Additionally, while many companies may see great results in acquiring information like birthdays or ages from customers in exchange for annual birthday gifts, there's actually very little those companies can do to assure the validity of the information. Case in point, at least one man has 365 registered Starbucks cards, each with a different birthday so he gets a free drink everyday. Not only can this be a very expensive proposition for the company, but it opens a "one-way door" to giving away gifts that can be very difficult to close again.</p>
 
-		//  Start the game.
-		game.start();
+			<h3 id="ia">Information Accuracy</h3>
+			<p>In a similar issue, Facebook (which has been very successful in collecting demographic data) has provided no incentive for truthful information. Even if Facebook were successful in collecting demographic data from 100% of their user base, I would argue that the data they've collected is almost worse than useless. Not only does it cost money to store all of that information, but without incentive to provide truthful answers, the data they have has such a high potential inaccuracy that any conclusions drawn would be suspect at best.</p>
 
-		//  Listen for keyboard events.
-		window.addEventListener("keydown", function keydown(e) {
-			var keycode = e.which || window.event.keycode;
-			//  Supress further processing of left/right/space (37/29/32)
-			if(keycode == 37 || keycode == 39 || keycode == 32) {
-				e.preventDefault();
-			}
-			game.keyDown(keycode);
-		});
-		window.addEventListener("keyup", function keydown(e) {
-			var keycode = e.which || window.event.keycode;
-			game.keyUp(keycode);
-		});
+			<h3 id="cp">Coverage Percentage</h3>
+			<p>Another challenge is collecting enough customer data to be able to draw meaningful conclusions. Even if you're only interested in the behaviors and habits of a particular demographic, unless you collect data from the majority of your user base, it can be difficult to determine what percentage of your customers in your target demographic you've collected information from.</p>
 
-		function toggleMute() {
-			game.mute();
-			document.getElementById("muteLink").innerText = game.sounds.mute ? "unmute" : "mute";
-		}
-	</script>
+			<h3 id="pct">Preserving Customer Trust</h3>
+			<p>Customers we talked to were very comfortable with the idea of Amazon having their demographic information, but in spite of that, asking for customer information with little or no context made customers feel skeptical and wary. Essentially we found that if customers believed they had volunteered the information as in a profile, that was fine, but when we asked for it, it made them concerned about our intent.</p>
+
+			<h3 id="ocf">Overcoming Customer Fear</h3>
+			<p>Beyond concerns about our intent, customers in our studies consistently expressed concerns about being "profiled". Even believing that Amazon could provide them more interesting or relevant results, customers were afraid that we might do so by hiding results that we deemed irrelevant.</p>
+		</section>
+		<section>
+			<h2 id="solutions">The Solution</h2>
+			<p>To address cost of acquisition, we needed to provide a perceived benefit or value of some sort. This is relatively easy to do for free with digital services, but without a benefit directly related to the information collected, there's still no incentive for customers to provide truthful answers.</p>
+			<p>If we're interested in collecting customer birthdays, for example, there's very little we can do to tie a benefit to that. A solution needs to be relatively generic to appeal to a large percentage of the population, but each day of the year is so arbitrary that there's almost no specific value we can provide - hence the guy with a free birthday drink everyday.</p>
+			<p>Instead of tackling birthday head-on, we might first collect customer ages. Age is related to birthday because it advances on your birthday, but also can be far more telling about a customer's life-stage. To collect age, you might offer to show a customer things that other people their age are interested in. It's true that I could still tell you that I'm 80 years old and foul up that data, but as a customer, it benefits me to tell you my correct age. Especially in cases where providing an answer is not required, answering dishonestly will not benefit me in any way, and may actually hurt me by skewing my results (in this case, toward the interests of someone 50 years my senior).</p>
+			<p>Once a customer has provided their age, we can more subtly "nudge" them to provide their birthday so that we can accurately advance their age each year.</p>
+			<p>Customers feel safe providing their information when there is a clear value associated with it, so offering a tangible, directly-related benefit will always protect customer trust.</p>
+			<p>There is an additional challenge that comes up with the 'age' solution above, however, and that is what we call a "cold-start problem".</p>
+
+			<h3 id="cold">Cold-Start Problem</h3>
+			<p>The concept here is simple; until we've collected a substantial amount of customer data, we can't provide meaningful information to the customers.</p>
+			<p>Every business that relies on customer input faces this challenge, and there are many ways of overcoming it. It's up to each organization to determine the appropriate solution and pacing for their cold-start problem, but the general approaches come down to focusing on a single group or grouping everyone together.</p>
+			<p>When it comes to grouping everyone, first you might show all people the same results, then later divide the customers into "Over 50" and "Under 50". When you have more data yet, divide ages by decade, and so on.</p>
+		</section>
+		<section>
+			<h2 id="conclusion">Conclusion</h2>
+			<p>Taking all of these challenges into account and addressing each with your solution can strongly benefit your collected data and help you earn trust with your customers.</p>
+			<p>Each interaction your customers have with you contributes to your cumulative relationship. Handle with care.</p>
+		</section>
+	</article>
+	<article id="portfolio">
+
+	</article>
+</div>
 </body>
 </html>
