@@ -116,7 +116,9 @@
 			$(this).toggleClass('zoom');
 
 			var article = $(this).parents('.case-study');
-			window.setTimeout(function(){article.click();}, 500);
+			window.setTimeout(function(){
+				adjustPageHeight(article);
+			}, 500);
 		});
 
 		//Video/Animation Overlay
