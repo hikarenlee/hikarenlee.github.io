@@ -5,6 +5,10 @@
 	<style>
 		*, body {line-height:1.5em;font-family:sans-serif;}
 
+		nav {text-align:center;padding:30px 0 0;}
+		nav a {display:inline-block;padding:6px 14px;margin:0 2px;color:#738090;border-radius:50px;transition:all .2s;cursor:pointer;}
+		nav a:hover {background-color:#dee4ea;color:#466686;}
+
 		#container > * {margin:30px auto 0;position:relative;}
 		@media(min-width:1030px){
 			html, body {max-width:100%;overflow-x:hidden;margin:0;}
@@ -104,6 +108,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script type="text/javascript">
 	$('document').ready(function(){
+		$('nav').on('click','a',function(){
+			$('#container > article')[$(this).index()].click();
+		});
+
 		$('.can-zoom').on('click',function(){
 			$(this).toggleClass('zoom');
 
@@ -155,12 +163,7 @@
 	</script>
 </head>
 <body>
-	<nav>
-		<!-- <picture>
-			<source media="(min-width: 650px)" srcset="img_pink_flowers.jpg">
-  			<img src="img_orange_flowers.jpg" alt="" />
-		</picture> -->
-	</nav>
+<nav><a>Résumé</a><a>Case Study 1</a><a>Case Study 2</a><a>Case Study 3</a><!-- <a>Portfolio</a> --></nav>
 <div id="container">
 	<article id="resume" class="active">
 		<header>
