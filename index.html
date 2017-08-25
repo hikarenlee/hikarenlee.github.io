@@ -11,7 +11,9 @@
 		@media(min-width:1030px){
 			html, body {max-width:100%;overflow-x:hidden;margin:0;}
 			#container {width:3600px;overflow-y:hidden;padding:40px 60px 0;}
-			#container > * {display:inline-block;vertical-align:top;margin-right:30px;margin-left:30px;}
+			#container > article {display:inline-block;vertical-align:top;margin-right:30px;margin-left:30px;position:relative;}
+			#container > article::after {position:absolute;content:'';top:200px;right:-32px;bottom:15px;border-right:1px solid #dbe2ea;}
+			#container > article:last-of-type::after {display:none;}
 		}
 
 		/* RESUME */
@@ -370,9 +372,9 @@
 			<p>Each interaction your customers have with you contributes to your cumulative relationship. Handle with care.</p>
 		</section>
 	</article>
-	<article id="portfolio">
+<!-- 	<article id="portfolio">
 
-	</article>
+	</article> -->
 </div>
 </body>
 </html>
