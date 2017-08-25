@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Brian Donahue - UX Engineer</title>
 	<style>
 		*, body {line-height:1.5em;font-family:sans-serif;}
-		#container > * {margin:40px auto 0;}
-		.case-study > * {margin-right:auto;margin-left:auto;}
-		.case-study > :last-child {margin-bottom:0;}
 
+		#container > * {margin:30px auto 0;position:relative;}
 		@media(min-width:1030px){
 			html, body {max-width:100%;overflow-x:hidden;margin:0;}
-			#container {width:3600px;overflow-y:hidden;padding:40px 60px 0;transition:margin-left .3s}
-			#container > article {display:inline-block;vertical-align:top;margin-right:30px;margin-left:30px;position:relative;}
+			#container {width:3600px;overflow-y:hidden;padding:0 60px;transition:margin-left .3s}
+			#container > article {display:inline-block;vertical-align:top;margin-right:30px;margin-left:30px;}
 			#container > article::after {position:absolute;content:'';top:200px;right:-32px;bottom:15px;border-right:1px solid #dbe2ea;}
 			#container > article:last-of-type::after {display:none;}
 			#container > article:not(.active)::before {background-color:rgba(255, 252, 211, 0.2);box-shadow: 0 0 15px 10px rgba(255, 253, 229, 0.6);content:'';position:absolute;top:0;right:0;bottom:0;left:0;z-index:15;cursor:pointer;opacity:0;transition:opacity .1s;}
@@ -29,15 +27,12 @@
 		#resume h4 {font-size:.9em;margin:0;padding-right:.5rem;color:#555;text-transform:uppercase;}
 		@media (min-width:650px){
 			#resume {max-width:650px;padding:90px 80px 50px;}
-			#resume::before, #container > #resume:not(.active)::before {content:"Click sections to navigate " url(./images/arrow.png);padding-right:30px;position:absolute;background-color:white;box-shadow:0 0 10px rgba(255, 255, 255,1);padding:0 8px 0 10px;top:380px;right:-159px;z-index:30;transform:rotate(90deg);font-size:1.2em;color:#8f9cad;bottom:auto;left:auto;opacity:1;}
+			#resume::before, #container > #resume:not(.active)::before {content:"Click sections to navigate " url(./images/arrow.png);padding-right:30px;position:absolute;background-color:white;box-shadow:0 0 10px rgba(255, 255, 255,1);padding:0 8px 0 10px;top:380px;right:-161px;z-index:30;transform:rotate(90deg);font-size:1.2em;color:#8f9cad;bottom:auto;left:auto;opacity:1;}
 			#container > #resume:not(.active)::before {transform:rotate(-90deg);}
 		}
-
 		#resume header h1 {margin:0;font-size:1.9rem;line-height:1.9rem;font-weight:normal;}
 		#resume header a {font-size:1.2rem;line-height:1.8rem;display:block;text-decoration:none;}
-
 		#summary p {margin:0 auto .5rem;}
-
 		#skills ul {padding-left:0;margin-top:0;}
 		#skills li {list-style:none;display:inline-block;}
 		#skills li::after {content:",";display:inline;padding-right:5px;}
@@ -46,66 +41,60 @@
 			#skills {display:grid;grid-template-columns:150px auto;grid-column-gap:10px;grid-row-gap:15px;}
 			#skills ul {margin:0;}
 		}
-
 		#experience p {margin:.3em auto 0;}
 		#experience strong {font-size:.9em;padding-right:.5rem;text-transform:uppercase;}
 		.job-title, .major {font-weight:normal;font-size: 1.2rem;margin-top:1.8rem;margin-bottom:0;}
 		.job-title:first-of-type, .major:first-of-type {margin-top:0;}
 		.major {margin-top:.8rem;}
-
 		.company, .school {font-weight:normal;font-size:.9rem;margin:.3rem 0 .5rem;}
 		.company span, .school span {font-weight:bold;}
-
 		@media print{
 			#resume {max-width:auto;box-shadow:none;padding:none;}
 			#summary, #skills, #experience, #education {page-break-before:avoid;page-break-inside:avoid;}
 		}
 
-		/* BLUETOOTH CASE STUDY */
-		.case-study > * {box-shadow:0 3px 15px -3px rgba(0,0,0,0.4);padding:8% 8% 5%;margin-bottom:2rem;border:1px solid transparent;}
+		/* CASE STUDY - GENERAL STYLES */
+		.case-study > * {box-shadow:0 3px 15px -3px rgba(0,0,0,0.4);padding:5%;border:1px solid transparent;margin: 0 auto 2rem;}
 		.case-study > *:not(header) {border-color:#e2e2e2}
+		.case-study > :last-child {margin-bottom:0;}
 		@media (min-width:650px){
 			.case-study > * {width:650px;padding:60px 80px 50px;}
-			.case-study > header {padding-top:10%;}
-			.case-study header::after {content:"Case Study";color:#796c07;position:absolute;top:85px;left:-77px;line-height:2rem;font-size:1.1rem;background-color:#ffe838;transform:rotate(-90deg);z-index:30;padding:0 15px;}
+			.case-study header {padding-top:10%;}
+			.case-study header::after {content:"Case Study";color:#796c07;position:absolute;top:85px;left:-78px;line-height:2rem;font-size:1.1rem;background-color:#ffe838;transform:rotate(-90deg);z-index:30;padding:0 15px;}
+			.case-study header br {display:none;}
 		}
+		.case-study header {color:white;background-color:#40a0fc;position:relative;}
+		.case-study header > * {position:relative;z-index:10;}
+		.case-study header img {max-width:140px;}
+		.case-study header h1 {font-size:2.2rem;margin-top:4.5rem;margin-bottom:.5rem;}
+		.case-study header p {border-bottom:1px solid white;padding-bottom:1.2rem;font-size:1.4rem;margin-top:.5rem;}
+		.case-study header time {font-size:1.2rem;display:block;margin-bottom:1.2rem;}
+		.case-study h2 {color:#0082FC;font-size:1.8em;border-bottom:1px solid #0082FC;padding-bottom:1rem;margin:0 0 2rem;}
+		.case-study section :last-child {margin-bottom:0;}
 
-		.case-study > header {color:white;background-color:#40a0fc;position:relative;}
-		.case-study > header > * {position:relative;z-index:10;}
-		.case-study > header img {max-width:140px;}
-		.case-study > header h1 {font-size:2.2rem;margin-top:4.5rem;margin-bottom:.5rem;}
-		.case-study > header p {border-bottom:1px solid white;padding-bottom:1.2rem;font-size:1.4rem;margin-top:.5rem;}
-		.case-study > header time {font-size:1.2rem;display:block;margin-bottom:1.2rem;}
-
+		/* BLUETOOTH CASE STUDY */
 		#bluetooth > header::before {content:'';background:url('./chevrons-blue.png');background-size:78px 78px;position:absolute;top:0;right:0;bottom:0;left:0;opacity:.5;z-index:1;}
 
-		.case-study h2 {color:#0082FC;font-size:1.8em;border-bottom:1px solid #0082FC;padding-bottom:1rem;margin:0 0 2rem;}
-
-		#game a {color:#333;text-decoration:none;cursor:pointer;}
-		#game ul {list-style-type:none;padding-left:0;}
-		#game h2 {color:#8b6a40;border-color:#d2b893;clear:both;}
-		#game h1, h2, h3 {font-weight:900;}
-		#game h3 {margin:1.3em 0 .3em;}
-		#game article a {border-bottom:1px dotted #333;}
-		#game h2+p, h3+p, h2+img {margin-top:0;}
+		/* BOB BOOKS CASE STUDY */
+		#game header {background-image:url(images/candd/candd.gif);background-size:auto 101%;background-position:0 -3px;color:white;}
+		#game header h1 {margin-top:2rem;}
+		#game header img {max-width:100px;}
+		#game h2 {color:#8b6a40;border-color:#8b6a40;clear:both;}
+		#game a {color:#333;text-decoration:none;cursor:pointer;border-bottom:1px dotted #333;}
+		#game a.player {border:none;}
 		#game img.can-zoom {max-width:30%;float:right;margin:0 0 10px 20px;transition:max-width .5s, border .3s, margin-left .3s;cursor:zoom-in;border:1px solid white;}
 		#game img.can-zoom:hover {border-color:grey;}
 		#game img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
+		#demo-player {position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,0.8);z-index:5;padding-top:35%;display:none;margin-top:0;cursor:pointer;}
+		#demo-player .container {position:absolute;bottom:0;left:0;right:0;}
+		#demo-player * {text-align:center;color:white;}
+		#demo-player p {font-size:36px;padding-top:120px;}
+		#demo-player footer {background:none;padding:10px 0;}
+		#demo-player span {z-index:7;position:absolute;top:0;left:0;right:0;}
+		#demo-player img {max-width:600px;width:90%;margin:0 auto;}
+		@media(max-width:500px){#demo-player p {font-size:28px;padding-top:60px;}}
 
-		#game > header {background-image:url(images/candd/candd.gif);background-size:cover;color:white;}
-		#game header > img {max-width:100px;}
-		#game > header h1 {margin-top:2rem;}
-		#game a.player {border:none;}
-		#game {position:relative;}
-		#game #demo-player {position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,0.8);z-index:5;padding-top:35%;display:none;margin-top:0;cursor:pointer;}
-		#game #demo-player .container {position:absolute;bottom:0;left:0;right:0;}
-		#game #demo-player * {text-align:center;color:white;}
-		#game #demo-player p {font-size:36px;padding-top:120px;}
-		#game #demo-player footer {background:none;padding:10px 0;}
-		#game #demo-player span {z-index:7;position:absolute;top:0;left:0;right:0;}
-		#game #demo-player img {max-width:600px;width:90%;margin:0 auto;}
-		@media(max-width:500px){#game #demo-player p {font-size:28px;padding-top:60px;}}
-
+		/* AMAZON CASE STUDY */
 		#userdata > header {background-color:#f90;}
 		#userdata > header h1 {margin-top:4.2rem;}
 		#userdata > header p {border-color:#fff;}
@@ -248,7 +237,7 @@
 	<article class="case-study" id="bluetooth">
 		<header>
 			<img src="images/bluetooth.svg" alt="" />
-			<h1>Case Study: UX Style Guide</h1>
+			<h1>Case Study: <br />UX Style Guide</h1>
 			<p>Building a self-documenting style guide for Bluetooth</p>
 			<time datetime="2017-08-21">In Progress</time>
 		</header>
@@ -276,7 +265,7 @@
 	<article class="case-study" id="game">
 		<header>
 			<img src="images/bob.svg" alt="" />
-			<h1>Case Study: Game Prototyping</h1>
+			<h1>Case Study: <br />Game Prototyping</h1>
 			<p>Building a UX Proof-of-Concept for Bob Books</p>
 			<time datetime="2017-01-20">January 20, 2017</time>
 		</header>
@@ -326,7 +315,7 @@
 	<article class="case-study" id="userdata">
 		<header>
 			<img src="images/amazon-white.svg" alt="" />
-			<h1>Case Study: Collecting User Data</h1>
+			<h1>Case Study: <br />Collecting User Data</h1>
 			<p>Learning about customers in ways that build trust</p>
 			<time datetime="2017-03-14">March 14, 2017</time>
 		</header>
