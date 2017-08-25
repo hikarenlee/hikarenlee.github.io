@@ -20,13 +20,13 @@
 		}
 
 		/* RESUME */
-		#resume {box-shadow:0 3px 30px -7px rgba(0,0,0,0.7);padding:50px 10% 20px;}
+		#resume {box-shadow:0 3px 15px -3px rgba(0,0,0,0.4);padding:50px 10% 20px;border:1px solid #e2e2e2;}
 		#resume section {margin-bottom:2em;}
 		#resume h2 {margin-bottom:0;font-size:1.5rem}
 		#resume h4 {font-size:.9em;margin:0;padding-right:.5rem;color:#555;text-transform:uppercase;}
 		@media (min-width:650px){
 			#resume {max-width:650px;padding:90px 80px 50px;}
-			#resume::before, #container > #resume:not(.active)::before {content:"Click sections to navigate " url(./images/arrow.png);padding-right:30px;position:absolute;background-color:white;padding:0 15px;top:380px;right:-166px;z-index:30;transform:rotate(90deg);font-size:1.2em;color:#8f9cad;box-shadow:none;bottom:auto;left:auto;opacity:1;}
+			#resume::before, #container > #resume:not(.active)::before {content:"Click sections to navigate " url(./images/arrow.png);padding-right:30px;position:absolute;background-color:white;box-shadow:0 0 10px rgba(255, 255, 255,1);padding:0 8px 0 10px;top:380px;right:-159px;z-index:30;transform:rotate(90deg);font-size:1.2em;color:#8f9cad;bottom:auto;left:auto;opacity:1;}
 			#container > #resume:not(.active)::before {transform:rotate(-90deg);}
 		}
 
@@ -59,7 +59,8 @@
 		}
 
 		/* BLUETOOTH CASE STUDY */
-		.case-study > * {box-shadow:0 3px 30px -7px rgba(0,0,0,0.7);padding:8% 8% 5%;margin-bottom:2rem;}
+		.case-study > * {box-shadow:0 3px 15px -3px rgba(0,0,0,0.4);padding:8% 8% 5%;margin-bottom:2rem;border:1px solid transparent;}
+		.case-study > *:not(header) {border-color:#e2e2e2}
 		@media (min-width:650px){
 			.case-study > * {width:650px;padding:60px 80px 50px;}
 			.case-study > header {padding-top:10%;}
