@@ -3,7 +3,7 @@
 <head>
 <title>Brian Donahue - UX Engineer</title>
 <meta name="description" content="UX, web design, & front-end development portfolio for Brian Donahue, designer based in Seattle, WA">
-<meta name="keywords" content="UX,UX design,user experience,design,UI,HTML,CSS,JavaScript,Illustrator,Adobe,Photoshop,freelance,contractor,designer,developer,front-end,front end,portfolio,graphic design,graphics,web development,for hire,resume,jQuery,storyboarding,prototyping,user research">
+<meta name="keywords" content="UX,UX design,user experience,design,UI,HTML,CSS,JavaScript,Illustrator,Adobe,Photoshop,freelance,contractor,designer,developer,front-end,front end,portfolio,graphic design,graphics,web,web development,for hire,resume,jQuery,storyboarding,prototyping,user research">
 <meta name="author" content="Brian Donahue">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
@@ -67,9 +67,17 @@ nav a:hover {background-color:#dee4ea;color:#466686;}
 .case-study > * {padding:5%;margin:0 auto;}
 .case-study > *:not(header) {padding:3% 5% 0;border-color:#e2e2e2}
 .case-study > :last-child {margin-bottom:0;padding-bottom:5%;}
+.case-study header {color:white;background-color:#40a0fc;position:relative;}
+.case-study header > * {position:relative;z-index:10;}
+.case-study header img {max-width:140px;}
+.case-study header h1 {font-size:2.2rem;margin-top:4.5rem;margin-bottom:.5rem;}
+.case-study header p {border-bottom:1px solid white;padding-bottom:1.2rem;font-size:1.4rem;margin-top:.5rem;}
+.case-study header time {font-size:1.2rem;display:block;margin-bottom:1.2rem;}
+.case-study h2 {color:#0082FC;font-size:1.8em;border-bottom:1px solid #0082FC;padding-bottom:1rem;margin:0 0 2rem;}
+.case-study section :last-child {margin-bottom:0;}
 @media (min-width:650px){
 	.case-study > * {padding:5%}
-	.case-study header {padding:10% 80px 50px;}
+	.case-study header {padding:50px 5% 10px;}
 	.case-study header br {display:none;}
 }
 @media (min-width:810px){.case-study {max-width:810px;margin:0 auto;}}
@@ -80,14 +88,6 @@ nav a:hover {background-color:#dee4ea;color:#466686;}
 	.case-study > *:not(header)::after {content:'';display:block;clear:both;}
 	.case-study header::after {content:"Case Study";color:#796c07;position:absolute;top:85px;left:-78px;line-height:2rem;font-size:1.1rem;background-color:#ffe838;transform:rotate(-90deg);z-index:30;padding:0 15px;}
 }
-.case-study header {color:white;background-color:#40a0fc;position:relative;}
-.case-study header > * {position:relative;z-index:10;}
-.case-study header img {max-width:140px;}
-.case-study header h1 {font-size:2.2rem;margin-top:4.5rem;margin-bottom:.5rem;}
-.case-study header p {border-bottom:1px solid white;padding-bottom:1.2rem;font-size:1.4rem;margin-top:.5rem;}
-.case-study header time {font-size:1.2rem;display:block;margin-bottom:1.2rem;}
-.case-study h2 {color:#0082FC;font-size:1.8em;border-bottom:1px solid #0082FC;padding-bottom:1rem;margin:0 0 2rem;}
-.case-study section :last-child {margin-bottom:0;}
 
 /* BLUETOOTH CASE STUDY */
 #bluetooth > header::before {content:'';background:url('./chevrons-blue.png');background-size:78px 78px;position:absolute;top:0;right:0;bottom:0;left:0;opacity:.5;z-index:1;}
