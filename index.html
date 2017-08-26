@@ -17,12 +17,12 @@ nav a:hover {background-color:#dee4ea;color:#466686;}
 @media(min-width:1030px){
 	html, body {max-width:100%;overflow-x:hidden;margin:0;}
 	nav {display:block;}
-	#container {width:3600px;overflow-y:hidden;padding:0 60px;transition:margin-left .3s}
+	#container {width:3600px;overflow-y:hidden;padding:0 25px;transition:margin-left .3s}
 	#container > article {display:inline-block;vertical-align:top;margin-right:30px;margin-left:30px;}
 	#container > article::after {position:absolute;content:'';top:200px;right:-32px;bottom:15px;border-right:1px solid #dbe2ea;}
 	#container > article:last-of-type::after {display:none;}
-	#container > article:not(.active) {cursor:pointer;filter:grayscale(100%);transition:all .2s;}
-	#container > article:not(.active):hover {filter:grayscale(0%);}
+	#container > article:not(.active) {cursor:pointer;transition:all .2s;filter:grayscale(100%);opacity:.6;}
+	#container > article:not(.active):hover {filter:grayscale(0%);opacity:1;}
 }
 @media(max-width:1029px){#container {margin-left:0 !important;}}
 
