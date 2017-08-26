@@ -10,8 +10,8 @@
 *, body {line-height:1.5em;font-family:sans-serif;}
 body::after {text-align:center;position:fixed;top:calc(50% - 40px);left:0;right:0;font-family:FontAwesome;font-size:300px;color:#f1f4f7;z-index:0;}.thumb::after{content:'\f087';}.cake::after{content:'\f1fd';}.lightning::after{content:'\f0e7';}.bicycle::after{content:'\f206';}.coffee::after{content:'\f0f4';}.peace::after{content:'\f25b';}.heart::after{content:'\f004';}.magic::after{content:'\f0d0';}.paw::after{content:'\f1b0';}.smile::after{content:':-)';}.music::after{content:'\266B';}
 
-nav {text-align:center;overflow-x:scroll;position:fixed;right:0;bottom:0;left:0;background-color:white;z-index:20;padding:10px 15px;white-space:nowrap;box-shadow:0 0 30px rgba(0,0,0,0.2);}
-nav a {display:inline-block;padding:6px 14px;margin:0 2px;color:#738090;border-radius:50px;transition:all .2s;cursor:pointer;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+nav {text-align:center;overflow-x:scroll;position:fixed;right:0;bottom:0;left:0;background-color:white;z-index:20;padding:10px 10px;white-space:nowrap;box-shadow:0 0 30px rgba(0,0,0,0.2);}
+nav a {display:inline-block;padding:6px 14px;margin:0 4px;border:1px solid #dee4ea;color:#738090;border-radius:50px;transition:all .2s;cursor:pointer;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
 nav a:hover, nav a.active {background-color:#dee4ea;color:#466686;}
 
 #container > * {margin:30px auto 50px;position:relative;display:none;background-color:white;}
@@ -19,6 +19,7 @@ nav a:hover, nav a.active {background-color:#dee4ea;color:#466686;}
 @media(min-width:1030px){
 	body::after {display:none;}
 	nav {padding:30px 0 0;position:static;background-color:transparent;box-shadow:none;}
+	nav a {border:none;}
 	html, body {max-width:100%;overflow-x:hidden;margin:0;}
 	nav {display:block;}
 	#container {width:3600px;overflow-y:hidden;padding:0 25px;transition:margin-left .3s}
