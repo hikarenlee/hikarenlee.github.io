@@ -10,13 +10,14 @@
 	<style>
 		*, body {line-height:1.5em;font-family:sans-serif;}
 
-		nav {text-align:center;padding:30px 0 0;}
+		nav {text-align:center;padding:30px 0 0;display:none;}
 		nav a {display:inline-block;padding:6px 14px;margin:0 2px;color:#738090;border-radius:50px;transition:all .2s;cursor:pointer;}
 		nav a:hover {background-color:#dee4ea;color:#466686;}
 
-		#container > * {margin:30px auto 0;position:relative;}
+		#container > * {margin:30px auto;position:relative;}
 		@media(min-width:1030px){
 			html, body {max-width:100%;overflow-x:hidden;margin:0;}
+			nav {display:block;}
 			#container {width:3600px;overflow-y:hidden;padding:0 60px;transition:margin-left .3s}
 			#container > article {display:inline-block;vertical-align:top;margin-right:30px;margin-left:30px;}
 			#container > article::after {position:absolute;content:'';top:200px;right:-32px;bottom:15px;border-right:1px solid #dbe2ea;}
@@ -25,17 +26,18 @@
 			#container > article:not(.active) {cursor:pointer;}
 			#container > article:not(.active):hover::before {opacity:1;}
 		}
-		@media(max-width:1029px){
-			#container {margin-left:0 !important;}
-		}
+		@media(max-width:1029px){#container {margin-left:0 !important;}}
 
 		/* RESUME */
-		#resume {box-shadow:0 3px 15px -3px rgba(0,0,0,0.4);padding:50px 10% 20px;border:1px solid #e2e2e2;}
+		#resume {box-shadow:0 3px 15px -3px rgba(0,0,0,0.4);padding:30px 5%;border:1px solid #e2e2e2;max-width:650px;}
 		#resume section {margin-bottom:2em;}
+		#resume section:last-child {margin-bottom:0;}
 		#resume h2 {margin-bottom:0;font-size:1.5rem}
 		#resume h4 {font-size:.9em;margin:0;padding-right:.5rem;color:#555;text-transform:uppercase;}
-		@media (min-width:650px){
-			#resume {max-width:650px;padding:90px 80px 50px;}
+		@media (min-width:650px){#resume {max-width:710px;padding:8% 5% 50px;}}
+		@media (min-width:710px){#resume {padding:50px;}}
+		@media (min-width:1030px){
+			#resume {padding:90px 80px 50px;}
 			#resume::before, #container > #resume:not(.active)::before {content:"Click sections to navigate " url(./images/arrow.png);padding-right:30px;position:absolute;background-color:white;box-shadow:0 0 10px rgba(255, 255, 255,1);padding:0 8px 0 10px;top:380px;right:-161px;z-index:30;transform:rotate(90deg);font-size:1.2em;color:#8f9cad;bottom:auto;left:auto;opacity:1;}
 			#container > #resume:not(.active)::before {transform:rotate(-90deg);}
 		}
@@ -63,14 +65,22 @@
 		}
 
 		/* CASE STUDY - GENERAL STYLES */
-		.case-study > * {box-shadow:0 3px 15px -3px rgba(0,0,0,0.4);padding:5%;border:1px solid transparent;margin: 0 auto 2rem;}
-		.case-study > *:not(header) {border-color:#e2e2e2}
-		.case-study > :last-child {margin-bottom:0;}
+		.case-study {box-shadow:0 3px 15px -3px rgba(0,0,0,0.4);border:1px solid #e2e2e2;}
+		.case-study > * {padding:5%;margin:0 auto;}
+		.case-study > *:not(header) {padding:3% 5% 0;border-color:#e2e2e2}
+		.case-study > :last-child {margin-bottom:0;padding-bottom:5%;}
 		@media (min-width:650px){
-			.case-study > * {width:650px;padding:60px 80px 50px;}
-			.case-study header {padding-top:10%;}
-			.case-study header::after {content:"Case Study";color:#796c07;position:absolute;top:85px;left:-78px;line-height:2rem;font-size:1.1rem;background-color:#ffe838;transform:rotate(-90deg);z-index:30;padding:0 15px;}
+			.case-study > * {padding:5%}
+			.case-study header {padding:10% 80px 50px;}
 			.case-study header br {display:none;}
+		}
+		@media (min-width:810px){.case-study {max-width:810px;margin:0 auto;}}
+		@media (min-width:1030px){
+			.case-study {width:810px;box-shadow:none;border:none;}
+			.case-study > * {box-shadow:0 3px 15px -3px rgba(0,0,0,0.4);border:1px solid transparent;margin-bottom:2rem;min-width:650px;}
+			.case-study > *:not(header) {padding:5%;}
+			.case-study > *:not(header)::after {content:'';display:block;clear:both;}
+			.case-study header::after {content:"Case Study";color:#796c07;position:absolute;top:85px;left:-78px;line-height:2rem;font-size:1.1rem;background-color:#ffe838;transform:rotate(-90deg);z-index:30;padding:0 15px;}
 		}
 		.case-study header {color:white;background-color:#40a0fc;position:relative;}
 		.case-study header > * {position:relative;z-index:10;}
@@ -88,7 +98,7 @@
 		#game header {background-image:url(images/candd/candd.gif);background-size:auto 101%;background-position:0 -3px;color:white;}
 		#game header h1 {margin-top:2rem;}
 		#game header img {max-width:100px;}
-		#game h2 {color:#8b6a40;border-color:#8b6a40;clear:both;}
+		#game h2 {color:#8b6a40;border-color:#8b6a40;}
 		#game a {color:#333;text-decoration:none;cursor:pointer;border-bottom:1px dotted #333;}
 		#game a.player {border:none;}
 		#game img.can-zoom {max-width:30%;float:right;margin:0 0 10px 20px;transition:max-width .5s, border .3s, margin-left .3s;cursor:zoom-in;border:1px solid white;}
