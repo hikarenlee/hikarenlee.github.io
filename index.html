@@ -129,7 +129,7 @@ nav span {display:none;}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript">
 $('document').ready(function(){
-	$('nav').on('click','a',function(){
+	$('nav a').on('click',function(){
 		var clickedLink = $(this);
 
 		if ($($('#container > article')[clickedLink.index()]).hasClass('active')) {return;}
