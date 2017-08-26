@@ -19,6 +19,7 @@ body > footer {text-align:center;margin-bottom:90px;color:#738090;}
 body > footer.hidden {opacity:0;}
 body > footer i {color:#d98c9e;}
 
+#container::after {display:none;}
 #container > article {margin:10px auto 40px;position:relative;display:none;background-color:white;}
 #container > .active {display:block;z-index:1;}
 @media(min-width:870px){#container > article {margin-top:30px;}}
@@ -33,8 +34,9 @@ body > footer i {color:#d98c9e;}
 
 	body > footer {border-top:1px solid #c3cdda;margin-bottom:0;}
 
-	#container {width:3600px;overflow-y:hidden;padding:0 25px;transition:margin-left .3s;}
-	#container > article, #container > .active {display:inline-block;vertical-align:top;margin:30px 30px 50px}
+	#container {width:3600px;overflow-y:hidden;padding:0 370px 0 25px;transition:margin-left .3s;position:relative;}
+	#container::after {position:absolute;top:230px;right:0;width:385px;font-size:300px;color:#f1f4f7;font-family:FontAwesome;display:block;}
+	#container > article, #container > .active {display:inline-block;vertical-align:top;margin:30px 30px 50px;}
 	#container > article::after {position:absolute;content:'';top:200px;right:-32px;bottom:15px;border-right:1px solid #dbe2ea;}
 	#container > article:last-of-type::after {display:none;}
 	#container > article:not(.active) {cursor:pointer;transition:all .2s;filter:grayscale(100%);opacity:.6;}
@@ -199,6 +201,8 @@ $('document').ready(function(){
 		$('.active').removeClass('active');
 		$(this).addClass('active');
 
+		if ($(this).index() === $('#container > article').length-1) {pickRandomCharacter();}
+
 		$($('nav a')[$('.active').index()]).addClass('active');
 
 		$(this).parents('div').css('margin-left', $(this).index() * -875 + 'px');
@@ -231,8 +235,10 @@ $('document').ready(function(){
 		selected = randomCharacter();
 		if ($('body').hasClass(characters[selected])) {
 			$('body').removeClass().addClass('smile');
+			$('#container').removeClass().addClass('smile');
 		} else {
 			$('body').removeClass().addClass(characters[selected]);
+			$('#container').removeClass().addClass(characters[selected]);
 		}
 	}
 	pickRandomCharacter();
