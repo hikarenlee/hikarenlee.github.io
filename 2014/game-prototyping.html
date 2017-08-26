@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Game Prototyping</title>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/5d44595dd9.css" media="all">
+<link rel="stylesheet" href="case-study.css" media="all">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<style type="text/css">
+	header {background-image:url(images/candd/candd.gif);padding:245px 20px 30px;}
+	@media(max-width:649px){header{padding-top:170px;}}
+	@media(max-width:499px){header{padding-top:100px;}}
+	a.player {border:none;}
+	#page {position:relative;}
+	#demo-player {position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,0.8);z-index:5;padding-top:35%;display:none;margin-top:0;cursor:pointer;}
+	#demo-player .container {position:absolute;bottom:0;left:0;right:0;}
+	#demo-player * {text-align:center;color:white;}
+	#demo-player p {font-size:36px;padding-top:120px;}
+	#demo-player footer {background:none;padding:10px 0;}
+	#demo-player span {z-index:7;position:absolute;top:0;left:0;right:0;}
+	#demo-player img {max-width:600px;width:90%;margin:0 auto;}
+	@media(max-width:500px){#demo-player p {font-size:28px;padding-top:60px;}}
+</style>
+<script type="text/javascript">
+$('document').ready(function(){
+	$('div nav').slideUp();
+	$('#outline').on('click', function(){
+		$('div nav').slideToggle();
+	});
+
+	$('div nav').on('click','a',function(event){
+		event.preventDefault();
+		var newScroll = $(this).attr('href');
+		$('body').animate({
+			scrollTop: $(newScroll).offset().top -30
+		}, 600);
+	});
+
+	$('.can-zoom').on('click',function(){
+		$(this).toggleClass('zoom');
+	});
+
+	//Video/Animation Overlay
+	$('.player').on('click', function(){
+		var vidSrc = $(this).attr('id'),
+			vidPos = ($(document).height()) - ($(this).parent().offset().top);
+		showPlayer(vidSrc, vidPos);
+	});
+
+	function showPlayer ($targetVid, $vidPos){
+		var $div = '<div id="demo-player"><div class="container"><span><img src="" alt=""/><footer>(click anywhere to close this overlay)</footer></span><p>Loading...</p></div></div>';
+
+		$($div).appendTo($('#page')).fadeTo("slow", 1.0);
+
+		var player = $('#demo-player');
+
+		player.find('.container').css('bottom',$vidPos);
+		player.find('img').attr('src',$targetVid);
+
+		player.on('click',function(){
+			this.remove();
+		});
+	}
+	//end Video/Animation Overlay
+});
+</script>
+</head>
+
+<body>
+<nav id="mainNav"><a class="leftArrow" href="http://brimwd.github.io#UX">Return to Portfolio</a></nav>
+<div id="page">
+<header>
+	<h1 id="overview">Game Prototyping</h1>
+	<p>Building a UX Proof-of-Concept for Bob Books</p>
+</header>
+<aside id="outline">
+<h1>Outline <span>show/hide</span></h1>
+</aside>
+<nav>
+	<h2><a href="#overview">Overview</a></h2>
+	<h2><a href="#gameplay">Gameplay Concepts</a></h2>
+	<ul>
+		<li><a href="#concept1">Gameplay Concept 1</a></li>
+		<li><a href="#concept2">Gameplay Concept 2</a></li>
+		<li><a href="#concept3">Gameplay Concept 3</a></li>
+	</ul>
+	<h2><a href="#conclusion">Conclusion</a></h2>
+</nav>
+<article>
+<h2>Overview</h2>
+<p>Thrilled with my work on their new font, Adam, the marketing director at Bob Books asked me to make a bid for their next game development contract.</p>
+<p>Adam asked me to create a proposal that would demonstrate other gameplay methods and generally make the games more engaging.</p>
+<p>Over the following month I designed a variety of spelling games; wrote a script; created illustrations, sound effects, and animations; and programmed a game in Unity with my friend Michael Afrides.</p>
+
+<h2>Research</h2>
+<img class="can-zoom" src="https://lh3.googleusercontent.com/q798hsCzwv-SMnaYH9j4YabUyt8J6gtTclBiYeGYtmi6R9nwmxL3FFpgLBeKrwkI9w=h900" alt="Bob Books' original game" />
+<p>Bob Books' existing games feature a single gameplay concept and individual spelling challenges. Each level is composed of simple line drawings and lacks any animation or color.</p>
+<p>I believe that by telling a story with the challenges interspersed, the curiosity about story could become the compelling reason for progressing through the levels as opposed to simply completing each challenge for its own sake.</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.learningtouch.bobbooksrm1&hl=en" target="new">Click here <i class="fa fa-external-link"></i></a> to see Bob Books' original app that we were competing against.</p>
+
+<h2 id="#concept1">Gameplay Concept 1</h2>
+<img class="can-zoom" src="http://brimwd.github.io/images/candd/dog.jpg" alt="Basic Gameplay Concept" />
+<p>To win the contract, we would need to show a better UX while also proving that we could reproduce their current gameplay modes.</p>
+<p>The basic gameplay mode required spelling a word in left-to-right order. This is an easy task, so we spiced it up a little with some 3D animations.</p>
+<p><a class="player" id="images/candd/dog.gif">Watch Gameplay (16s) <i class="fa fa-play-circle"></i></i></a></p>
+
+<h2 id="#concept2">Gameplay Concept 2</h2>
+<img class="can-zoom" src="http://brimwd.github.io/images/candd/cat.jpg" alt="Second Gameplay Concept" />
+<p>We also wanted to show something new and different that would still be something a young child could accomplish.</p>
+<p>Our second gameplay mode drops "random" letters from the top of the screen. To add a little silliness and playfulness, the letters are trapped inside raindrops, which the player has to catch and drop onto sponges to wring out the water.</p>
+<p>We also used this opportunity to create an animated 'cut-scene' - a feature the existing games don't have.</p>
+<p><a class="player" id="images/candd/cat.gif">Watch Gameplay (26s) <i class="fa fa-play-circle"></i></a></p>
+
+<h2 id="#concept3">Gameplay Concept 3</h2>
+<img class="can-zoom" src="http://brimwd.github.io/images/candd/home.jpg" alt="Game 'Home' Screen" />
+<p>To create a sense of accomplishment, I wanted each section of our proposed game to feel like an immersive experience with hidden animations and environmental changes that reflect game progress.</p>
+<p>We created a challenge navigation screen (this farm scene) where the rain diminishes and the cats and dogs stop 'raining' once you save them.</p>
+<p>By the end of the demo the rain has cleared and the scene is pleasant and sunny.</p>
+<p><a class="player" id="images/candd/home.gif">Watch Home Screen Interaction (15s) <i class="fa fa-play-circle"></i></a></p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>In the end the client decided to stick with their overseas developers who work for far less than we were willing to, so we didn't get the contract. Although it was disappointing that we weren't hired, it was a great experience creating this game from scratch on a new platform, and Michael used his experience here and at his next job to get a full-time game development role.</p>
+<p><a href="http://brimwd.github.io/candd.html" target="new">Play the final demo <i class="fa fa-external-link"></i></a> (requires free plug-in)</p>
+<p><a href="http://brimwd.github.io/candd-journal.pdf" target="new">Development Journal <i class="fa fa-external-link"></i></a> (low-fis &amp; concepts - PDF)</p>
+</article>
+</div>
+
+<footer>
+<p>Written and programmed by <a href="http://brimwd.github.io/">Brian Donahue</a> in January of 2017</p>
+</footer>
+</body>
+</html>
