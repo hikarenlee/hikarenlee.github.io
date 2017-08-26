@@ -202,6 +202,15 @@ $('document').ready(function(){
 		$('.active').removeClass('active');
 		$(this).addClass('active');
 
+		$('#container > article').on('click', function(event){
+			if ($(this).hasClass('active')) {
+				return;
+			}
+			else {
+				event.preventDefault();
+			}
+       	});
+
 		if ($(this).index() === $('#container > article').length-1) {pickRandomCharacter();}
 
 		$($('nav a')[$('.active').index()]).addClass('active');
