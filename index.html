@@ -11,6 +11,7 @@
 
 nav {text-align:center;overflow-x:scroll;position:fixed;right:0;bottom:0;left:0;background-color:white;z-index:20;padding:10px 0;box-shadow:0 0 30px rgba(0,0,0,0.2);}
 nav a {display:inline-block;padding:6px 14px;margin:0 2px;color:#738090;border-radius:50px;transition:all .2s;cursor:pointer;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+nav a:hover, nav a.active {background-color:#dee4ea;color:#466686;}
 
 #container > * {margin:30px auto;position:relative;display:none;background-color:white;}
 #container > .active {display:block;z-index:1;}
@@ -127,6 +128,9 @@ $('document').ready(function(){
 
 		if ($($('#container > article')[clickedLink.index()]).hasClass('active')) {return;}
 
+		if (clickedLink.parent('nav').css('position') === "fixed") {
+			pickRandomCharacter();
+
 			$('#container .active').fadeOut(function(){
 				$('#container > article')[clickedLink.index()].click();
 				$('.active').fadeIn();
@@ -177,14 +181,15 @@ $('document').ready(function(){
 		$('.active').removeClass('active');
 		$(this).addClass('active');
 
+		$($('nav a')[$('.active').index()]).addClass('active');
+
 		$(this).parents('div').css('margin-left', $(this).index() * -875 + 'px');
 		$('body').stop().animate({scrollTop:0}, 'swing');
 		adjustPageHeight(this);
 	});
 	function adjustPageHeight(element) {
 		$('#container').css('height', ($(element).outerHeight(true) + 10) + 'px');
-	};
-
+	}
 	adjustPageHeight($('#resume'));
 
 	function toggleInactiveArticles() {
@@ -199,7 +204,7 @@ $('document').ready(function(){
 </script>
 </head>
 <body>
-<nav><a>Résumé</a><a>Case Study 1</a><a>Case Study 2</a><a>Case Study 3</a><!-- <a>Portfolio</a> --></nav>
+<nav><a class="active">Résumé</a><a>Case Study 1</a><a>Case Study 2</a><a>Case Study 3</a><!-- <a>Portfolio</a> --></nav>
 <div id="container">
 	<article id="resume" class="active">
 		<header>
