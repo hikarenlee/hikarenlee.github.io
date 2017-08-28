@@ -42,6 +42,8 @@ body > footer i {color:#d98c9e;}
 	#container > article:last-of-type::after {display:none;}
 	#container > article:not(.active) {cursor:pointer;transition:all .2s;opacity:.4;/*-webkit-filter:grayscale(100%);filter:grayscale(100%);*/} /* Safari lags significantly with filters enabled */
 	#container > article:not(.active):hover {opacity:1;/*-webkit-filter:grayscale(0%);filter:grayscale(0%);*/} /* Safari lags significantly with filters enabled */
+	#container > article:not(.active) header {background:gray;}
+	#container > article:not(.active) h2 {color:gray;border-color:gray;}
 }
 @media(max-width:1029px){#container {margin-left:0 !important;}}
 
