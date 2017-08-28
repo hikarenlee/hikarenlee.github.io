@@ -40,8 +40,8 @@ body > footer i {color:#d98c9e;}
 	#container > article, #container > .active {display:inline-block;vertical-align:top;margin:30px 30px 50px;}
 	#container > article::after {position:absolute;content:'';top:200px;right:-32px;bottom:15px;border-right:1px solid #dbe2ea;}
 	#container > article:last-of-type::after {display:none;}
-	#container > article:not(.active) {cursor:pointer;transition:all .2s;filter:grayscale(100%);opacity:.6;}
-	#container > article:not(.active):hover {filter:grayscale(0%);opacity:1;}
+	#container > article:not(.active) {cursor:pointer;transition:all .2s;opacity:.4;/*-webkit-filter:grayscale(100%);filter:grayscale(100%);*/} /* Safari lags significantly with filters enabled */
+	#container > article:not(.active):hover {opacity:1;/*-webkit-filter:grayscale(0%);filter:grayscale(0%);*/} /* Safari lags significantly with filters enabled */
 }
 @media(max-width:1029px){#container {margin-left:0 !important;}}
 
