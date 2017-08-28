@@ -152,7 +152,7 @@ $('document').ready(function(){
 		zoomImage = $('.can-zoom'),
 		activeArticle = $(),
 		vidPlayer = $(), $div = $(), vidSrc = $(), vidPos = $(), eventTarget = $(),
-		characters = $();
+		characters = ['thumb', 'peace', 'cake', 'magic', 'lightning', 'bicycle', 'coffee', 'heart', 'paw', 'music', 'smile'], selectedCharacter = 'a';
 	function showPlayer ($targetVid, $vidPos, eventTarget){
 		$div = '<div id="demo-player"><div class="container"><span><img src="" alt=""/><footer>(click anywhere to close this overlay)</footer></span><p>Loading...</p></div></div>';
 
@@ -181,19 +181,15 @@ $('document').ready(function(){
 	    	container.find('article:not(.active)').attr('style','');
 	    }
 	}
-	function pickRandomCharacter() {
-		characters = ['thumb', 'cake', 'lightning', 'bicycle', 'coffee', 'peace', 'heart', 'magic', 'paw', 'music']
-		function randomCharacter() {
-			return Math.floor(Math.random() * characters.length);
+	function refreshBgIcon() {
+		if (typeof selectedCharacter === 'number'){
+			if (selectedCharacter < characters.length-1) {selectedCharacter++;}
+			else {selectedCharacter = 0;}
 		}
-		selected = randomCharacter();
-		if (body.hasClass(characters[selected])) {
-			body.removeClass().addClass('smile');
-			container.removeClass().addClass('smile');
-		} else {
-			body.removeClass().addClass(characters[selected]);
-			container.removeClass().addClass(characters[selected]);
-		}
+		else {selectedCharacter = Math.floor(Math.random() * characters.length);}
+
+		body.removeClass().addClass(characters[selectedCharacter]);
+		container.removeClass().addClass(characters[selectedCharacter]);
 	}
 
 	/* LISTENERS */
@@ -203,7 +199,7 @@ $('document').ready(function(){
 		if ($(articles[clickedLink.index()]).hasClass('active')) {return;}
 
 		if (clickedLink.parent('nav').css('position') === "fixed") {
-			pickRandomCharacter();
+			refreshBgIcon();
 
 			footer.addClass('hidden');
 
@@ -255,7 +251,7 @@ $('document').ready(function(){
 		$(navLinks[$('.active').index()]).addClass('active');
 
 		//change the icon if the last article is selected
-		if ($(this).index() === articles.length-1) {pickRandomCharacter();}
+		if ($(this).index() === articles.length-1) {refreshBgIcon();}
 
 
 		$(this).parents('div').css('margin-left', $(this).index() * -875 + 'px');
@@ -266,7 +262,7 @@ $('document').ready(function(){
 	/* Start Page */
 	adjustPageHeight($('#resume'));
 	toggleInactiveArticles();
-	pickRandomCharacter();
+	refreshBgIcon();
 });
 </script>
 </head>
