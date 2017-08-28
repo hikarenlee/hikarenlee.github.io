@@ -140,117 +140,130 @@ body > footer i {color:#d98c9e;}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript">
 $('document').ready(function(){
-	$('nav a').on('click',function(){
-		var clickedLink = $(this);
-
-		if ($($('#container > article')[clickedLink.index()]).hasClass('active')) {return;}
-
-		if (clickedLink.parent('nav').css('position') === "fixed") {
-			pickRandomCharacter();
-
-			$('body > footer').addClass('hidden');
-
-			$('#container .active').fadeOut(function(){
-				$('#container > article')[clickedLink.index()].click();
-				$('.active').fadeIn();
-				$('body > footer').removeClass('hidden');
-			});
-		}
-		$('#container > article')[clickedLink.index()].click();
-	});
-
-	$(window).on('resize', function(event) {
-		toggleInactiveArticles();
-		adjustPageHeight($('#container .active'));
-	});
-
-	$('.can-zoom').on('click',function(){
-		$(this).toggleClass('zoom');
-
-		var article = $(this).parents('.case-study');
-		window.setTimeout(function(){
-			adjustPageHeight(article);
-		}, 500);
-	});
-
-	//Video/Animation Overlay
-	$('.player').on('click', function(event){
-		var eventTarget = $(event.target);
-		var vidSrc = $(this).attr('id'),
-			vidPos = $(document).height() - $(this).parent().offset().top + 50;
-		showPlayer(vidSrc, vidPos, eventTarget);
-	});
-
+	var body = $('body'),
+		container = $('#container'),
+		articles = $('#container > article'),
+		nav = $('nav'),
+		navLinks = $('nav a'),
+		footer = $('body > footer')
+		player = $('.player'),
+		zoomImage = $('.can-zoom'),
+		activeArticle = $(),
+		vidPlayer = $(), $div = $(), vidSrc = $(), vidPos = $(), eventTarget = $(),
+		characters = $();
 	function showPlayer ($targetVid, $vidPos, eventTarget){
-		var $div = '<div id="demo-player"><div class="container"><span><img src="" alt=""/><footer>(click anywhere to close this overlay)</footer></span><p>Loading...</p></div></div>';
+		$div = '<div id="demo-player"><div class="container"><span><img src="" alt=""/><footer>(click anywhere to close this overlay)</footer></span><p>Loading...</p></div></div>';
 
 		$($div).appendTo($(eventTarget).parents('section')).fadeTo("slow", 1.0);
 
-		var player = $('#demo-player');
+		vidPlayer = $('#demo-player');
 
-		player.find('.container').css('bottom',$vidPos);
-		player.find('img').attr('src',$targetVid);
+		vidPlayer.find('.container').css('bottom',$vidPos);
+		vidPlayer.find('img').attr('src',$targetVid);
 
-		player.on('click',function(){
+		vidPlayer.on('click',function(){
 			this.remove();
 		});
 	}
-	//end Video/Animation Overlay
-	$('#container').on('click', 'article', function(event) {
-		if ($(this).hasClass('active')) {return;}
-
-		$('.active').removeClass('active');
-		$(this).addClass('active');
-
-		$('#container > article').on('click', function(event){
-			if ($(this).hasClass('active')) {
-				return;
-			}
-			else {
-				event.preventDefault();
-			}
-       	});
-
-		if ($(this).index() === $('#container > article').length-1) {pickRandomCharacter();}
-
-		$($('nav a')[$('.active').index()]).addClass('active');
-
-		$(this).parents('div').css('margin-left', $(this).index() * -875 + 'px');
-		$('body').stop().animate({scrollTop:0}, 'swing');
-		adjustPageHeight(this);
-	});
 	function adjustPageHeight(element) {
-		if ($('nav').css('position') === "fixed") {
-			$('#container').css('height','auto');
+		if (nav.css('position') === "fixed") {
+			container.css('height','auto');
 			return;
 		}
-		$('#container').css('height', $(element).outerHeight(true) + 'px');
+		container.css('height', $(element).outerHeight(true) + 'px');
 	}
-	adjustPageHeight($('#resume'));
-
 	function toggleInactiveArticles() {
-		if ($('nav').css('position') === "fixed"){
-			$('#container article:not(.active)').css('display','none');
+		if (nav.css('position') === "fixed"){
+			container.find('article:not(.active)').css('display','none');
 	    } else {
-	    	$('#container article:not(.active)').attr('style','');
+	    	container.find('article:not(.active)').attr('style','');
 	    }
 	}
-	toggleInactiveArticles();
-
 	function pickRandomCharacter() {
-		var characters = ['thumb', 'cake', 'lightning', 'bicycle', 'coffee', 'peace', 'heart', 'magic', 'paw', 'music']
+		characters = ['thumb', 'cake', 'lightning', 'bicycle', 'coffee', 'peace', 'heart', 'magic', 'paw', 'music']
 		function randomCharacter() {
 			return Math.floor(Math.random() * characters.length);
 		}
 		selected = randomCharacter();
-		if ($('body').hasClass(characters[selected])) {
-			$('body').removeClass().addClass('smile');
-			$('#container').removeClass().addClass('smile');
+		if (body.hasClass(characters[selected])) {
+			body.removeClass().addClass('smile');
+			container.removeClass().addClass('smile');
 		} else {
-			$('body').removeClass().addClass(characters[selected]);
-			$('#container').removeClass().addClass(characters[selected]);
+			body.removeClass().addClass(characters[selected]);
+			container.removeClass().addClass(characters[selected]);
 		}
 	}
+
+	/* LISTENERS */
+	navLinks.on('click',function(){
+		var clickedLink = $(this);
+
+		if ($(articles[clickedLink.index()]).hasClass('active')) {return;}
+
+		if (clickedLink.parent('nav').css('position') === "fixed") {
+			pickRandomCharacter();
+
+			footer.addClass('hidden');
+
+			container.find('.active').fadeOut(function(){
+				articles[clickedLink.index()].click();
+				$('.active').fadeIn();
+				footer.removeClass('hidden');
+			});
+		}
+		articles[clickedLink.index()].click();
+	});
+
+	$(window).on('resize', function(event) {
+		toggleInactiveArticles();
+		adjustPageHeight(container.find('.active'));
+	});
+
+	zoomImage.on('click',function(){
+		$(this).toggleClass('zoom');
+
+		activeArticle = $(this).parents('.case-study');
+		window.setTimeout(function(){
+			adjustPageHeight(activeArticle);
+		}, 500);
+	});
+
+	//Video/Animation Overlay
+	player.on('click', function(event){
+		eventTarget = $(event.target);
+		vidSrc = $(this).attr('id');
+		vidPos = $(document).height() - $(this).parent().offset().top + 50;
+		showPlayer(vidSrc, vidPos, eventTarget);
+	});
+
+	//end Video/Animation Overlay
+	articles.on('click', function(event) {
+		//skip this whole click function if the clicked article is '.active'
+		if ($(this).hasClass('active')) {return;}
+
+		//prevent links from firing on inactive articles
+		articles.on('click', function(event){
+			if ($(this).hasClass('active')) {return;}
+			else {event.preventDefault();}
+       	});
+
+		//update new article and corresponding link to have 'active' class
+		$('.active').removeClass('active');
+		$(this).addClass('active');
+		$(navLinks[$('.active').index()]).addClass('active');
+
+		//change the icon if the last article is selected
+		if ($(this).index() === articles.length-1) {pickRandomCharacter();}
+
+
+		$(this).parents('div').css('margin-left', $(this).index() * -875 + 'px');
+		body.stop().animate({scrollTop:0}, 'swing');
+		adjustPageHeight(this);
+	});
+
+	/* Start Page */
+	adjustPageHeight($('#resume'));
+	toggleInactiveArticles();
 	pickRandomCharacter();
 });
 </script>
