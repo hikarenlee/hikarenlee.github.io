@@ -51,8 +51,9 @@ body > footer i {color:#d98c9e;}
 #resume {box-shadow:0 3px 15px -3px rgba(0,0,0,0.4);padding:30px 5%;border:1px solid #e2e2e2;max-width:650px;}
 #resume section {margin-bottom:2em;}
 #resume section:last-child {margin-bottom:0;}
-#resume h2 {margin-bottom:0;font-size:1.5rem}
+#resume h2 {margin-bottom:0;font-size:1.5rem;text-transform:uppercase;}
 #resume h4 {font-size:.9em;margin:0;padding-right:.5rem;color:#555;text-transform:uppercase;}
+#resume ul {margin:0;padding-left:0;}
 @media (min-width:650px){#resume {max-width:710px;padding:8% 5% 50px;}}
 @media (min-width:710px){#resume {padding:50px;}}
 @media (min-width:1030px){
@@ -61,7 +62,8 @@ body > footer i {color:#d98c9e;}
 	#container > #resume:not(.active)::before {transform:rotate(-90deg);}
 }
 #resume header h1 {margin:0;font-size:1.9rem;line-height:1.9rem;font-weight:normal;}
-#resume header a {font-size:1.2rem;line-height:1.8rem;display:block;text-decoration:none;}
+#resume header p {margin:0;}
+#resume header span {font-size:1.2rem;line-height:1.8rem;text-decoration:none;}
 #summary p {margin:0 auto .5rem;}
 #skills ul {padding-left:0;margin-top:0;}
 #skills li {list-style:none;display:inline-block;}
@@ -72,15 +74,24 @@ body > footer i {color:#d98c9e;}
 	#skills ul {margin:0;}
 }
 #experience p {margin:.3em auto 0;}
-#experience strong {font-size:.9em;padding-right:.5rem;text-transform:uppercase;}
-.job-title, .major {font-weight:normal;font-size: 1.2rem;margin-top:1.8rem;margin-bottom:0;}
+#experience strong {padding-right:.5rem;text-transform:uppercase;}
+.job-title {font-size:1rem;font-weight:normal;margin-top:1.8rem;margin-bottom:0;}
+.job-title strong {font-size:1.2rem;}
+.major {font-weight:normal;font-size:1.2rem;margin-top:.8rem;margin-bottom:0;}
 .job-title:first-of-type, .major:first-of-type {margin-top:0;}
-.major {margin-top:.8rem;}
+.job-title time {float:right;}
+.job-title + * {clear:right;}
+
 .company, .school {font-weight:normal;font-size:.9rem;margin:.3rem 0 .5rem;}
 .company span, .school span {font-weight:bold;}
 @media print{
-	#resume {max-width:auto;box-shadow:none;padding:none;}
-	#summary, #skills, #experience, #education {page-break-before:avoid;page-break-inside:avoid;}
+	body::after, #resume::before, nav, footer, #container > article:not(.active), #container::after {display:none !important;}
+	html, body, #container {max-width:100%;width:100%;}
+	@page, #container {padding-top:1cm;padding-right:1.5cm;padding-bottom:0;}
+	#resume {max-width:auto;box-shadow:none;padding:0;margin:0;border:none;}
+	#summary, #skills, #education {page-break-before:avoid;page-break-inside:avoid;}
+	.pagebreak {page-break-before:always !important;}
+	#extracurriculars p:last-child {margin-bottom:0;}
 }
 
 /* CASE STUDY - GENERAL STYLES */
@@ -272,15 +283,13 @@ $('document').ready(function(){
 	<article id="resume" class="active">
 		<header>
 			<h1>Brian Donahue</h1>
-			<a>brimwd@gmail.com</a>
-			<a>971-222-9892</a>
+			<p><span>brimwd@gmail.com</span> • <span>971-222-9892</span></p>
+			<p><span>http://brimwd.github.io</span></p>
 		</header>
 		<h2>Summary</h2>
 		<section id="summary">
-			<p>I am a UX Engineer - I can design experiences and build them too. I've spent most of my career as a freelancer and contractor, seeking new challenges, learning opportunities, and the chance to use my skills.</p>
-			<p>I have a background in the service industry, and after years freelancing, I'm comfortable talking to &#8209;and taking feedback from&#8209; anyone: I can pitch ideas to CEOs; I can discuss design rationale with my org-director at Amazon; I can keep research participants smiling while they wait for their session.</p>
-			<p>I thrive in environments where I can have ownership, where teams collaborate and communicate, and where there are clear goals. Goal&#8209;oriented design allows us to identify the needs of all parties, and to be intentional about what we prioritize and why; It means less pivoting and more transparency around progress.</p>
-			<p>Outside of work, I volunteer my skills for non&#8209;profit organizations. I’m also an avid reader, a muralist and painter, a farmer's market enthusiast, and I build my own hobby websites and products.</p>
+			<p>I am a UX Engineer - I can design experiences and build them too. I've spent my career freelancing and contracting, seeking new challenges, learning opportunities, and the chance to use my skills.</p>
+			<p>I thrive in environments where I can have ownership, where teams collaborate and communicate, and where there are clear goals. My process always starts with identifying the needs of all parties so that I can be be intentional about what I prioritize; It means less pivoting and more transparency around progress.</p>
 		</section>
 		<h2>Skills</h2>
 		<section id="skills">
@@ -301,29 +310,34 @@ $('document').ready(function(){
 				<li>Natural leader</li><li>project management experience</li><li>hiring experience</li><li>consulting</li><li>pitches &amp; presentations</li><li>empathy</li><li>integrity</li>
 			</ul>
 		</section>
+
 		<h2>Experience</h2>
 		<section id="experience">
-			<h3 class="job-title">Contracting UX Engineer</h3>
-			<h3 class="company"><span>Aquent / The Creative Group / Distilled</span> - November 2015 to Present</h3>
-			<p><strong>Role</strong>Production Web Developer, UX Designer, UX Engineer</p>
-			<p><strong>Technologies</strong>HTML5, CSS3, Bootstrap 4, SASS, Handlebars, jQuery, Node, Github</p>
-			<p><strong>Brands</strong>Bluetooth, Amazon, Microsoft, X&#8209;Box, T&#8209;Mobile, Wal&#8209;Mart</p>
-			<p class="summary"><strong>Summary</strong>Integrating with multi&#8209;functional teams to deliver designs and software. I've worked on a variety of products including a self&#8209;documenting style&#8209;guide; mobile UI prototypes for iOS and web; product taxonomies; information architecture for b2b tools; and responsive e&#8209;mail templates in English &amp; Spanish.</p>
+			<h3 class="job-title"><strong>UX Consultant</strong> (UX Designer/Engineer &amp; Web Developer) <time>11/2015 – Present</time></h3>
+			<p class="company"><strong>Clients:</strong> Bluetooth, Amazon, Microsoft, X&#8209;Box, T&#8209;Mobile, Walmart (via Aquent, TCG, Distilled)</h3>
+			<ul>
+				<li>Integrating with multi-functional teams to deliver designs and software.</li>
+				<li>I've worked on a variety of products including a self-documenting style guide; mobile UI prototypes for iOS and web; product taxonomies; information architecture for b2b tools; and responsive email templates in English &amp; Spanish.</li>
+			</ul>
+			<p><strong>Environment:</strong> HTML5, CSS3, Bootstrap 4, SASS, Handlebars, jQuery, Node, Github</p>
 
-			<h3 class="job-title">Lead Web Developer</h3>
-			<h3 class="company"><span>b2d Marketing</span> - October 2014 to November 2015</h3>
-			<p><strong>Role</strong>Front-End Web Developer and Creative Department Team-Lead</p>
-			<p><strong>Technologies</strong>HTML5, CSS3, jQuery, Bootstrap 3, Drupal 6 &amp; 7, Wordpress</p>
-			<p><strong>Product</strong> Responsive web marketing campaigns and collateral, online&#8209;store maintenance, e&#8209;mail newsletters, logos, branding</p>
-			<p class="summary"><strong>Summary</strong>Lead designer and developer on a team of 6, directing and delivering marketing campaigns and site maintenance for a rotating set of 5 to 7 clients.</p>
+			<h3 class="job-title pagebreak"><strong>Lead Web Developer &amp; Creative Lead</strong> <time>10/2014 – 11/2015</time></h3>
+			<p class="company"><strong>B2D Marketing</strong>
+			<ul>
+				<li>Responsive web marketing campaigns and collateral, online store maintenance, email newsletters, logos, branding</li>
+				<li>Lead designer and developer on a team of 6, directing and delivering marketing campaigns and site maintenance for a rotating set of 5 to 7 clients.</li>
+			</ul>
+			<p><strong>Environment:</strong> HTML5, CSS3, jQuery, Bootstrap 3, Drupal 6 &amp; 7, Wordpress</p>
 
-			<h3 class="job-title">Consulting Designer &amp; Developer</h3>
-			<h3 class="company"><span>Freelance / Self-Employed</span> - December 2007 to November 2015</h3>
-			<p><strong>Role</strong>Graphic Designer, Front&#8209;End Developer, Human&#8209;Centered Design Consultant</p>
-			<p><strong>Technologies</strong>HTML, CSS, jQuery, Bootstrap 3, Wordpress</p>
-			<p><strong>Product</strong>Mobile app designs, responsive web development, branding, marketing strategy and collateral, information architecture, user research</p>
-			<p><strong>Clients</strong>Seattle PRIDE, Moving Worlds, Bob Books, Siren, University of Iowa</p>
-			<p class="summary"><strong>Summary</strong>Using 'design thinking' and a human&#8209;centered approach, I've helped my clients understand their customers and deliver their brands. I've developed responsive websites and email campaigns, online stores, and mobile video games. I've designed logos, fonts, T&#8209;shirts, menus, event banners, and marketing collateral.</p>
+			<h3 class="job-title"><strong>Design Consulting</strong> (Designer &amp; Front End Developer) <time>12/2007 – 11/2015</time></h3>
+			<p class="company"><strong>Clients:</strong> Seattle PRIDE, Moving Worlds, Bob Books, Siren, University of Iowa</p>
+			<ul>
+				<li>Mobile app designs, responsive web development, branding, marketing strategy and collateral, information architecture, user research</li>
+				<li>Using "design thinking" and a human-centered approach, I've helped my clients understand their customers and deliver their brands.</li>
+				<li>I've developed responsive websites and email campaigns, online stores, and mobile video games.</li>
+				<li>I've designed logos, fonts, T-shirts, menus, event banners, and marketing collateral.</li>
+			</ul>
+			<p><strong>Environment:</strong> HTML, CSS, jQuery, Bootstrap 3, Wordpress</p>
 		</section>
 		<h2>Education</h2>
 		<section id="education">
@@ -335,6 +349,11 @@ $('document').ready(function(){
 
 			<h3 class="major">Illustration</h3>
 			<h3 class="school"><span>Ringling School of Art &amp; Design</span> - Fall 2007</h3>
+		</section>
+		<h2>Extracurriculars</h2>
+		<section id="extracurriculars">
+			<p>Outside of work, I volunteer my design skills for non-profit organizations.</p>
+			<p>I'm also an avid reader, a muralist and painter, a farmer's market enthusiast, and I build hobby websites and products.</p>
 		</section>
 	</article>
 
