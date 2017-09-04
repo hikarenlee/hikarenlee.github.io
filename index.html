@@ -106,6 +106,10 @@ body > footer i {color:#d98c9e;}
 .case-study header p {border-bottom:1px solid white;padding-bottom:1.2rem;font-size:1.4rem;margin-top:.5rem;}
 .case-study header time {font-size:1.2rem;display:block;margin-bottom:1.2rem;}
 .case-study h2 {color:#0082FC;font-size:1.8em;border-bottom:1px solid #0082FC;padding-bottom:1rem;margin:0 0 2rem;}
+.case-study .persona {margin:20px 0;padding:6px 0 3px 3%;border-left:6px solid #ced6de;}
+.case-study .persona h3 {margin:0;}
+.case-study .list-header {margin:0;font-weight:bold;}
+.case-study ul, .case-study ol {margin-top:0;}
 .case-study section :last-child {margin-bottom:0;}
 @media (min-width:650px){
 	.case-study > * {padding:5%}
@@ -367,20 +371,93 @@ $('document').ready(function(){
 		<section>
 			<h2>Overview: Problem &amp; Goal Statements</h2>
 			<p><strong>Role:</strong> UX Engineer - contractor - 8 weeks</p>
-			<p><strong>Task:</strong> Assist the UX team in completing their style guide</p>
-			<p><strong>Problem:</strong> The style guide is incomplete and seldom used</p>
-			<p><strong>Goal:</strong></p>
+			<p><strong>Task:</strong> Design &amp; develop a style guide that the entire company can leverage</p>
+			<p class="list-header">Problems:</p>
+			<ul>
+				<li>Developers aren't implementing styles from the guide</li>
+				<li>There are too many disparate styles and style sheets</li>
+				<li>The style guide lacks any guidance on when/why to use components</li>
+				<li>The style guide website is not fully responsive</li>
+				<li>The existing style guide is poorly coded</li>
+			</ul>
+			<p class="list-header">Impacts:</p>
+			<ul>
+				<li>User interfaces are inconsistently implemented and harder to maintain</li>
+				<li>Multiple style sheets decreases performance and creates confusion around which styles belong to which properties</li>
+				<li>Users of our products and tools are subject to an inconsistent, poor user experience</li>
+				<li>The style guide website is inconvenient for developers to use</li>
+				<li>The style guide website is difficult for designers to use and maintain</li>
+			</ul>
+			<p class="list-header">Goals:</p>
+			<ul>
+				<li>Improved consistency of style implementation</li>
+				<li>Develop a unified set of styles</li>
+				<li>Clearly define usage guidelines around components</li>
+				<li>Remove obstacles to style guide usage</li>
+				<li>Improve underlying style guide code</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Research: User Interviews</h2>
+			<p>sketches</p>
+			<p>prototype</p>
+			<p>testing</p>
+		</section>
+		<section>
+			<h2>User Personas:</h2>
+			<aside class="persona">
+				<h3>Developers Using Bootstrap</h3>
+				<p class="list-header">Needs:</p>
 				<ul>
-					<li>Determine why the developers aren't using the style guide</li>
-					<li></li>
+					<li>Visual reference for styles</li>
+					<li>CSS class names</li>
+					<li>(Occasionally) HTML snippets</li>
+					<li>Clear documentation about changes</li>
 				</ul>
+				<p class="list-header">Pain Points:</p>
+				<ul>
+					<li>Difficult to find style guide when needed</li>
+					<li>Difficult to reference (too much code)</li>
+					<li>Insufficient content (usage guidelines &amp; components)</li>
+					<li>Lack of communication about style guide updates</li>
+				</ul>
+			</aside>
+			<aside class="persona">
+				<h3>Developers On Other Platforms</h3>
+				<p class="list-header">Needs:</p>
+				<ul>
+					<li>Visual reference for styles</li>
+					<li>Element properties (full CSS)</li>
+					<li>(Occasionally) HTML snippets</li>
+					<li>Clear documentation about changes</li>
+				</ul>
+				<p class="list-header">Pain Points:</p>
+				<ul>
+					<li>Difficult to find style guide when needed</li>
+					<li>Insufficient content (usage guidelines)</li>
+				</ul>
+			</aside>
+			<aside class="persona">
+				<h3>Designers, Marketing, QA, Management</h3>
+				<p class="list-header">Needs:</p>
+				<ul>
+					<li>Visual reference for styles</li>
+					<li>Element properties (full CSS)</li>
+					<li>Component usage guidelines</li>
+					<li>Pattern files</li>
+				</ul>
+				<p class="list-header">Pain Points:</p>
+				<ul>
+					<li>Difficult to find style guide when needed</li>
+					<li>Difficult to reference (too much code)</li>
+					<li>Insufficient content (usage guidelines &amp; components)</li>
+					<li>Lack of communication about style guide updates</li>
+					<li>Visual styles are not consistent between style guides</li>
+				</ul>
+			</aside>
 		</section>
 		<section>
-			<h2>Research: User Interviews</h2>
-			<p>personas</p>
-		</section>
-		<section>
-			<h2>Research: User Interviews</h2>
+			<h2>Research: Usability Study</h2>
 			<p>sketches</p>
 			<p>prototype</p>
 			<p>testing</p>
