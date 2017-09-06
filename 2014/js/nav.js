@@ -70,7 +70,7 @@ $(document).ready(function() {
     if (scroll > navStart) {
       $('#mainNav').addClass('snap');
     } else {
-      $('#mainNav').removeClass('snap');  
+      $('#mainNav').removeClass('snap');
     }
   });
 
@@ -108,12 +108,12 @@ $(document).ready(function() {
     $('#PRINT').slideDown();
   });
   $('#portfoliobtn, .portfolio-menu').on('click',function(){
-    if( $('#portfolio-top').css('display') == 'none' )  { 
+    if( $('#portfolio-top').css('display') == 'none' )  {
       $('#portfolio section:nth-of-type(n+1)').slideUp();
       $('#portfolio-top').slideDown();
     }
   });
-  
+
   //Handle deep linking
   var hash = window.location.hash;
   if(hash){
@@ -137,8 +137,8 @@ $(document).ready(function() {
     $(this).addClass('active');
     //prevent scrolling in body
     $('body').css({'overflow':'hidden'});
-    $(document).bind('scroll',function () { 
-      window.scrollTo(0,0); 
+    $(document).bind('scroll',function () {
+      window.scrollTo(0,0);
     });
     populateShowcase($(this));
     $('#showcase').fadeIn();
@@ -149,7 +149,7 @@ $(document).ready(function() {
     var portfolioElement = el;
     var projectName = portfolioElement.parent('li').data("project");
     $.ajax({
-      url: 'https://brimwd.github.io/showcase/'+projectName+'.html',
+      url: 'https://brimwd.github.io/2014/showcase/'+projectName+'.html',
       dataType: 'html',
       success: function(response) {
         portfolioElement.html(response);
@@ -187,7 +187,7 @@ $(document).ready(function() {
     getFeature($(featImg[0]));
     browser.find('a:first').addClass('active');
   }
-  
+
   var getFeature = function(ft){
     //sets feature image and text
     feature.css('background-image','url('+ft.attr('src')+')');
@@ -215,7 +215,7 @@ $(document).ready(function() {
       browser.addClass('open');
     }
   };
-  
+
   $('#closeshowcase').on("click", hideShowcase);
 
   browser.on("click", 'img', function(){
@@ -305,7 +305,7 @@ $(document).ready(function() {
         feature.css('background-size','auto 100%');
       }
     };
-    //set initial background ratio 
+    //set initial background ratio
     setRatio();
     //set background ration on window resize
     $(window).on('resize', setRatio);
@@ -369,7 +369,7 @@ $(document).ready(function() {
         }
     }*/
   });
-  
+
   //play game
 	$('#display-font a').click(function(){
 		$('#star-box').addClass('fly');
