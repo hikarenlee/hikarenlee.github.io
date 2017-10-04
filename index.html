@@ -325,7 +325,7 @@ $('document').ready(function(){
 
 
 		$(this).parents('div').css('margin-left', $(this).index() * -875 + 'px');
-		body.stop().animate({scrollTop:0}, 'swing');
+		$('html, body').stop().animate({scrollTop:0});
 		adjustPageHeight(this);
 	});
 
