@@ -141,6 +141,7 @@ body > footer i {color:#d98c9e;}
 	#roles .other::before {background-color:#a973ff;}
 	#roles .designers::before {background-color:#9ce8ff;}
 }
+/* BLUETOOTH VENN DIAGARAM */
 #design-dev-chart {display:none;}
 @media (min-width:430px) {
 	#bluetooth #roles {list-style-type:decimal;}
@@ -167,8 +168,8 @@ body > footer i {color:#d98c9e;}
 	#design-dev-chart #designers:hover::after, #design-dev-chart #designers:focus::after, #design-dev-chart #designers.focus::after {background-color:#dcf0ff;border-color:blue;}
 }
 @media (min-width:820px) {#design-dev-chart {float:right;width:390px;}}
-
-#bluetooth .design-dev-chart-data {list-style-type:none;padding-left:0;}
+/* BLUETOOTH VENN DIAGARAM DATA */
+.design-dev-chart-data {list-style-type:none;padding-left:0;}
 .design-dev-chart-data li {position:relative;opacity:.4;}
 .design-dev-chart-data li:not(.focus) {}
 .design-dev-chart-data li.focus {opacity:1;}
@@ -188,6 +189,19 @@ body > footer i {color:#d98c9e;}
 .design-dev-chart-data .bootstrap.other.designers::before {content:'';background-color:transparent;margin-right:16px;margin-left:4px;}
 .design-dev-chart-data .bootstrap.other.designers::after {content:'';background-color:transparent;left:10px;}
 
+/* CAN-ZOOM IMAGE */
+img.can-zoom {max-width:30%;float:right;margin:0 0 10px 20px;transition:max-width .5s, border .3s, margin-left .3s;cursor:zoom-in;border:1px solid white;}
+img.can-zoom:hover {border-color:grey;}
+img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
+/* 3 IMAGES */
+.three-images {text-align:center;}
+.three-images .can-zoom {max-width:31%;margin-left:1%;float:none;transition:none;display:inline-block;vertical-align:top;}
+.three-images .can-zoom.zoom {max-width:100%;float:left;margin:0;margin-bottom:12px;}
+.three-images .zoom {border-width:1px;}
+.three-images img + img {margin-bottom:17px;}
+.three-images + * {clear:both;margin-top:0;}
+@media (min-width:700px){.three-images .can-zoom.zoom {max-width:66%;} .three-images .zoom ~ .can-zoom {max-width:32%;}}
+
 /* BOB BOOKS CASE STUDY */
 #game header {background-image:url(images/candd/candd.gif);background-size:auto 101%;background-position:0 -3px;color:white;}
 #game header h1 {margin-top:2rem;}
@@ -195,9 +209,6 @@ body > footer i {color:#d98c9e;}
 #game h2 {color:#8b6a40;border-color:#8b6a40;}
 #game a {color:#333;text-decoration:none;cursor:pointer;border-bottom:1px dotted #333;}
 #game a.player {border:none;}
-#game img.can-zoom {max-width:30%;float:right;margin:0 0 10px 20px;transition:max-width .5s, border .3s, margin-left .3s;cursor:zoom-in;border:1px solid white;}
-#game img.can-zoom:hover {border-color:grey;}
-#game img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
 #demo-player {position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,0.8);z-index:5;padding-top:35%;display:none;margin-top:0;cursor:pointer;}
 #demo-player .container {position:absolute;bottom:0;left:0;right:0;}
 #demo-player * {text-align:center;color:white;}
@@ -293,6 +304,10 @@ $('document').ready(function(){
 	});
 
 	zoomImage.on('click',function(){
+		if($(this).parent().hasClass('three-images')) {
+			$(this).prependTo($(this).parent());
+			$(this).siblings().removeClass('zoom');
+		}
 		$(this).toggleClass('zoom');
 
 		activeArticle = $(this).parents('.case-study');
@@ -514,8 +529,13 @@ $('document').ready(function(){
 			</ul>
 		</section>
 		<section>
-			<h2>Research: Usability Study</h2>
-			<p>sketches</p>
+			<h2>Prototyping</h2>
+			<p>Using the feedback we received during our interviews, I created a set of low-fi mock-ups in Balsamiq to facilitate feature and content discussions with the UX team.
+			<aside class="three-images">
+				<img src="images/uxsg1.png" class="can-zoom" alt="Style Guide 'elements'"/>
+				<img src="images/uxsg2.png" class="can-zoom" alt="Style Guide 'components'"/>
+				<img src="images/uxsg3.png" class="can-zoom" alt="Style Guide 'utilities'"/>
+			</aside>
 			<p>prototype</p>
 			<p>testing</p>
 		</section>
