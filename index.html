@@ -281,13 +281,8 @@ $('document').ready(function(){
 	}
 
 	function loadDeepLink () {
-		if (document.location.hash) {
-			console.log(document.location.hash);
-			document.getElementById(document.location.hash.slice(9)).click();
-		}
-		else {
-			adjustPageHeight($('#resume'));
-		}
+		if (document.location.hash) { document.getElementById(document.location.hash.slice(9)).click(); }
+		else { adjustPageHeight($('#resume')); }
 	}
 
 	/* LISTENERS */
@@ -341,10 +336,13 @@ $('document').ready(function(){
 		//skip this whole click function if the clicked article is '.active'
 		if ($(this).hasClass('active')) {return;}
 
+		//update hash
+		var newHash = this === $(this).parent().children(':first-child')[0] ? '' : "section-"+$(this).attr('id');
 		if (history.replaceState  && typeof(history.replaceState) === "function") {
-			window.history.replaceState("object or string", "Title", "#section-"+$(this).attr('id'));
+		if (this === $(this).parent().children(':first-child')[0]) { window.history.replaceState("object or string", "Title", 'index.html'); }
+			else { window.history.replaceState("object or string", "Title", "#" + newHash); }
 		} else {
-			document.location.hash = $(this).attr('id');
+			document.location.hash = newHash;
 		}
 
 		//prevent links from firing on inactive articles
@@ -376,10 +374,10 @@ $('document').ready(function(){
 		data = $('.design-dev-chart-data');;
 
 	chart.on('click','a',function(){
-		// toggle highlight on chart
+		//toggle highlight on chart
 		chart.children().removeClass('focus');
 		$(this).addClass('focus');
-		// toggle highlight on needs/pain points
+		//toggle highlight on needs/pain points
 		data.find('li').removeClass('focus');
 		data.find('.'+$(this).attr('id')).addClass('focus');
 	});
