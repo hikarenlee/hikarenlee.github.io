@@ -285,6 +285,9 @@ $('document').ready(function(){
 			console.log(document.location.hash);
 			document.getElementById(document.location.hash.slice(9)).click();
 		}
+		else {
+			adjustPageHeight($('#resume'));
+		}
 	}
 
 	/* LISTENERS */
@@ -365,10 +368,9 @@ $('document').ready(function(){
 	});
 
 	/* Start Page */
-	adjustPageHeight($('#resume'));
+	loadDeepLink();
 	toggleInactiveArticles();
 	refreshBgIcon();
-	loadDeepLink();
 
 	var chart = $('#design-dev-chart'),
 		data = $('.design-dev-chart-data');;
