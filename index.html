@@ -240,6 +240,7 @@ $('document').ready(function(){
 		activeArticle = $(),
 		vidPlayer = $(), $div = $(), vidSrc = $(), vidPos = $(), eventTarget = $(),
 		characters = ['thumb', 'peace', 'cake', 'magic', 'lightning', 'bicycle', 'coffee', 'heart', 'paw', 'music', 'smile'], selectedCharacter = 'a';
+
 	function showPlayer ($targetVid, $vidPos, eventTarget){
 		$div = '<div id="demo-player"><div class="container"><span><img src="" alt=""/><footer>(click anywhere to close this overlay)</footer></span><p>Loading...</p></div></div>';
 
@@ -277,6 +278,13 @@ $('document').ready(function(){
 
 		body.removeClass().addClass(characters[selectedCharacter]);
 		container.removeClass().addClass(characters[selectedCharacter]);
+	}
+
+	function loadDeepLink () {
+		if (document.location.hash) {
+			console.log(document.location.hash);
+			document.getElementById(document.location.hash.slice(9)).click();
+		}
 	}
 
 	/* LISTENERS */
@@ -330,6 +338,12 @@ $('document').ready(function(){
 		//skip this whole click function if the clicked article is '.active'
 		if ($(this).hasClass('active')) {return;}
 
+		if (history.replaceState  && typeof(history.replaceState) === "function") {
+			window.history.replaceState("object or string", "Title", "#section-"+$(this).attr('id'));
+		} else {
+			document.location.hash = $(this).attr('id');
+		}
+
 		//prevent links from firing on inactive articles
 		articles.on('click', function(event){
 			if ($(this).hasClass('active')) {return;}
@@ -354,6 +368,7 @@ $('document').ready(function(){
 	adjustPageHeight($('#resume'));
 	toggleInactiveArticles();
 	refreshBgIcon();
+	loadDeepLink();
 
 	var chart = $('#design-dev-chart'),
 		data = $('.design-dev-chart-data');;
@@ -370,7 +385,6 @@ $('document').ready(function(){
 		chart.children().removeClass('focus');
 		data.find('li').addClass('focus');
 	});
-
 });
 </script>
 </head>
