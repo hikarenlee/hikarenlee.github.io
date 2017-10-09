@@ -32,7 +32,7 @@ body > footer i {color:#d98c9e;}
 	nav a.active, nav a:hover {border-color:#c3cdda;}
 	nav span {display:inline;}
 	html, body {max-width:100%;overflow-x:hidden;margin:0;}
-	nav {display:block;}
+	nav {display:none;}
 
 	body > footer {border-top:1px solid #c3cdda;margin-bottom:0;box-shadow:0 0 100px 100px rgb(255,255,255);}
 
@@ -265,9 +265,9 @@ $('document').ready(function(){
 	function toggleInactiveArticles() {
 		if (nav.css('position') === "fixed"){
 			container.find('article:not(.active)').css('display','none');
-	    } else {
-	    	container.find('article:not(.active)').attr('style','');
-	    }
+		} else {
+			container.find('article:not(.active)').attr('style','');
+		}
 	}
 	function refreshBgIcon() {
 		if (typeof selectedCharacter === 'number'){
@@ -281,7 +281,10 @@ $('document').ready(function(){
 	}
 
 	function loadDeepLink () {
-		if (document.location.hash) { document.getElementById(document.location.hash.slice(9)).click(); }
+		if (document.location.hash) {
+			nav.css('display','block');
+			document.getElementById(document.location.hash.slice(9)).click();
+		}
 		else { adjustPageHeight($('#resume')); }
 	}
 
@@ -335,6 +338,7 @@ $('document').ready(function(){
 	articles.on('click', function(event) {
 		//skip this whole click function if the clicked article is '.active'
 		if ($(this).hasClass('active')) {return;}
+		if (nav.css('display') === 'none') {nav.fadeIn();}
 
 		//update hash
 		var newHash = this === $(this).parent().children(':first-child')[0] ? '' : "section-"+$(this).attr('id');
@@ -349,7 +353,7 @@ $('document').ready(function(){
 		articles.on('click', function(event){
 			if ($(this).hasClass('active')) {return;}
 			else {event.preventDefault();}
-       	});
+		});
 
 		//update new article and corresponding link to have 'active' class
 		$('.active').removeClass('active');
@@ -358,7 +362,6 @@ $('document').ready(function(){
 
 		//change the icon if the last article is selected
 		if ($(this).index() === articles.length-1) {refreshBgIcon();}
-
 
 		$(this).parents('div').css('margin-left', $(this).index() * -875 + 'px');
 		$('html, body').stop().animate({scrollTop:0});
