@@ -348,7 +348,7 @@ $('document').ready(function(){
 
 		//update hash
 		var newHash = this === $(this).parent().children(':first-child')[0] ? '' : "section-"+$(this).attr('id');
-		if (history.replaceState  && typeof(history.replaceState) === "function") {
+		if (history.replaceState && typeof(history.replaceState) === "function") {
 		if (this === $(this).parent().children(':first-child')[0]) { window.history.replaceState("object or string", "Title", 'index.html'); }
 			else { window.history.replaceState("object or string", "Title", "#" + newHash); }
 		} else {
