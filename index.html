@@ -252,8 +252,11 @@ $('document').ready(function(){
 		var vidPlayer = $('#demo-player');
 
 		vidPlayer.find('.container').css('bottom',$vidPos);
-		vidPlayer.find('img').attr('src',$targetVid);
-
+		if ($targetVid === 'bluetooth-presentation') {
+			vidPlayer.find('img').after($('<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTxQqvmgk8c1hy0LxPBQ6RWURbNxQ5FqCdg9OqPxPriwsZEyLgRB470g9ABmVXygYpIxwzQZtG5S9fU/embed?start=false&loop=false&delayms=60000" frameborder="0" width="90%" height="450" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>'));
+		} else {
+			vidPlayer.find('img').attr('src',$targetVid);
+		}
 		vidPlayer.on('click',function(){
 			this.remove();
 		});
