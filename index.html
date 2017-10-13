@@ -127,17 +127,16 @@ a.player::after {content:'\f144';vertical-align:middle;}
 
 /* GALLERY */
 .zoom.static {margin:0 auto;max-height:70vh;display:block;border:1px solid #bbb;}
-.gallery {text-align:center;margin:33px 20px 0;}
+.gallery {text-align:center;margin:15px 0 0;}
 .gallery * {cursor:pointer;}
 .gallery img {width:30%;margin-right:3%;border:1px solid #cfcfcf;background-color:white;box-shadow:2px 3px 4px -2px rgba(0,0,0,0.2);}
 .gallery img:last-of-type {margin:0;}
 .gallery span {display:none;}
 .gallery + p {margin-top:1rem !important;}
-.gallery.expand {margin:15px 0 0;}
 .gallery.expand img.focus {border-color:black;cursor:zoom-out;}
 @media (min-width:650px){.gallery img {max-width:28%;margin-right:2%;padding:8px;}}
 @media (min-width:850px){
-	.gallery {position:relative;width:228px;height:210px;margin-right:-17px;margin-bottom:20px;float:right;transform:rotate(2.5deg);transition:all .3s;}
+	.gallery {position:relative;width:228px;height:210px;margin:33px -17px 20px 15px;float:right;transform:rotate(2.5deg);transition:all .3s;}
 	.gallery::before, .gallery::after {content:'';position:absolute;display:inline-block;z-index:10;top:65px;right:-9px;width:52px;height:15px;border:3px solid #aaa;border-radius:60px 0 0 60px;border-right-width:0;transform:rotate(16deg);box-shadow:inset 2px 2px 3px -1px rgba(0,0,0,0.4), -1px 2px 2px -1px rgba(0,0,0,0.4);transition:all .3s, rotate .45s;transform-origin:100% 50%;}
 	.gallery::after {top:70px;right:-25px;width:16px;height:12px;border-width:3px;border-radius:0 30px 30px 0;border-left-width:0;border-bottom-color:transparent;box-shadow:inset -1px 3px 3px -2px rgba(0,0,0,0.4);transition:all .3s, rotate 1s;transform-origin:100% 100%;}
 	.gallery + p {margin-top:2rem !important;}
@@ -148,7 +147,7 @@ a.player::after {content:'\f144';vertical-align:middle;}
 	.gallery:hover img:nth-of-type(2) {transform:rotate(2deg);top:-13px;left:-4px;}
 	.gallery:hover img:nth-of-type(3) {transform:rotate(-4deg);top:13px;left:0px;}
 
-	.gallery.expand {transform:rotate(0deg);width:100%;text-align:right;}
+	.gallery.expand {transform:rotate(0deg);width:100%;text-align:right;margin:15px 0 0;}
 	.gallery.expand + * {clear:right;}
 	.gallery.expand + p {margin-top:0 !important;}
 	.gallery.expand::before, .gallery.expand::after {top:89px;right:-41px;transform:rotate(76deg);}
