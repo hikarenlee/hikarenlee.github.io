@@ -12,9 +12,9 @@
 *, body {line-height:1.5em;font-family:sans-serif;}
 body::after {text-align:center;position:fixed;top:calc(50% - 40px);left:0;right:0;font-family:FontAwesome;font-size:300px;color:#f1f4f7;z-index:0;}.thumb::after{content:'\f087';}.cake::after{content:'\f1fd';}.lightning::after{content:'\f0e7';}.bicycle::after{content:'\f206';}.coffee::after{content:'\f0f4';}.peace::after{content:'\f25b';}.heart::after{content:'\f004';}.magic::after{content:'\f0d0';}.paw::after{content:'\f1b0';}.smile::after{content:':-)';}.music::after{content:'\266B';}
 
-nav {text-align:center;overflow:auto;position:fixed;right:0;bottom:0;left:0;background-color:white;z-index:20;padding:10px 15px;white-space:nowrap;box-shadow:0 0 30px rgba(0,0,0,0.2);}
-nav a {display:inline-block;padding:6px 14px;margin:0 2px;color:#738090;border-radius:50px;transition:all .2s;cursor:pointer;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
-nav a.active {background-color:#dee4ea;color:#466686;}
+nav {text-align:center;overflow:auto;position:fixed;right:0;bottom:0;left:0;background-color:white;z-index:20;padding:10px 0;white-space:nowrap;box-shadow:0 0 30px rgba(0,0,0,0.2);}
+nav a {display:inline-block;padding:6px 9px;margin:0 2px;color:#738090;border-radius:50px;transition:all .2s;cursor:pointer;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+nav a.active {background-color:#dee4ea;color:#466686;padding:6px 14px;}
 nav span {display:none;}
 
 body > footer {text-align:center;margin-bottom:90px;color:#738090;z-index:1;position:relative;box-shadow:0 0 100px 300px rgb(255,255,255);background-color:white;}
@@ -31,7 +31,7 @@ a.player::after {content:'\f144';vertical-align:middle;}
 @media(min-width:1030px){
 	body::after {display:none;}
 	nav {padding:30px 0 0;position:static;background-color:transparent;box-shadow:0 0 0 rgba(255,255,255,0);}
-	nav a {border:1px solid transparent;margin:0 5px;}
+	nav a {border:1px solid transparent;margin:0 5px;padding:6px 14px;}
 	nav a.active, nav a:hover {border-color:#c3cdda;}
 	nav span {display:inline;}
 	html, body {max-width:100%;overflow-x:hidden;margin:0;}
@@ -39,7 +39,7 @@ a.player::after {content:'\f144';vertical-align:middle;}
 
 	body > footer {border-top:1px solid #c3cdda;margin-bottom:0;box-shadow:0 0 100px 100px rgb(255,255,255);}
 
-	#container {width:3600px;overflow-y:hidden;padding:0 370px 0 25px;transition:margin-left .3s;position:relative;}
+	#container {width:4500px;overflow-y:hidden;padding:0 370px 0 25px;transition:margin-left .3s;position:relative;}
 	#container::after {position:absolute;top:230px;right:0;width:385px;font-size:300px;color:#f1f4f7;font-family:FontAwesome;display:block;}
 	#container > article, #container > .active {display:inline-block;vertical-align:top;margin:30px 30px 50px;}
 	#container > article::after {position:absolute;content:'';top:200px;right:-32px;bottom:15px;border-right:1px solid #dbe2ea;}
@@ -242,14 +242,6 @@ a.player::after {content:'\f144';vertical-align:middle;}
 img.can-zoom {max-width:30%;float:right;margin:1rem 0 10px 20px;transition:max-width .5s, border .3s, margin-left .3s;cursor:zoom-in;border:1px solid white;}
 img.can-zoom:hover {border-color:grey;}
 img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
-/* 3 IMAGES */
-/*.three-images {text-align:center;}
-.three-images .can-zoom {max-width:30%;margin-left:1%;float:none;transition:none;display:inline-block;vertical-align:top;}
-.three-images .can-zoom.zoom {max-width:100%;float:left;margin:0;margin-bottom:12px;}
-.three-images .zoom {border-width:1px;}
-.three-images img + img {margin-bottom:17px;}
-.three-images + * {clear:both;margin-top:0;}
-@media (min-width:700px){.three-images .can-zoom {max-width:31%;} .three-images .can-zoom.zoom {max-width:66%;} .three-images .zoom ~ .can-zoom {max-width:32%;}}*/
 
 /* BOB BOOKS CASE STUDY */
 #game header {background-image:url(images/cadheader.gif);background-size:auto 101%;background-position:0 -3px;color:white;}
@@ -271,6 +263,16 @@ img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
 #userdata > header h1 {margin-top:4.2rem;}
 #userdata > header p {border-color:#fff;}
 #userdata h2 {color:#232f3e;border-color:#f90;}
+
+/* PORTFOLIO */
+#portfolio.active * {filter:none;transition:filter .1s;}
+#portfolio .portfolio {display:flex;flex-flow:row wrap;align-items:flex-start;align-content:flex-start;clear:right;}
+#portfolio p {font-weight:bold;}
+#portfolio time {float:right;}
+#portfolio .portfolio img {max-width:23%;max-height:200px;margin:0 1% 20px 0;cursor:pointer;border:1px solid #ccc;}
+#portfolio .before {display:none;}
+#viewer {transition:opacity .3s}
+.active #viewer ~ * {filter:blur(5px);}
 </style>
 <link rel="stylesheet" href="https://use.fontawesome.com/5d44595dd9.css" media="all">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -279,6 +281,7 @@ $('document').ready(function(){
 	var body = $('body'),
 		container = $('#container'),
 		articles = $('#container > article'),
+		portfolio = $('#portfolio section'),
 		nav = $('nav'),
 		navLinks = $('nav a'),
 		footer = $('body > footer')
@@ -329,11 +332,11 @@ $('document').ready(function(){
 		body.removeClass().addClass(characters[selectedCharacter]);
 		container.removeClass().addClass(characters[selectedCharacter]);
 	}
-
 	function loadDeepLink () {
 		if (document.location.hash) {
 			nav.css('display','block');
 			document.getElementById(document.location.hash.slice(9)).click();
+			if (nav.css('display') === 'none') {nav.show();}
 		}
 		else { adjustPageHeight($('#resume')); }
 	}
@@ -497,11 +500,29 @@ $('document').ready(function(){
 	$('.case-study').on('click','.static.zoom',function(){
 		$(this).siblings('.gallery.expand').find('.focus').click();
 	});
+	// PORTFOLIO VIEWER
+	$('#portfolio').on('click',function(e){
+		if (! $(this).hasClass('active')) {return;}
+
+		if (e.target.tagName === "IMG" && $(e.target).parent().hasClass('portfolio')) {
+			var marginTop = window.scrollY > (98 + (window.innerHeight * .05)) ? 'calc('+(window.scrollY - $('#portfolio')[0].offsetTop - $('#container')[0].offsetTop) +'px + 5vh)' : '5vh';
+			var position = 'static';
+			if ($(e.target).parent()[0] === $('#portfolio .portfolio:last-child')[0]) {
+				marginTop = 0;
+				var position = 'absolute';
+			}
+
+			$('#portfolio section').prepend($('<div id="viewer" style="position:absolute;top:0;right:0;bottom:0;left:0;text-align:center;cursor:pointer;z-index:10;background-color:rgba(0,0,0,0.4);box-shadow:none;border:none;padding:0;opacity:0;overflow:hidden;">').append($(e.target).clone().css({'display':'inline-block','cursor':'pointer','margin':marginTop+' auto 0','position':position,'right':'0','bottom':'5vh','left':'0','max-width':'95%','max-height':'90vh'})));
+			$('#portfolio').find('#viewer').css('opacity','1');
+		} else if ($(e.target).attr('id') === "viewer" || $(e.target).parent().attr('id') === "viewer") {
+			$('#portfolio').find('#viewer').remove();
+		}
+	});
 });
 </script>
 </head>
 <body>
-<nav><a class="active">Résumé</a><a><span>Case </span>Study<span> 1</span></a><a><span>Case </span>Study<span> 2</span></a><a><span>Case </span>Study<span> 3</span></a><!-- <a>Portfolio</a> --></nav>
+<nav><a class="active">Résumé</a><a><span>Case </span>Study<span> 1</span></a><a><span>Case </span>Study<span> 2</span></a><a><span>Case </span>Study<span> 3</span></a><a>Portfolio</a></nav>
 <div id="container">
 	<article id="resume" class="active">
 		<header>
@@ -795,9 +816,69 @@ $('document').ready(function(){
 			<p>Each interaction your customers have with you contributes to your cumulative relationship. Handle with care.</p>
 		</section>
 	</article>
-<!-- 	<article id="portfolio">
-
-	</article> -->
+	<article id="portfolio" class="case-study">
+		<section>
+			<h2>Select Visual Design Work</h2>
+			<p>Logos <time>2012 - 2017</time></p>
+			<div class="portfolio">
+				<img src="images/portfolio/logo-mw2.png" />
+				<img src="images/portfolio/logo-mw1.png" />
+				<img src="images/portfolio/logo-basebone.png" />
+				<img src="images/portfolio/logo-prideidol.png" />
+				<img src="images/portfolio/logo-jcccw.png" />
+				<img src="images/portfolio/logo-worthen.png" />
+				<img src="images/portfolio/logo-transit.jpg" />
+				<img src="images/portfolio/logo-galaxy.png" />
+			</div>
+			<p>Landing Pages<time>2015</time></p>
+			<div class="portfolio">
+				<img src="images/portfolio/landing-oldportfolio.png" />
+				<img src="images/portfolio/landing-cwd.png" />
+				<img src="images/portfolio/landing-docs.png" />
+				<img src="images/portfolio/landing-physics.png" />
+				<img src="images/portfolio/landing-acero.png" />
+			</div>
+			<p>Emails<time>2015</time></p>
+			<div class="portfolio">
+				<img class="after" src="images/portfolio/email-incisor.png" />
+				<img class="after" src="images/portfolio/email-physics.png" />
+				<img class="after" src="images/portfolio/email-meddent.png" />
+			</div>
+			<p>MovingWorlds Presentation Template<time datetime="2014-10-31">Oct 2014</time></p>
+			<div class="portfolio">
+				<img src="images/portfolio/mw-b2b1.png" />
+				<img src="images/portfolio/mw-b2b2.png" />
+				<img src="images/portfolio/mw-b2b3.png" />
+			</div>
+			<p>MovingWorlds Document Template<time datetime="2014-10-31">Oct 2014</time></p>
+			<div class="portfolio">
+				<img src="images/portfolio/mw-concept.png" />
+				<img src="images/portfolio/mw-doc1.png" />
+				<img src="images/portfolio/mw-doc2.png" />
+				<img src="images/portfolio/mw-doc3.png" />
+			</div>
+			<p>Seattle Pride<time datetime="2014-07-31">July 2014</time></p>
+			<div class="portfolio">
+				<img src="images/portfolio/pride-1974posterad.png" />
+				<img src="images/portfolio/pride-1974poster.png" />
+				<img src="images/portfolio/pride-map.png" />
+				<img src="images/portfolio/pride-sponsorsad.png" />
+				<img src="images/portfolio/pride-takei.png" />
+				<img src="images/portfolio/pride-badge.png" />
+				<img src="images/portfolio/pride-announcersad.png" />
+				<img src="images/portfolio/pride-idolbanner.jpg" />
+				<img src="images/portfolio/pride-judgesbanner.png" />
+			</div>
+			<p>Miscellaneous Print<time>2012 - 2014</time></p>
+			<div class="portfolio">
+				<img src="images/portfolio/print-oak.png" />
+				<img src="images/portfolio/print-tabletop.jpg" />
+				<img src="images/portfolio/print-museum.png" />
+				<img src="images/portfolio/print-bob.png" />
+				<img src="images/portfolio/print-ninebit.png" />
+			</div>
+		</section>
+	</article>
 </div>
 <footer>
 	<p>Built with <i class="fa fa-heart" title="love"></i> by Brian Donahue</p>
