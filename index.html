@@ -311,6 +311,10 @@ $('document').ready(function(){
 		});
 	}
 	function adjustPageHeight(element) {
+		// clear all timeouts
+		var id = window.setTimeout(function() {}, 0);
+		while (id--) {window.clearTimeout(id);}
+
 		if (nav.css('position') === "fixed") {
 			container.css('height','auto');
 			return;
@@ -413,6 +417,7 @@ $('document').ready(function(){
 	articles.on('click', function(event) {
 		//skip this whole click function if the clicked article is '.active'
 		if ($(this).hasClass('active')) {return;}
+
 		if (nav.css('display') === 'none') {nav.fadeIn();}
 
 		//update hash
@@ -423,12 +428,6 @@ $('document').ready(function(){
 		} else {
 			document.location.hash = newHash;
 		}
-
-		//prevent links from firing on inactive articles
-		articles.on('click', function(event){
-			if ($(this).hasClass('active')) {return;}
-			else {event.preventDefault();}
-		});
 
 		//update new article and corresponding link to have 'active' class
 		$('.active').removeClass('active');
@@ -441,6 +440,8 @@ $('document').ready(function(){
 		$(this).parents('div').css('margin-left', $(this).index() * -875 + 'px');
 		$('html, body').stop().animate({scrollTop:0});
 		adjustPageHeight(this);
+
+		$('#viewer').remove();
 	});
 
 	/* Start Page */
