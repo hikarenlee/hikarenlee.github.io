@@ -272,6 +272,8 @@ img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
 #portfolio .portfolio img {max-width:23%;max-height:200px;margin:0 1% 20px 0;cursor:pointer;border:1px solid #ccc;}
 #portfolio .before {display:none;}
 #viewer {transition:opacity .3s}
+#viewer img {display:inline-block;margin:0 auto;cursor:pointer;right:0;bottom:5vh;left:0;max-width:95%;max-height:80vh;}
+#viewer p {text-shadow:0 0 15px black, 0 0 25px black, 0 0 40px black;color:white;font-weight:normal;margin-top:5px;right:0;bottom:1.4vh;left:0;}
 .active #viewer ~ * {filter:blur(5px);}
 </style>
 <link rel="stylesheet" href="https://use.fontawesome.com/5d44595dd9.css" media="all">
@@ -509,10 +511,10 @@ $('document').ready(function(){
 			var position = 'static';
 			if ($(e.target).parent()[0] === $('#portfolio .portfolio:last-child')[0]) {
 				marginTop = 0;
-				var position = 'absolute';
+				position = 'absolute';
 			}
 
-			$('#portfolio section').prepend($('<div id="viewer" style="position:absolute;top:0;right:0;bottom:0;left:0;text-align:center;cursor:pointer;z-index:10;background-color:rgba(0,0,0,0.4);box-shadow:none;border:none;padding:0;opacity:0;overflow:hidden;">').append($(e.target).clone().css({'display':'inline-block','cursor':'pointer','margin':marginTop+' auto 0','position':position,'right':'0','bottom':'5vh','left':'0','max-width':'95%','max-height':'90vh'})));
+			$('#portfolio section').prepend($('<div id="viewer" style="position:absolute;top:0;right:0;bottom:0;left:0;text-align:center;cursor:pointer;z-index:10;background-color:rgba(0,0,0,0.4);box-shadow:none;border:none;padding:0;opacity:0;overflow:hidden;">').append($(e.target).clone().css({'margin-top':marginTop,'position':position})).append($('<p />').text($(e.target).attr('alt')).css('position',position)));
 			$('#portfolio').find('#viewer').css('opacity','1');
 		} else if ($(e.target).attr('id') === "viewer" || $(e.target).parent().attr('id') === "viewer") {
 			$('#portfolio').find('#viewer').remove();
@@ -821,61 +823,61 @@ $('document').ready(function(){
 			<h2>Select Visual Design Work</h2>
 			<p>Logos <time>2012 - 2017</time></p>
 			<div class="portfolio">
-				<img src="images/portfolio/logo-mw2.png" />
-				<img src="images/portfolio/logo-mw1.png" />
-				<img src="images/portfolio/logo-basebone.png" />
-				<img src="images/portfolio/logo-prideidol.png" />
-				<img src="images/portfolio/logo-jcccw.png" />
-				<img src="images/portfolio/logo-worthen.png" />
-				<img src="images/portfolio/logo-transit.jpg" />
-				<img src="images/portfolio/logo-galaxy.png" />
+				<img src="images/portfolio/logo-mw2.png" alt="Moving Worlds Impact Teams - 2017" />
+				<img src="images/portfolio/logo-mw1.png" alt="Moving Worlds Institute - 2016" />
+				<img src="images/portfolio/logo-basebone.png" alt="Basebone - 2015" />
+				<img src="images/portfolio/logo-prideidol.png" alt="Pride Idol - 2014" />
+				<img src="images/portfolio/logo-jcccw.png" alt="Japanese Cultural and Community Center - 2014" />
+				<img src="images/portfolio/logo-worthen.png" alt="Worthen Creative - 2013" />
+				<img src="images/portfolio/logo-transit.jpg" alt="Transit Assembly - 2013" />
+				<img src="images/portfolio/logo-galaxy.png" alt="Galaxy - 2012" />
 			</div>
 			<p>Landing Pages<time>2015</time></p>
 			<div class="portfolio">
-				<img src="images/portfolio/landing-oldportfolio.png" />
-				<img src="images/portfolio/landing-cwd.png" />
-				<img src="images/portfolio/landing-docs.png" />
-				<img src="images/portfolio/landing-physics.png" />
-				<img src="images/portfolio/landing-acero.png" />
+				<img src="images/portfolio/landing-oldportfolio.png" alt="My old portfolio site - 2014" />
+				<img src="images/portfolio/landing-cwd.png" alt="Criminal Watchdog - 2015" />
+				<img src="images/portfolio/landing-docs.png" alt="DOCS Education Membership - 2015" />
+				<img src="images/portfolio/landing-physics.png" alt="Physics Foreceps - 2015" />
+				<img src="images/portfolio/landing-acero.png" alt="Acero Crowns - 2015" />
 			</div>
 			<p>Emails<time>2015</time></p>
 			<div class="portfolio">
-				<img class="after" src="images/portfolio/email-incisor.png" />
-				<img class="after" src="images/portfolio/email-physics.png" />
-				<img class="after" src="images/portfolio/email-meddent.png" />
+				<img class="after" src="images/portfolio/email-incisor.png" alt="Incisor Newsletter - 2015" />
+				<img class="after" src="images/portfolio/email-physics.png" alt="Physics Foreceps Course Invitation - 2015" />
+				<img class="after" src="images/portfolio/email-meddent.png" alt="MedDent Safety Newsletter - 2015" />
 			</div>
 			<p>MovingWorlds Presentation Template<time datetime="2014-10-31">Oct 2014</time></p>
 			<div class="portfolio">
-				<img src="images/portfolio/mw-b2b1.png" />
-				<img src="images/portfolio/mw-b2b2.png" />
-				<img src="images/portfolio/mw-b2b3.png" />
+				<img src="images/portfolio/mw-b2b1.png" alt="Cover Slide" />
+				<img src="images/portfolio/mw-b2b2.png" alt="Title Slide" />
+				<img src="images/portfolio/mw-b2b3.png" alt="Content Slide" />
 			</div>
 			<p>MovingWorlds Document Template<time datetime="2014-10-31">Oct 2014</time></p>
 			<div class="portfolio">
-				<img src="images/portfolio/mw-concept.png" />
-				<img src="images/portfolio/mw-doc1.png" />
-				<img src="images/portfolio/mw-doc2.png" />
-				<img src="images/portfolio/mw-doc3.png" />
+				<img src="images/portfolio/mw-concept.png" alt="Concept Sketch" />
+				<img src="images/portfolio/mw-doc1.png" alt="Cover Page" />
+				<img src="images/portfolio/mw-doc2.png" alt="Index Page" />
+				<img src="images/portfolio/mw-doc3.png" alt="Content Page" />
 			</div>
 			<p>Seattle Pride<time datetime="2014-07-31">July 2014</time></p>
 			<div class="portfolio">
-				<img src="images/portfolio/pride-1974posterad.png" />
-				<img src="images/portfolio/pride-1974poster.png" />
-				<img src="images/portfolio/pride-map.png" />
-				<img src="images/portfolio/pride-sponsorsad.png" />
-				<img src="images/portfolio/pride-takei.png" />
-				<img src="images/portfolio/pride-badge.png" />
-				<img src="images/portfolio/pride-announcersad.png" />
-				<img src="images/portfolio/pride-idolbanner.jpg" />
-				<img src="images/portfolio/pride-judgesbanner.png" />
+				<img src="images/portfolio/pride-1974posterad.png" alt="1974 Poster Ad" />
+				<img src="images/portfolio/pride-1974poster.png" alt="1974 Remastered Poster" />
+				<img src="images/portfolio/pride-map.png" alt="Parade Map" />
+				<img src="images/portfolio/pride-sponsorsad.png" alt="Sponsors Ad" />
+				<img src="images/portfolio/pride-takei.png" alt="Parade Marshal Badge" />
+				<img src="images/portfolio/pride-badge.png" alt="ID Badge" />
+				<img src="images/portfolio/pride-announcersad.png" alt="Announcers Ad" />
+				<img src="images/portfolio/pride-idolbanner.jpg" alt="Pride Idol Banner" />
+				<img src="images/portfolio/pride-judgesbanner.png" alt="Parade Judges Banner" />
 			</div>
 			<p>Miscellaneous Print<time>2012 - 2014</time></p>
 			<div class="portfolio">
-				<img src="images/portfolio/print-oak.png" />
-				<img src="images/portfolio/print-tabletop.jpg" />
-				<img src="images/portfolio/print-museum.png" />
-				<img src="images/portfolio/print-bob.png" />
-				<img src="images/portfolio/print-ninebit.png" />
+				<img src="images/portfolio/print-oak.png" alt="Oak Restaurant Menu" />
+				<img src="images/portfolio/print-tabletop.jpg" alt="JCCCW Tabletop Display" />
+				<img src="images/portfolio/print-museum.png" alt="Nikkei Museum Signage" />
+				<img src="images/portfolio/print-bob.png" alt="BOB Books Font" />
+				<img src="images/portfolio/print-ninebit.png" alt="Nine-Bit Font" />
 			</div>
 		</section>
 	</article>
