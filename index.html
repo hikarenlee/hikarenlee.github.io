@@ -390,6 +390,25 @@ $('document').ready(function(){
 		showPlayer(vidSrc, vidPos, eventTarget);
 	});
 
+	// PORTFOLIO VIEWER
+	$('#portfolio').on('click',function(e){
+		if (! $(this).hasClass('active')) {return;}
+
+		if (e.target.tagName === "IMG" && $(e.target).parent().hasClass('portfolio')) {
+			var marginTop = window.scrollY > (98 + (window.innerHeight * .05)) ? 'calc('+(window.scrollY - $('#portfolio')[0].offsetTop - $('#container')[0].offsetTop) +'px + 5vh)' : '5vh';
+			var position = 'static';
+			if ($(e.target).parent()[0] === $('#portfolio .portfolio:last-child')[0]) {
+				marginTop = 0;
+				position = 'absolute';
+			}
+
+			$('#portfolio section').prepend($('<div id="viewer">').append($(e.target).clone().css({'margin-top':marginTop,'position':position})).append($('<p />').text($(e.target).attr('alt')).css('position',position)));
+			$('#portfolio').find('#viewer').css('opacity','1');
+		} else if ($(e.target).attr('id') === "viewer" || $(e.target).parent().attr('id') === "viewer") {
+			$('#portfolio').find('#viewer').remove();
+		}
+	});
+
 	//end Video/Animation Overlay
 	articles.on('click', function(event) {
 		//skip this whole click function if the clicked article is '.active'
@@ -501,24 +520,6 @@ $('document').ready(function(){
 	});
 	$('.case-study').on('click','.static.zoom',function(){
 		$(this).siblings('.gallery.expand').find('.focus').click();
-	});
-	// PORTFOLIO VIEWER
-	$('#portfolio').on('click',function(e){
-		if (! $(this).hasClass('active')) {return;}
-
-		if (e.target.tagName === "IMG" && $(e.target).parent().hasClass('portfolio')) {
-			var marginTop = window.scrollY > (98 + (window.innerHeight * .05)) ? 'calc('+(window.scrollY - $('#portfolio')[0].offsetTop - $('#container')[0].offsetTop) +'px + 5vh)' : '5vh';
-			var position = 'static';
-			if ($(e.target).parent()[0] === $('#portfolio .portfolio:last-child')[0]) {
-				marginTop = 0;
-				position = 'absolute';
-			}
-
-			$('#portfolio section').prepend($('<div id="viewer">').append($(e.target).clone().css({'margin-top':marginTop,'position':position})).append($('<p />').text($(e.target).attr('alt')).css('position',position)));
-			$('#portfolio').find('#viewer').css('opacity','1');
-		} else if ($(e.target).attr('id') === "viewer" || $(e.target).parent().attr('id') === "viewer") {
-			$('#portfolio').find('#viewer').remove();
-		}
 	});
 });
 </script>
