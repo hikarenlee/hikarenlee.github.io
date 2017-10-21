@@ -35,7 +35,6 @@ a.player::after {content:'\f144';vertical-align:middle;}
 	nav a.active, nav a:hover {border-color:#c3cdda;}
 	nav span {display:inline;}
 	html, body {max-width:100%;overflow-x:hidden;margin:0;}
-	nav {display:none;}
 
 	body > footer {border-top:1px solid #c3cdda;margin-bottom:0;box-shadow:0 0 100px 100px rgb(255,255,255);}
 
@@ -275,7 +274,7 @@ img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
 #portfolio time {float:right;}
 #portfolio .portfolio img {max-width:23%;max-height:200px;margin:0 1% 20px 0;cursor:pointer;border:1px solid #ccc;}
 #portfolio .before {display:none;}
-#viewer {transition:opacity .3s;position:absolute;top:0;right:0;bottom:0;left:0;text-align:center;cursor:pointer;z-index:10;background-color:rgba(0,0,0,0.55);box-shadow:0 0 30px 7px rgba(0,0,0,0.7);border-radius:7px;border:none;padding:0;opacity:0;overflow:hidden;}
+#viewer {transition:opacity .3s;position:absolute;top:0;right:0;bottom:0;left:0;text-align:center;cursor:pointer;z-index:10;background-color:rgba(0,0,0,0.5);box-shadow:0 0 30px 7px rgba(0,0,0,0.7);border-radius:7px;border:none;padding:0;opacity:0;overflow:hidden;}
 #viewer img {display:inline-block;margin:0 auto;cursor:pointer;right:0;bottom:5vh;left:0;max-width:95%;max-height:80vh;}
 #viewer p {text-shadow:0 0 15px black, 0 0 25px black, 0 0 40px black;color:white;font-weight:normal;margin-top:5px;right:0;bottom:1.4vh;left:0;}
 .active #viewer ~ * {filter:blur(5px);}
@@ -346,7 +345,6 @@ $('document').ready(function(){
 		if (document.location.hash) {
 			nav.css('display','block');
 			document.getElementById(document.location.hash.slice(9)).click();
-			if (nav.css('display') === 'none') {nav.show();}
 		}
 		else { adjustPageHeight($('#resume')); }
 	}
@@ -421,8 +419,6 @@ $('document').ready(function(){
 	articles.on('click', function(event) {
 		//skip this whole click function if the clicked article is '.active'
 		if ($(this).hasClass('active')) {return;}
-
-		if (nav.css('display') === 'none') {nav.fadeIn();}
 
 		//update hash
 		var newHash = this === $(this).parent().children(':first-child')[0] ? '' : "section-"+$(this).attr('id');
