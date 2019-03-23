@@ -285,18 +285,6 @@ img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript">
 $('document').ready(function(){
-	 // no button interface
-    if ((window.screen.width === 375  && window.screen.height === 812)  // iPhone X portrait
-     || (window.screen.width === 414  && window.screen.height === 896)  // iPhone Xs Max portrait
-     || (window.screen.width === 1668 && window.screen.height === 2388) // iPad Pro 11" portrait
-     || (window.screen.width === 2388 && window.screen.height === 1668) // iPad Pro 11" landscape
-     || (window.screen.width === 2048 && window.screen.height === 2732) // iPad Pro 12.9" portrait
-     || (window.screen.width === 2732 && window.screen.height === 2048) // iPad Pro 12.9" landscape
-     ){
-       // special code for avoiding bottom bar on iOS
-       $('nav').addClass('padded');
-    }
-
 	var body = $('body'),
 		container = $('#container'),
 		articles = $('#container > article'),
@@ -383,9 +371,24 @@ $('document').ready(function(){
 		articles[clickedLink.index()].click();
 	});
 
+	function toggleNavPad () {
+		if ((window.screen.width === 375  && window.screen.height === 812)  // iPhone X portrait
+		 || (window.screen.width === 414  && window.screen.height === 896)  // iPhone Xs Max portrait
+		 || (window.screen.width === 1668 && window.screen.height === 2388) // iPad Pro 11" portrait
+		 || (window.screen.width === 2388 && window.screen.height === 1668) // iPad Pro 11" landscape
+		 || (window.screen.width === 2048 && window.screen.height === 2732) // iPad Pro 12.9" portrait
+		 || (window.screen.width === 2732 && window.screen.height === 2048) // iPad Pro 12.9" landscape
+		 ){
+		   // special code for avoiding bottom bar on iOS
+		   $('nav').addClass('padded');
+		} else {
+		   $('nav').removeClass('padded');
+		}
+	}();
+
 	$(window).on('resize', function(event) {
 		toggleInactiveArticles();
-		$('nav').removeClass('padded');
+		toggleNavPad();
 		adjustPageHeight(container.find('.active'));
 	});
 
