@@ -386,12 +386,12 @@ $('document').ready(function(){
 	});
 
 	function toggleNavPad () {
-		if ((window.outerWidth === 375  && window.outerHeight === 812)  // iPhone X portrait
-		 || (window.outerWidth === 414  && window.outerHeight === 896)  // iPhone Xs Max portrait
-		 || (window.outerWidth === 1668 && window.outerHeight === 2388) // iPad Pro 11" portrait
-		 || (window.outerWidth === 2388 && window.outerHeight === 1668) // iPad Pro 11" landscape
-		 || (window.outerWidth === 2048 && window.outerHeight === 2732) // iPad Pro 12.9" portrait
-		 || (window.outerWidth === 2732 && window.outerHeight === 2048) // iPad Pro 12.9" landscape
+		if ((window.screen.width === 375  && window.screen.height === 812)  // iPhone X portrait
+		 || (window.screen.width === 414  && window.screen.height === 896)  // iPhone Xs Max portrait
+		 || (window.screen.width === 1668 && window.screen.height === 2388) // iPad Pro 11" portrait
+		 || (window.screen.width === 2388 && window.screen.height === 1668) // iPad Pro 11" landscape
+		 || (window.screen.width === 2048 && window.screen.height === 2732) // iPad Pro 12.9" portrait
+		 || (window.screen.width === 2732 && window.screen.height === 2048) // iPad Pro 12.9" landscape
 		 ){
 		   // special code for avoiding bottom bar on iOS
 		   $('nav').addClass('padded');
