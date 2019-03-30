@@ -91,7 +91,10 @@ a.player::after {content:'\f144';vertical-align:middle;}
 #experience aside {border-left:2px solid #dbe2ea;padding-left:14px;margin:12px 0;}
 @media (min-width:710px){#experience aside {margin-left:-16px;}}
 
-.company, .school {font-weight:normal;font-size:.9rem;margin:.3rem 0 .5rem;}
+.company {margin:0;font-weight:normal;}
+.company a {text-decoration:none;color:inherit;}
+.company a:hover {color:#dbe2ea}
+.school {font-weight:normal;font-size:.9rem;margin:.3rem 0 .5rem;}
 .company span, .school span {font-weight:bold;}
 @media print{
 	body::after, #resume::before, nav, footer, #container > article:not(.active), #container::after {display:none !important;}
