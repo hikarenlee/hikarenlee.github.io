@@ -20,6 +20,7 @@ nav a.active {background-color:#dee4ea;color:#466686;padding:6px 14px;}
 nav span {display:none;}
 
 body > footer {text-align:center;margin-bottom:90px;color:#738090;z-index:1;position:relative;box-shadow:0 0 100px 300px rgb(255,255,255);background-color:white;}
+body > footer.qr {z-index:1000;}
 body > footer.hidden {opacity:0;}
 body > footer i {color:#d98c9e;}
 
@@ -103,6 +104,13 @@ a.player::after {content:'\f144';vertical-align:middle;}
 	#summary, #skills, #education {page-break-before:avoid;page-break-inside:avoid;}
 	.pagebreak {page-break-before:always !important;}
 	#extracurriculars p:last-child {margin-bottom:0;}
+}
+#mobile-qr, #inline-qr {display:none;}
+.qr #mobile-qr {align-items:center;background-color:white;display:flex;justify-content:center;position:fixed;top:0;right:0;bottom:0;left:0;}
+#mobile-qr img {max-width:90vw;}
+@media (min-width:710px) {
+	#mobile-qr, .qr #mobile-qr {display:none;}
+	#inline-qr {display:block;float:right;max-height:150px;margin-top:80px;}
 }
 
 /* CASE STUDY - GENERAL STYLES */
@@ -390,6 +398,14 @@ $('document').ready(function(){
 		articles[clickedLink.index()].click();
 	});
 
+	$('body > footer').on('click', function(){
+		if (window.innerWidth >= 710) {
+			$(this).removeClass('qr');
+			return;
+		}
+		$(this).toggleClass('qr');
+	})
+
 	function toggleNavPad () {
 		if ((window.screen.width === 375  && window.screen.height === 812)  // iPhone X portrait
 		 || (window.screen.width === 414  && window.screen.height === 896)  // iPhone Xs Max portrait
@@ -405,6 +421,7 @@ $('document').ready(function(){
 	toggleNavPad();
 
 	$(window).on('resize', function(event) {
+		$('body > footer').removeClass('qr');
 		toggleInactiveArticles();
 		toggleNavPad();
 		adjustPageHeight(container.find('.active'));
@@ -666,6 +683,9 @@ $('document').ready(function(){
 			</ul>
 			<p><strong>Environment:</strong> Adobe Illustrator, Balsamiq, HTML4, CSS2, jQuery, Bootstrap 3, Wordpress</p>
 		</section>
+
+		<img id="inline-qr" src="images/url-qrcode.png" alt="QR Code linking to this site" />
+
 		<h2>Education</h2>
 		<section id="education">
 			<h3 class="major">Graphic Design &amp; Computer Science</h3>
@@ -966,6 +986,7 @@ $('document').ready(function(){
 </div>
 <footer>
 	<p>Built with <i class="fa fa-heart" title="love"></i> by Brian Donahue</p>
+	<div id="mobile-qr"><img src="images/url-qrcode.png" alt="QR Code linking to this site" /></div>
 </footer>
 </body>
 </html>
