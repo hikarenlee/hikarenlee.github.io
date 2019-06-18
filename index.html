@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Brian Donahue - UX Design and Engineering</title>
+<title>Brian Donahue - UX Design with Engineering in Mind</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 <meta name="author" content="Brian Donahue">
-<meta name="description" content="UX, web design, & front-end development portfolio for Brian Donahue, designer based in Seattle, WA">
-<meta name="keywords" content="UX,UX design,user experience,design,UI,HTML,CSS,JavaScript,Illustrator,Adobe,Photoshop,freelance,contractor,designer,developer,front-end,front end,portfolio,graphic design,graphics,web,web development,for hire,resume,jQuery,storyboarding,prototyping,user research">
+<meta name="description" content="UX, web design, & front-end development portfolio for Brian Donahue, UX Designer based in San Jose, California">
+<meta name="keywords" content="UX,UX design,UX designer,user experience,design,designer,UI,HTML,CSS,JavaScript,Illustrator,Adobe,Photoshop,freelance,contractor,developer,front-end,front end,portfolio,graphic design,graphics,web,web development,for hire,resume,jQuery,storyboarding,prototyping,research,user research,researcher,information architecture,taxonomy">
 <meta name="format-detection" content="telephone=no">
 <style>
 *, body {line-height:1.5em;font-family:sans-serif;}
@@ -297,286 +297,6 @@ img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
 #debug {background-color:rgba(0,0,0,0.7);color:white;font-size:1.5em;display:flex;align-items:center;flex-direction:column;justify-content:center;position:fixed;top:0;right:0;bottom:0;left:0;z-index:100;}
 #debug p {margin:.3em;}
 </style>
-<link rel="stylesheet" href="https://use.fontawesome.com/5d44595dd9.css" media="all">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script type="text/javascript">
-$('document').ready(function(){
-	var body = $('body'),
-		container = $('#container'),
-		articles = $('#container > article'),
-		portfolio = $('#portfolio section'),
-		nav = $('nav'),
-		navLinks = $('nav a'),
-		footer = $('body > footer')
-		player = $('.player'),
-		zoomImage = $('.can-zoom'),
-		activeArticle = $(),
-		vidPlayer = $(), $div = $(), vidSrc = $(), vidPos = $(), eventTarget = $(),
-		characters = ['thumb', 'peace', 'cake', 'magic', 'lightning', 'bicycle', 'coffee', 'heart', 'paw', 'music', 'smile'], selectedCharacter = 'a';
-
-	function showPlayer ($targetVid, $vidPos, eventTarget){
-		var $div = '<div id="demo-player"><div class="container"><span><img src="" alt=""/><footer>(click anywhere to close this overlay)</footer></span><p>Loading...</p></div></div>';
-
-		$($div).prependTo($(eventTarget).parents('section')).fadeTo("slow", 1.0);
-
-		var vidPlayer = $('#demo-player');
-
-		vidPlayer.find('.container').css('bottom',$vidPos);
-		if ($targetVid === 'bluetooth-presentation') {
-			vidPlayer.find('img').after($('<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTxQqvmgk8c1hy0LxPBQ6RWURbNxQ5FqCdg9OqPxPriwsZEyLgRB470g9ABmVXygYpIxwzQZtG5S9fU/embed?start=false&loop=false&delayms=60000" frameborder="0" width="90%" height="450" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>'));
-		} else {
-			vidPlayer.find('img').attr('src',$targetVid);
-		}
-		vidPlayer.on('click',function(){
-			this.remove();
-		});
-	}
-	function adjustPageHeight(element) {
-		// clear all timeouts
-		var id = window.setTimeout(function() {}, 0);
-		while (id--) {window.clearTimeout(id);}
-
-		if (nav.css('position') === "fixed") {
-			container.css('height','auto');
-			return;
-		}
-		container.css('height', $(element).outerHeight(true) + 'px');
-	}
-	function toggleInactiveArticles() {
-		if (nav.css('position') === "fixed"){
-			container.find('article:not(.active)').css('display','none');
-		} else {
-			container.find('article:not(.active)').attr('style','');
-		}
-	}
-	function refreshBgIcon() {
-		if (typeof selectedCharacter === 'number'){
-			if (selectedCharacter < characters.length-1) {selectedCharacter++;}
-			else {selectedCharacter = 0;}
-		}
-		else {selectedCharacter = Math.floor(Math.random() * characters.length);}
-
-		body.removeClass().addClass(characters[selectedCharacter]);
-		container.removeClass().addClass(characters[selectedCharacter]);
-	}
-	function loadDeepLink () {
-		if (document.location.hash) {
-			nav.css('display','block');
-			if (document.location.hash === '#debug') {
-				$('body').prepend($('<div id="debug" />')
-					.append($('<p />').text('screen width: '+window.screen.width))
-					.append($('<p />').text('screen height: '+window.screen.height))
-					.append($('<p />').text('innerWidth: '+window.innerWidth))
-					.append($('<p />').text('innerHeight: '+window.innerHeight))
-					.append($('<p />').text('outerWidth: '+window.outerWidth))
-					.append($('<p />').text('outerHeight: '+window.outerHeight))
-				);
-			} else {
-				document.getElementById(document.location.hash.slice(9)).click();
-			}
-		}
-		else { adjustPageHeight($('#resume')); }
-	}
-
-	/* LISTENERS */
-	navLinks.on('click',function(){
-		var clickedLink = $(this);
-
-		if ($(articles[clickedLink.index()]).hasClass('active')) {return;}
-
-		if (clickedLink.parent('nav').css('position') === "fixed") {
-			refreshBgIcon();
-
-			footer.addClass('hidden');
-
-			container.find('.active').fadeOut(function(){
-				articles[clickedLink.index()].click();
-				$('.active').fadeIn();
-				footer.removeClass('hidden');
-			});
-		}
-		articles[clickedLink.index()].click();
-	});
-
-	$('body > footer').on('click', function(){
-		if (window.innerWidth >= 710) {
-			$(this).removeClass('qr');
-			return;
-		}
-		$(this).toggleClass('qr');
-	})
-
-	function toggleNavPad () {
-		if ((window.screen.width === 375  && window.screen.height === 812)  // iPhone X portrait
-		 || (window.screen.width === 414  && window.screen.height === 896)  // iPhone Xs Max portrait
-		 || (window.screen.width === 834 && window.screen.height === 1194) // iPad Pro 11" portrait
-		 || (window.screen.width === 1024 && window.screen.height === 1366) // iPad Pro 12.9" portrait
-		 ){
-		   // special code for avoiding bottom bar on iOS
-		   $('nav').addClass('padded');
-		} else {
-		   $('nav').removeClass('padded');
-		}
-	};
-	toggleNavPad();
-
-	$(window).on('resize', function(event) {
-		$('body > footer').removeClass('qr');
-		toggleInactiveArticles();
-		toggleNavPad();
-		adjustPageHeight(container.find('.active'));
-	});
-
-	zoomImage.on('click',function(){
-		if($(this).parent().hasClass('three-images')) {
-			$(this).prependTo($(this).parent());
-			$(this).siblings().removeClass('zoom');
-		}
-		$(this).toggleClass('zoom');
-
-		activeArticle = $(this).parents('.case-study');
-		window.setTimeout(function(){
-			adjustPageHeight(activeArticle);
-		}, 500);
-	});
-
-	//Video/Animation Overlay
-	player.on('click', function(event){
-		eventTarget = $(event.target);
-		vidSrc = $(this).attr('id');
-		vidPos = $(document).height() - $(this).parent().offset().top + 50;
-
-		showPlayer(vidSrc, vidPos, eventTarget);
-	});
-
-	// PORTFOLIO VIEWER
-	$('#portfolio').on('click',function(e){
-		if (! $(this).hasClass('active')) {return;}
-
-		if (e.target.tagName === "IMG" && $(e.target).parent().hasClass('portfolio')) {
-			var marginTop = window.scrollY > (98 + (window.innerHeight * .05)) ? 'calc('+(window.scrollY - $('#portfolio')[0].offsetTop - $('#container')[0].offsetTop) +'px + 5vh)' : '5vh';
-			var position = 'static';
-			if ($(e.target).parent()[0] === $('#portfolio .portfolio:last-child')[0]) {
-				marginTop = 0;
-				position = 'absolute';
-			}
-
-			$('#portfolio section').prepend($('<div id="viewer">').append($(e.target).clone().css({'margin-top':marginTop,'position':position})).append($('<p />').text($(e.target).attr('alt')).css('position',position)));
-			$('#portfolio').find('#viewer').css('opacity','1');
-		} else if ($(e.target).attr('id') === "viewer" || $(e.target).parent().attr('id') === "viewer") {
-			$('#portfolio').find('#viewer').remove();
-		}
-	});
-
-	//end Video/Animation Overlay
-	articles.on('click', function(event) {
-		//skip this whole click function if the clicked article is '.active'
-		if ($(this).hasClass('active')) {return;}
-
-		//update hash
-		var newHash = this === $(this).parent().children(':first-child')[0] ? '' : "section-"+$(this).attr('id');
-		if (history.replaceState && typeof(history.replaceState) === "function") {
-		if (this === $(this).parent().children(':first-child')[0]) { window.history.replaceState("object or string", "Title", 'index.html'); }
-			else { window.history.replaceState("object or string", "Title", "#" + newHash); }
-		} else {
-			document.location.hash = newHash;
-		}
-
-		//update new article and corresponding link to have 'active' class
-		$('.active').removeClass('active');
-		$(this).addClass('active');
-		$(navLinks[$('.active').index()]).addClass('active');
-
-		//change the icon if the last article is selected
-		if ($(this).index() === articles.length-1) {refreshBgIcon();}
-
-		$(this).parents('div').css('margin-left', $(this).index() * -875 + 'px');
-		$('html, body').stop().animate({scrollTop:0});
-		adjustPageHeight(this);
-
-		$('#viewer').remove();
-	});
-
-	/* Start Page */
-	loadDeepLink();
-	toggleInactiveArticles();
-	refreshBgIcon();
-
-	var chart = $('#design-dev-chart'),
-		data = $('.design-dev-chart-data');;
-
-	chart.on('click','a',function(){
-		//toggle highlight on chart
-		chart.children().removeClass('focus');
-		$(this).addClass('focus');
-		//toggle highlight on needs/pain points
-		data.find('li').removeClass('focus');
-		data.find('.'+$(this).attr('id')).addClass('focus');
-	});
-	chart.on('click','i',function(){
-		chart.children().removeClass('focus');
-		data.find('li').addClass('focus');
-	});
-
-	$('.case-study').on('click','.gallery',function(e){
-		if ($(this).css('position') === "static" || $(this).hasClass('expand')) {
-			// Expanded either because the window is small or the gallery has been clicked
-			var galleryImages = $(this).children('img');
-			if ($(e.target).hasClass('collapse')) {
-				$(this).removeClass('expand');
-				galleryImages.removeClass('static focus');
-				$(this).parent('section').find('.static.zoom').slideUp(function(){$(this).remove()});
-				window.setTimeout(function(){
-					adjustPageHeight(galleryImages.parents('article'));
-				}, 500);
-				return;
-			}
-			if (e.target.tagName === "IMG") {
-				if ($(e.target).hasClass('focus')){
-					removeGalleryZoomImage(this);
-				} else {
-					removeGalleryZoomImage(this);
-					$(e.target).addClass('focus static');
-					var zoom = $(e.target).clone().css('display','none').addClass('zoom');
-					$(this).before(zoom);
-					zoom.slideDown();
-				}
-				window.setTimeout(function(){
-					adjustPageHeight(galleryImages.parents('article'));
-				}, 500);
-			}
-			// Creates consistency between mobile and desktop views
-			// Normalizes for window resizing
-			$(this).addClass('expand');
-			galleryImages.addClass('static');
-
-			function removeGalleryZoomImage (gallery) {
-				$(gallery).children('img').removeClass('focus');
-				$(gallery).parent().find('img.static.zoom').slideUp(function(){
-					$(this).remove();
-				});
-			}
-		} else {
-			// At least 850px and NOT expanded
-			$(this).addClass('expand');
-			var gallery = $(this).children('img');
-			for(var i = gallery.length-1; i >= 0; i--) {
-				window.setTimeout(function(i){
-					return function() {
-						$(gallery[i]).addClass('static');
-					};
-				}(i), 400*(1/(i+2)));
-			}
-			window.setTimeout(function(){
-				adjustPageHeight(gallery.parents('article'));
-			}, 300);
-		}
-	});
-	$('.case-study').on('click','.static.zoom',function(){
-		$(this).siblings('.gallery.expand').find('.focus').click();
-	});
-});
-</script>
 </head>
 <body>
 <nav><a class="active">Résumé</a><a><span>Case </span>Study<span> 1</span></a><a><span>Case </span>Study<span> 2</span></a><a><span>Case </span>Study<span> 3</span></a><a>Portfolio</a></nav>
@@ -585,7 +305,7 @@ $('document').ready(function(){
 		<header>
 			<h1>Brian Donahue</h1>
 			<contact>
-				<p><span>brimwd@gmail.com</span> • <span>971-222-9892</span></p>
+				<p><span>brimwd@gmail.com</span> • <span>971-222-9892</span></p>
 				<p><span>http://brimwd.github.io</span></p>
 			</contact>
 		</header>
@@ -990,6 +710,286 @@ $('document').ready(function(){
 	<p>Built with <i class="fa fa-heart" title="love"></i> by Brian Donahue</p>
 	<div id="mobile-qr"><img src="images/url-qrcode.png" alt="QR Code linking to this site" /></div>
 </footer>
+<link rel="stylesheet" href="https://use.fontawesome.com/5d44595dd9.css" media="all">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+$('document').ready(function(){
+	var body = $('body'),
+		container = $('#container'),
+		articles = $('#container > article'),
+		portfolio = $('#portfolio section'),
+		nav = $('nav'),
+		navLinks = $('nav a'),
+		footer = $('body > footer')
+		player = $('.player'),
+		zoomImage = $('.can-zoom'),
+		activeArticle = $(),
+		vidPlayer = $(), $div = $(), vidSrc = $(), vidPos = $(), eventTarget = $(),
+		characters = ['thumb', 'peace', 'cake', 'magic', 'lightning', 'bicycle', 'coffee', 'heart', 'paw', 'music', 'smile'], selectedCharacter = 'a';
+
+	function showPlayer ($targetVid, $vidPos, eventTarget){
+		var $div = '<div id="demo-player"><div class="container"><span><img src="" alt=""/><footer>(click anywhere to close this overlay)</footer></span><p>Loading...</p></div></div>';
+
+		$($div).prependTo($(eventTarget).parents('section')).fadeTo("slow", 1.0);
+
+		var vidPlayer = $('#demo-player');
+
+		vidPlayer.find('.container').css('bottom',$vidPos);
+		if ($targetVid === 'bluetooth-presentation') {
+			vidPlayer.find('img').after($('<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTxQqvmgk8c1hy0LxPBQ6RWURbNxQ5FqCdg9OqPxPriwsZEyLgRB470g9ABmVXygYpIxwzQZtG5S9fU/embed?start=false&loop=false&delayms=60000" frameborder="0" width="90%" height="450" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>'));
+		} else {
+			vidPlayer.find('img').attr('src',$targetVid);
+		}
+		vidPlayer.on('click',function(){
+			this.remove();
+		});
+	}
+	function adjustPageHeight(element) {
+		// clear all timeouts
+		var id = window.setTimeout(function() {}, 0);
+		while (id--) {window.clearTimeout(id);}
+
+		if (nav.css('position') === "fixed") {
+			container.css('height','auto');
+			return;
+		}
+		container.css('height', $(element).outerHeight(true) + 'px');
+	}
+	function toggleInactiveArticles() {
+		if (nav.css('position') === "fixed"){
+			container.find('article:not(.active)').css('display','none');
+		} else {
+			container.find('article:not(.active)').attr('style','');
+		}
+	}
+	function refreshBgIcon() {
+		if (typeof selectedCharacter === 'number'){
+			if (selectedCharacter < characters.length-1) {selectedCharacter++;}
+			else {selectedCharacter = 0;}
+		}
+		else {selectedCharacter = Math.floor(Math.random() * characters.length);}
+
+		body.removeClass().addClass(characters[selectedCharacter]);
+		container.removeClass().addClass(characters[selectedCharacter]);
+	}
+	function loadDeepLink () {
+		if (document.location.hash) {
+			nav.css('display','block');
+			if (document.location.hash === '#debug') {
+				$('body').prepend($('<div id="debug" />')
+					.append($('<p />').text('screen width: '+window.screen.width))
+					.append($('<p />').text('screen height: '+window.screen.height))
+					.append($('<p />').text('innerWidth: '+window.innerWidth))
+					.append($('<p />').text('innerHeight: '+window.innerHeight))
+					.append($('<p />').text('outerWidth: '+window.outerWidth))
+					.append($('<p />').text('outerHeight: '+window.outerHeight))
+				);
+			} else {
+				document.getElementById(document.location.hash.slice(9)).click();
+			}
+		}
+		else { adjustPageHeight($('#resume')); }
+	}
+
+	/* LISTENERS */
+	navLinks.on('click',function(){
+		var clickedLink = $(this);
+
+		if ($(articles[clickedLink.index()]).hasClass('active')) {return;}
+
+		if (clickedLink.parent('nav').css('position') === "fixed") {
+			refreshBgIcon();
+
+			footer.addClass('hidden');
+
+			container.find('.active').fadeOut(function(){
+				articles[clickedLink.index()].click();
+				$('.active').fadeIn();
+				footer.removeClass('hidden');
+			});
+		}
+		articles[clickedLink.index()].click();
+	});
+
+	$('body > footer').on('click', function(){
+		if (window.innerWidth >= 710) {
+			$(this).removeClass('qr');
+			return;
+		}
+		$(this).toggleClass('qr');
+	})
+
+	function toggleNavPad () {
+		if ((window.screen.width === 375  && window.screen.height === 812)  // iPhone X portrait
+		 || (window.screen.width === 414  && window.screen.height === 896)  // iPhone Xs Max portrait
+		 || (window.screen.width === 834 && window.screen.height === 1194) // iPad Pro 11" portrait
+		 || (window.screen.width === 1024 && window.screen.height === 1366) // iPad Pro 12.9" portrait
+		 ){
+		   // special code for avoiding bottom bar on iOS
+		   $('nav').addClass('padded');
+		} else {
+		   $('nav').removeClass('padded');
+		}
+	};
+	toggleNavPad();
+
+	$(window).on('resize', function(event) {
+		$('body > footer').removeClass('qr');
+		toggleInactiveArticles();
+		toggleNavPad();
+		adjustPageHeight(container.find('.active'));
+	});
+
+	zoomImage.on('click',function(){
+		if($(this).parent().hasClass('three-images')) {
+			$(this).prependTo($(this).parent());
+			$(this).siblings().removeClass('zoom');
+		}
+		$(this).toggleClass('zoom');
+
+		activeArticle = $(this).parents('.case-study');
+		window.setTimeout(function(){
+			adjustPageHeight(activeArticle);
+		}, 500);
+	});
+
+	//Video/Animation Overlay
+	player.on('click', function(event){
+		eventTarget = $(event.target);
+		vidSrc = $(this).attr('id');
+		vidPos = $(document).height() - $(this).parent().offset().top + 50;
+
+		showPlayer(vidSrc, vidPos, eventTarget);
+	});
+
+	// PORTFOLIO VIEWER
+	$('#portfolio').on('click',function(e){
+		if (! $(this).hasClass('active')) {return;}
+
+		if (e.target.tagName === "IMG" && $(e.target).parent().hasClass('portfolio')) {
+			var marginTop = window.scrollY > (98 + (window.innerHeight * .05)) ? 'calc('+(window.scrollY - $('#portfolio')[0].offsetTop - $('#container')[0].offsetTop) +'px + 5vh)' : '5vh';
+			var position = 'static';
+			if ($(e.target).parent()[0] === $('#portfolio .portfolio:last-child')[0]) {
+				marginTop = 0;
+				position = 'absolute';
+			}
+
+			$('#portfolio section').prepend($('<div id="viewer">').append($(e.target).clone().css({'margin-top':marginTop,'position':position})).append($('<p />').text($(e.target).attr('alt')).css('position',position)));
+			$('#portfolio').find('#viewer').css('opacity','1');
+		} else if ($(e.target).attr('id') === "viewer" || $(e.target).parent().attr('id') === "viewer") {
+			$('#portfolio').find('#viewer').remove();
+		}
+	});
+
+	//end Video/Animation Overlay
+	articles.on('click', function(event) {
+		//skip this whole click function if the clicked article is '.active'
+		if ($(this).hasClass('active')) {return;}
+
+		//update hash
+		var newHash = this === $(this).parent().children(':first-child')[0] ? '' : "section-"+$(this).attr('id');
+		if (history.replaceState && typeof(history.replaceState) === "function") {
+		if (this === $(this).parent().children(':first-child')[0]) { window.history.replaceState("object or string", "Title", 'index.html'); }
+			else { window.history.replaceState("object or string", "Title", "#" + newHash); }
+		} else {
+			document.location.hash = newHash;
+		}
+
+		//update new article and corresponding link to have 'active' class
+		$('.active').removeClass('active');
+		$(this).addClass('active');
+		$(navLinks[$('.active').index()]).addClass('active');
+
+		//change the icon if the last article is selected
+		if ($(this).index() === articles.length-1) {refreshBgIcon();}
+
+		$(this).parents('div').css('margin-left', $(this).index() * -875 + 'px');
+		$('html, body').stop().animate({scrollTop:0});
+		adjustPageHeight(this);
+
+		$('#viewer').remove();
+	});
+
+	/* Start Page */
+	loadDeepLink();
+	toggleInactiveArticles();
+	refreshBgIcon();
+
+	var chart = $('#design-dev-chart'),
+		data = $('.design-dev-chart-data');;
+
+	chart.on('click','a',function(){
+		//toggle highlight on chart
+		chart.children().removeClass('focus');
+		$(this).addClass('focus');
+		//toggle highlight on needs/pain points
+		data.find('li').removeClass('focus');
+		data.find('.'+$(this).attr('id')).addClass('focus');
+	});
+	chart.on('click','i',function(){
+		chart.children().removeClass('focus');
+		data.find('li').addClass('focus');
+	});
+
+	$('.case-study').on('click','.gallery',function(e){
+		if ($(this).css('position') === "static" || $(this).hasClass('expand')) {
+			// Expanded either because the window is small or the gallery has been clicked
+			var galleryImages = $(this).children('img');
+			if ($(e.target).hasClass('collapse')) {
+				$(this).removeClass('expand');
+				galleryImages.removeClass('static focus');
+				$(this).parent('section').find('.static.zoom').slideUp(function(){$(this).remove()});
+				window.setTimeout(function(){
+					adjustPageHeight(galleryImages.parents('article'));
+				}, 500);
+				return;
+			}
+			if (e.target.tagName === "IMG") {
+				if ($(e.target).hasClass('focus')){
+					removeGalleryZoomImage(this);
+				} else {
+					removeGalleryZoomImage(this);
+					$(e.target).addClass('focus static');
+					var zoom = $(e.target).clone().css('display','none').addClass('zoom');
+					$(this).before(zoom);
+					zoom.slideDown();
+				}
+				window.setTimeout(function(){
+					adjustPageHeight(galleryImages.parents('article'));
+				}, 500);
+			}
+			// Creates consistency between mobile and desktop views
+			// Normalizes for window resizing
+			$(this).addClass('expand');
+			galleryImages.addClass('static');
+
+			function removeGalleryZoomImage (gallery) {
+				$(gallery).children('img').removeClass('focus');
+				$(gallery).parent().find('img.static.zoom').slideUp(function(){
+					$(this).remove();
+				});
+			}
+		} else {
+			// At least 850px and NOT expanded
+			$(this).addClass('expand');
+			var gallery = $(this).children('img');
+			for(var i = gallery.length-1; i >= 0; i--) {
+				window.setTimeout(function(i){
+					return function() {
+						$(gallery[i]).addClass('static');
+					};
+				}(i), 400*(1/(i+2)));
+			}
+			window.setTimeout(function(){
+				adjustPageHeight(gallery.parents('article'));
+			}, 300);
+		}
+	});
+	$('.case-study').on('click','.static.zoom',function(){
+		$(this).siblings('.gallery.expand').find('.focus').click();
+	});
+});
+</script>
 </body>
 </html>
 
@@ -1052,7 +1052,7 @@ $('document').ready(function(){
 <article id="better-ads" class="blog">
 	<h2>How Recommendations Engines Fail Customers<span>(and some ideas on how to fix them)</span></h2>
 	<time datetime="2018-10-07">October 7, 2018</time>
-	
+
 	<h3>What gives?</h3>
 	<p id="better-ads-term-1">Advertising sucks… doesn't it? From the 'high-pressure salesman' to overly-loud commercials on YouTube<sup><a href="#better-ads-footnote-1">1</a></sup>, ads range from annoying to downright-uncomfortable and everybody in the modern world knows it -- what gives?</p>
 	<p>While it's entirely too-common for ads to be annoying, I think it's more interesting to contemplate the occasions when they're not.</p>
@@ -1101,7 +1101,7 @@ $('document').ready(function(){
 	<p>When you go long-enough without thinking about a series you like, you can forget what happened in the last installment which may lead you to give up, forgoing purchasing the rest.</p>
 	<p>For fans of a series, it's <em>sucks</em> to miss out. For a creators, publishers, and retailers, losing fans means losing a source of revenue.</p>
 	<p>How can we turn this around in a way that's zero-effort for consumers? To answer that question we need to look no further than our local movie theater.</p>
-	
+
 	<h3>A trip to the movies</h3>
 	<p>As a kid I remember some of my friends getting mad if we were late to a movie and missed the movie trailers that play before the feature. At first I thought it was just because they were worried about missing the first few minutes of the movie -- after all, as a serially-tardy individual, I lived in fear of this outcome too.</p>
 	<p>After attending a few films with my best friend and his dad, though, I quickly realized that there's no better place to get excited about about other movies you can see. My biggest regret was that I often couldn't remember more than one or two of the trailers by the end of the film. Fast forward 20 years, I haven't gotten much better about keeping to a schedule, but I <em>still</em> go out of my way to show up early to movies so I can catch the trailers and get a head-start on my $8 popcorn.</p>
@@ -1111,7 +1111,7 @@ $('document').ready(function(){
 		<li>First, there's the context: I'm not trying to achieve a goal or complete a task at the movie theater; I'm there for entertainment and I've set aside dedicated time for it.</li>
 		<li>Second, I've learned to expect that a majority of the trailers I see will appeal to me, rspecially because movie trailers generally seem to match the genre and target-demographic of the feature.</li>
 	</ol>
-	
+
 	<p>Movies are a unique environment becauase you have a captive audience who've paid a not-insignificant amount of money to be there. While other environments might be less of a "marketer's dream" in that you have a lower confidence about your audience, there's still abundant opportunity to partner with content creators and be strategic about ad placement.</p>
 	<p id="better-ads-term-4">While the average person might struggle with acne, paying for acne-medication ads to play before Minecraft videos on Youtube (whose audience tends to be young teenagers and pre-teens<sup><a href="#better-ads-footnote-2">2</a></sup>) is probably not as good a use of advertising dollars as paying for ads to play before <u>makeup</u>, <u>beauty</u>, and <u>home remedy</u> videos (which have an audience that is specifically looking to address facial aesthetics).</p>l
 
