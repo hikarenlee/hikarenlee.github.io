@@ -1,0 +1,40 @@
+/* LinkedIn Customizations */
+/* ads */
+.ad-banner, .ad-banner-container, [data-id*="Promotion"], [data-id*="jobPosting"], [data-id*="lyndaCourse"], .right-rail {display:none!important;}
+/* news feed */
+.authentication-outlet {min-width:unset!important;}
+#voyager-feed {margin:0 auto!important;padding:30px!important;}
+.neptune-grid {max-width:calc(100% - 60px)!important;box-sizing:initial!important;padding:0!important;width:unset!important;}
+.core-rail {width:calc(100% - 240px)!important;}
+.feed-shared-image--multi-image .feed-shared-image__container {max-height:340px;}
+@media (min-width:1000px) {
+  .core-rail .ember-view h1.visually-hidden ~ div[id^="ember"].relative.ember-view:first-of-type {display:none;}
+  .core-rail .ember-view h1.visually-hidden ~ div[id^="ember"].relative.ember-view {width:46.5%;display:inline-block;margin:10px 3% 0 0!important;vertical-align:top !important;}
+}
+/* profile */
+#profile-wrapper .core-rail {float:none!important;margin:20px auto!important;}
+/* messages */
+.msg-messaging-container .core-rail {float:none!important;margin:0 auto!important;max-width:1200px;width:100%!important;height:calc(100% + 49px)!important;}
+.msg-conversations-container {flex:0.5 1;min-width:300px;}
+.msg-thread {flex:unset!important;flex-grow:2.5!important;max-width:unset!important;min-width:unset!important;}
+.msg-s-event-listitem__link {display:none!important;}
+.msg-s-event-listitem__body {padding-left:8px!important;}
+@media (min-width:800px) {
+  .msg-s-event-listitem__link {display:block!important;}
+  .msg-s-event-listitem__body {padding:0 56px!important;}
+}
+/* learning */
+@media (min-width:976px) {
+  section.course-body__player-area {width:80%!important;}
+  .course-body__info {width:20%!important;min-width:unset!important;}
+  .video-body__video-player.media-player.ember-view {max-width:unset!important;min-width:unset!important;max-height:calc(100vh - 52px)!important;}
+  .video-js .vjs-tech, .course-body__media-container .thumbnail,
+  .course-body__media-container video {width:auto!important;min-width:80vw!important;max-height:unset!important;height:calc(100vh - 52px)!important;margin:0 auto!important;}
+  .video-js.vjs-1-1, .video-js.vjs-16-9, .video-js.vjs-4-3 {height:unset!important;}
+  .video-js.vjs-16-9 {padding-top:unset!important;}
+  .video-js.vjs-1-1 .vjs-tech, .video-js.vjs-16-9 .vjs-tech, .video-js.vjs-4-3 .vjs-tech {position:static!important;max-width:80vw!important;}
+}
+/* network */
+#mynetwork > *:first-child {padding-top:30px!important;}
+#mynetwork .mn-left-rail.left-rail, #mynetwork .neptune-grid.two-column-with-left-rail .left-rail, #mynetwork .neptune-grid.two-column-with-left-rail .left-rail .left-rail-container {width:210px!important;}
+#mynetwork .core-rail {margin-left:30px!important;width:calc(100vw - 300px)!important;max-width:calc(100vw - 300px)!important;}
