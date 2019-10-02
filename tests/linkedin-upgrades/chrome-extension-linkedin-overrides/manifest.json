@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "LinkedIn Interface Upgrade",
+  "version": "1.0",
+  "description": "Customizations by B Donahue – https://www.linkedin.com/in/donahuebrian/",
+  "icons": { "128": "linkedin-upgrade.png" },
+
+  "content_scripts": [{
+    "css": ["styles.css"],
+    "matches": ["https://www.linkedin.com/*"]
+  }]
+
+}
