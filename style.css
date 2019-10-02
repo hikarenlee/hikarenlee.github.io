@@ -72,6 +72,9 @@ approach {display:none;}
 	#work h4 {margin:1em 0 0;}
 	#work p {margin:.3em 0 .6em;}
 }
+@media screen and (min-width:970px) {
+	#work a {margin:2% 0;padding:15px;width:calc(31% - 30px);
+}
 
 /* FOOTER */
 #footer {background-color:var(--bg-faint);}
