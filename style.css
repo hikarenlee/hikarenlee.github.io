@@ -6,7 +6,7 @@
   --bg:#fff;
   --bg-faint:#f3f3f3;
 }
-body {background-color:var(--bg);color:var(--text);font-family:'Poppins', sans-serif;font-weight:300;font-size:16px;margin:0 auto;max-width:1200px;}
+body {background-color:var(--bg);color:var(--text);font-family:'Poppins', sans-serif;font-weight:300;font-size:17px;margin:0 auto;max-width:1200px;}
 h1, h2, h5 {font-weight:600;line-height:1.1em;margin-top:0;margin-bottom:0;}
 a {color:var(--text);text-decoration:none;}
 b {font-weight:700;}
@@ -23,7 +23,7 @@ html {width:100vw;overflow-x:hidden;}
 #overview h1 {font-size:42px;letter-spacing:3px;line-height:0.8em;}
 #overview h1 i {font-style:normal;letter-spacing:0;margin-left:-4px;}
 #overview h1 span {color:var(--text-faint);display:block;font-size:36px;font-weight:600;letter-spacing:2.4px;line-height:0.9;margin-top:19px;}
-#overview h3 {color:var(--text-med);font-weight:300;letter-spacing:1.8px;margin-bottom:7vh;text-transform:uppercase;}
+#overview h3 {color:var(--text-med);font-size:1.1em;font-weight:300;letter-spacing:1.8px;margin-bottom:7vh;text-transform:uppercase;}
 #overview h3 divider::before {content:',';}
 #overview h3 divider:last-of-type::after {content:'& ';color:var(--text);}
 #overview img {display:block;height:100%;margin:0 auto;opacity:.1;position:absolute;top:0;left:0;z-index:-1;}
@@ -52,7 +52,8 @@ html {width:100vw;overflow-x:hidden;}
 @media screen and (min-width:970px) {
 	#overview img {margin-top:calc(-170px - 5vw);}
 }
-#overview section {letter-spacing:1px;}
+
+#overview bio {letter-spacing:1px;line-height:1.9em;}
 
 #overview ul {margin-left:-15px;padding-left:0;}
 #overview li {display:inline-block;padding:0 10px;position:relative;}
