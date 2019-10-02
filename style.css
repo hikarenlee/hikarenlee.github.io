@@ -35,6 +35,7 @@ html {width:100vw;overflow-x:hidden;}
 @media screen and (min-width:500px) {
 	#overview h1 {font-size:46px;}
 	#overview h1 span {font-size:39px;}
+	#overview img {left:unset;right:0;;
 	/*#overview h3 divider::before {content:unset;}*/
 	/*#overview h3 divider::after, #overview h3 divider:last-of-type::after {content:'• ';}*/
 }
@@ -43,10 +44,13 @@ html {width:100vw;overflow-x:hidden;}
 	#overview h1 i {font-style:normal;letter-spacing:0;margin-left:-4px;}
 	#overview h1 span {color:var(--text-ultra-faint);font-size:42px;font-weight:700;height:1em;letter-spacing:8px;line-height:0.52em;margin-top:-15px;padding-left:1px;}
 	#overview h3 {color:var(--text-med);font-weight:300;letter-spacing:4.57px;margin-top:-14px;margin-bottom:7vh;padding-left:23px;}
-	#overview img {float:right;max-width:24vw;shape-outside:url(brian.png);height:unset;margin:unset;opacity:unset;position:unset;top:unset;left:unset;z-index:unset;}
+	#overview img {float:right;margin:-30px 0 0;max-width:270px;width:24vw;shape-outside:url(brian.png);height:unset;opacity:unset;position:unset;top:unset;right:unset;z-index:unset;}
+}
+@media screen and (min-width:768px) {
+	#overview img {margin:calc(-100px - 5vw) 0 0;}
 }
 @media screen and (min-width:970px) {
-	#overview img {margin-top:-170px;}
+	#overview img {margin-top:calc(-170px - 5vw);}
 }
 #overview section {letter-spacing:1px;}
 
