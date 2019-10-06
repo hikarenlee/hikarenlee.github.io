@@ -35,7 +35,7 @@ html {width:100vw;overflow-x:hidden;}
 @media screen and (min-width:500px) {
 	#overview h1 {font-size:46px;}
 	#overview h1 span {font-size:39px;}
-	#overview img {left:unset;right:0;;
+	#overview img {left:unset;right:0;}
 	/*#overview h3 divider::before {content:unset;}*/
 	/*#overview h3 divider::after, #overview h3 divider:last-of-type::after {content:'• ';}*/
 }
