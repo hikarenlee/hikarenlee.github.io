@@ -6,8 +6,8 @@
   --bg:#fff;
   --bg-faint:#f3f3f3;
 }
-body {background-color:var(--bg);color:var(--text);font-family:'Poppins', sans-serif;font-weight:300;font-size:17px;margin:0 auto;max-width:1200px;}
-h1, h2, h5 {font-weight:600;line-height:1.1em;margin-top:0;margin-bottom:0;}
+body {background-color:var(--bg);color:var(--text);font-family:'Raleway', sans-serif;font-variant-ligatures:common-ligatures;font-weight:300;font-size:17px;margin:0 auto;max-width:1200px;text-rendering:optimizeLegibility;}
+h1, h2, h5 {font-variant-ligatures:discretionary-ligatures;font-weight:600;line-height:1.1em;margin-top:0;margin-bottom:0;}
 a {color:var(--text);text-decoration:none;}
 b {font-weight:700;}
 
