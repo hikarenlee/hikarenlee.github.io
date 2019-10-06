@@ -1,0 +1,246 @@
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,600,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../style.css">
+<style type="text/css">
+figure {margin:0;}
+picture.full-width source, picture.full-width img {width:100%;margin:0 auto;}
+</style>
+</head>
+<body>
+<header>
+	<img src="../images/amazon-white.svg" alt="Amazon.com Logo" />
+	<h1>Case Study: <br />Amazon &lsquo;Instant Fulfillment&rsquo;</h1>
+	<p>Solving for find-ability and discoverability in Amazon&rsquo;s &ldquo;Instant Fulfillment&rdquo; Browse Taxonomy</p>
+	<time datetime="2019-08-14">08, 14, 2019</time>
+</header>
+<blockquote class="alt-bg">
+	<p>Most sites have miserable information architectures that mirror the way the company internally thinks about the content and not the way users think about the content. Predictably, users ignore such unhelpful structure.</p>
+	<footer><span title="author">Jakob Nielsen</span>, <time datetime="2000-01-08">January 8, 2000</time><cite><a href="https://www.nngroup.com/articles/is-navigation-useful/" target="_blank">&ldquo;Is Navigation Useful&rdquo;</a></cite></footer>
+</blockquote>
+<section>
+	<h2 id="overview">Shopping in an Instant</h2>
+	<div class="flex-container 3-col outline">
+		<div>
+			<h3>Opportunity</h3>
+			<p>Customers visiting a &lsquo;Campus Pickup Point&rsquo; are idle for a short time awaiting their package.</p>
+			<p>Students visiting may want to buy a snack or pick up school supplies on their way to class.</p>
+		</div>
+		<div>
+			<h3>Goal</h3>
+			<p>Empower customers to instantly buy any of over 2,000 curated items.</p>
+			<p>IA should facilitate organic discovery, learn-ability of categories, and location-specific product offerings.</p>
+		</div>
+		<div>
+			<h3>Problem Statement</h3>
+			<p>Amazon is not &lsquo;shop&rsquo;-able:</p>
+			<p>From redundant listings to miscategorized products and a taxonomy reflecting business-units instead of the ways people shop and buy, customers can&rsquo;t browse for products.</p>
+		</div>
+	</div>
+</section>
+<figure class="big-stat">
+	<h2>&lt;0.5%</h2>
+	<figcaption>Of users browse for products from the homepage</figcaption>
+	<cite>2016 Search statistics</cite>
+</figure>
+<section>
+	<h2 id="comparing-options">A Fork in the Road</h2>
+	<p>Knowing customers couldn&rsquo;t effectively shop on Amazon, we had two choices: Use it anyway or define our own.</p>
+	<div class="flex-container 2-col">
+		<ul>
+			<li class="heading">Utilizing the global taxonomy</li>
+			<li class="pos">Customers only need to learn one system</li>
+			<li class="pos">No additional taxonomy work is necessary</li>
+			<li class="neg">Categories might contain only one product</li>
+			<li class="neg">Empty categories need to be filtered from results</li>
+			<li class="neg">Products are frequently miscategorized</li>
+		</ul>
+		<ul>
+			<li class="heading">Defining our own structure</li>
+			<li class="pos">Few customers know the global structure</li>
+			<li class="pos">Opportunity to simplify the taxonomy</li>
+			<li class="pos">Not saddled with nearly-empty categories</li>
+			<li class="pos">No need to correct miscategorized products</li>
+			<li class="neg">Alternative taxonomy must be designed</li>
+		</ul>
+	</div>
+</section>
+<figure>
+	<h2 id="snacks">A selection of &lsquo;snacks&rsquo; from the curated product list</h2>
+	<picture class="full-width">
+		<source type="image/png" media="(prefers-color-scheme: dark)" srcset="../images/amazon-if/snacks-invert.png">
+		<source type="image/png" media="(min-width: 800px)" srcset="../images/amazon-if/snacks-1200.png">
+		<img src="../images/amazon-if/snacks-800.png" alt="A drawing snacks available through Instant Fulfillment">
+	</picture>
+	<figcaption>None of these things are like the others&hellip;</figcaption>
+</figure>
+<section>
+	<h2 id="testing-1">Testing Round 1:</h2>
+	<p>Performing usability testing on the UI, I observed that although participants were able to complete our &lsquo;happy path&rsquo; tasks, many of the participants were noticeably hesitant to browse for products.</p>
+	<p>We started the usability tests with a disclaimer &ldquo;we&rsquo;re testing a new idea: if it&rsquo;s difficult or confusing, that&rsquo;s a sign that we still need to improve our design&rdquo;, but participants were still noticeably hesitant as they browsed.</p>
+	<p>Observing them, where we hoped they would be excited to explore, but instead it felt like they were afraid of choosing the wrong categories.</p>
+	<p>My intuition told me it would be difficult for customers to learn the taxonomy, and the way the UI was designed, there was too little information scent to encourage discovery.</p>
+</section>
+<section>
+	<h2 id="inflection-point">Inflection Point</h2>
+	<p>Before I could as for a change, I&rsquo;d need to make a compelling argument case, and that meant tearing down the current solution and offering up something better.</p>
+	<div class="flex-container 3-col steps">
+		<div>
+			<h3>Understand</h3>
+			<p>&ldquo;What&rsquo;s the current solution? How did we get here?&rdquo;</p>
+			<ul>
+				<li>Arbitrary categories</li>
+				<li>Data-driven product selection</li>
+				<li>Improving costs more than adapting</li>
+			</ul>
+		</div>
+		<div>
+			<h3>Find Opportunities</h3>
+			<p>&ldquo;What can we do with what we have?&rdquo;</p>
+			<ul>
+				<li>Improve categories</li>
+				<li>Choose products intentionally</li>
+				<li>Push changes back to Amazon core</li>
+			</ul>
+		</div>
+		<div>
+			<h3>(Im)prove it</h3>
+			<p>&ldquo;Exceeding 95% confidence.&rdquo;</p>
+			<ul>
+				<li>Propose an alternative solution</li>
+				<li>Demonstrate results in a reliable and repeatable way</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<figure>
+	<h2 id="finding-relationships">Finding Relationships</h2>
+	<picture class="full-width">
+		<source type="image/jpg" media="(min-width: 1400px)" srcset="../images/amazon-if/defining-categories-full.jpg">
+		<source type="image/jpg" media="(prefers-color-scheme: dark)" srcset="../images/amazon-if/defining-categories-invert.jpg">
+		<source type="image/jpg" media="(min-width: 800px)" srcset="../images/amazon-if/defining-categories-1200.jpg">
+		<img src="../images/amazon-if/defining-categories-800.jpg" alt="A whiteboard sketch of various snacks categorized into unusual categories like 'and-something' for chip-dips and 'utensils, please' for snacks that need a spoon">
+	</picture>
+	<figcaption>
+		<p>The dream of offering products that customers could &ldquo;Grab and go&rdquo; meant that we needed to not-only offer products that conformed to that use-case, but we needed to unsure that the corresponding components were available.</p>
+		<p>You could eat a single GoGurt, but you probably won&rsquo;t want to unless it&rsquo;s refrigerated (<em>even if it <strong>is</strong> &lsquo;shelf-stable&rsquo;</em>).</p>
+		<p>By contrast, turning a bag of corn kernels into &lsquo;food&rsquo; is beyond the capacity of most adults I know, let alone students living in dorms.</p>
+	</figcaption>
+</figure>
+<figure>
+	<h2 id="setting-limits">Setting Limits</h2>
+	<p>To keep the taxonomy simple-enough to browse, my boss gave me some arbitrary limits to work within. Knowing that I could push back if I had a good reason, I really appreciated having a set of guidelines to work against.</p>
+	<ol class="big no-mark">
+		<li>7 top-level categories</li>
+		<li>&lt;10 sub-categories in each</li>
+		<li>2 layers of nesting</li>
+	</ol>
+</figure>
+<figure>
+	<h2>Understanding Context</h2>
+	<picture class="full-width">
+		<source type="image/jpg" media="(min-width: 1400px)" srcset="../images/amazon-if/understanding-context-full.jpg">
+		<source type="image/jpg" media="(prefers-color-scheme: dark)" srcset="../images/amazon-if/understanding-context-invert.jpg">
+		<source type="image/jpg" media="(min-width: 800px)" srcset="../images/amazon-if/understanding-context-1200.jpg">
+		<img src="../images/amazon-if/understanding-context-800.jpg" alt="A whiteboard exploration of product groupings">
+	</picture>
+	<figcaption>
+		<p>The biggest takeaway for me in this process was learning that taxonomies are 100% context-dependent.</p>
+		<p>When products are grouped by use-case, the taxonomy is easier to understand, but it still won&rsquo;t be &lsquo;usable&rsquo; unless the specificity of categories is proportionate to the number of products.</p>
+	</figcaption>
+</figure>
+<section class="flex-container 2-col">
+	<div>
+		<h2>Eureka!</h2>
+		<p>And then it hit me &mdash; there&rsquo;s no hard requirement that products exist in only one category.</p>
+	</div>
+	<div class="bg">
+		<p>If I can&rsquo;t find a &lsquo;one size fits all&rsquo; solution, &ldquo;No problem&rdquo;.</p>
+		<p>We can just put every &lsquo;questionable&rsquo; item in every matching category.</p>
+		<p>Clearly a polyhierarchy is the way to go.</p>
+	</div>
+</section>
+<section>
+	<h2 id="testing-2">Testing Round 2:</h2>
+	<h3>Participant info:</h3>
+	<ul>
+		<li><b>Source:</b> Amazon interns</li>
+		<li><b>Gender:</b> 10 male, 10 female</li>
+		<li><b>Ages:</b> 18&ndash;24</li>
+	</ul>
+	<h3>Task:</h3>
+	<p>Participants used a simple nested-list (in which only one level of the list was visible at a time) to browse for products. Each participant was required to browse for 10 different products (from one of two lists).</p>
+	<h3>Success Criteria:</h3>
+	<p>Participants were given up to two chances to guess the matching category and sub-category for each product in the list.</p>
+</section>
+<blockquote>
+	<h2>So How&rsquo;d I do?</h2>
+</blockquote>
+<figure class="big-stat">
+	<h2>&gt;70%</h2>
+	<figcaption>
+		<p>Failed to find products.</p>
+		<p>Most gave up without even making an attempt.</p>
+	</figcaption>
+</figure>
+<blockquote>
+	<h2>&ldquo;Whoops!&rdquo;</h2>
+</blockquote>
+<figure>
+	<h2 id="learning-from-failure">Learning From Failure</h2>
+	<picture class="full-width">
+		<source type="image/jpg" media="(min-width: 1400px)" srcset="../images/amazon-if/from-failure-full.jpg">
+		<source type="image/jpg" media="(prefers-color-scheme: dark)" srcset="../images/amazon-if/from-failure-invert.jpg">
+		<source type="image/jpg" media="(min-width: 800px)" srcset="../images/amazon-if/from-failure-1200.jpg">
+		<img src="../images/amazon-if/from-failure-800.jpg" alt="A whiteboard exploration of monohierarchy product groupings">
+	</picture>
+	<figcaption>
+		<p>&lsquo;Guaranteed success&rsquo; does not guarantee success, and this failure was both disappointing <em>and embarrassing</em>.</p>
+		<p>Although my design performed horribly, by admitting to my failure, I was able to turn my learnings into &lsquo;data-driven&rsquo; guidelines for what-not-to-do when refining, updating, and extending the taxonomy.</p>
+		<p>Looking back, (in spite of the embarrassment) I&rsquo;m grateful for how dramatically I&rsquo;d failed. While I might have been able to continue pursuing my design after a minor failure; instead I learned a valuable lesson about &ldquo;the paradox of choice&rdquo;, which has helped me simplify my designs for years.</p>
+	</figcaption>
+</figure>
+<section>
+	<h2 id="research-research-research">Research, research, research</h2>
+	<p>Utilizing and refining my draft guidelines as I worked, I conducted 8 additional rounds of tests.</p>
+	<p>Amazon&rsquo;s bar of confidence is 95%. It&rsquo;s a lofty goal, but I was confident that I could make it if I kept working.</p>
+	<div class="flex-container 3-col steps">
+		<div>
+			<h3>Open Card-Sort</h3>
+			<p>Using the names of 50 products I selected to represent the 2000 on offer, participants sorted cards into categories ranging in size from 3 to 15 items.</p>
+			<p><strong>&gt;20</strong> totally-unexpected categories emerged</p>
+		</div>
+		<div>
+			<h3>Tree Testing</h3>
+			<p>Using the dozens of categories generated in the card-sort, I selected the 35 most-distinct labels that covered the broadest swath of items.</p>
+			<p><strong>12</strong> participants browsed for <strong>20</strong> of <strong>35</strong> products</p>
+		</div>
+		<div>
+			<h3>Re-testing</h3>
+			<p><strong>5</strong> additional rounds of testing with <strong>6&ndash;10</strong> participants moved us incrementally closer to <strong>95%</strong> confidence.</p>
+			<p>Final Round:</p>
+			<p><strong>10</strong> participants, <strong>20</strong> items</p>
+		</div>
+	</div>
+</section>
+<figure class="big-stat">
+	<h2>98.5%</h2>
+	<figcaption>
+		<p>In <strong>197</strong> out of <strong>200</strong> challenges participants successfully found the correct category on the first or second attempt.</p>
+	</figcaption>
+</figure>
+<section class="flex-container 2-col">
+	<div>
+		<img src="../images/amazon-if/deodorant.png" alt="A stick of Old Spice deodorant">
+	</div>
+	<div class="bg">
+		<h2>&ldquo;What is this?&rdquo;</h2>
+		<p>The &lsquo;elusive&rsquo; item that all 3 failures had in common</p>
+	</div>
+</section>
+<figure class="big-stat">
+	<img src="../images/amazon-if/shrug.png" alt="An emoji of a person shrugging">
+	<figcaption>
+		<p>Turns out there are some problems UX can&rsquo;t solve.</p>
+	</figcaption>
+</figure>
