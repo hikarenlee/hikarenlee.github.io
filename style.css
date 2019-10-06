@@ -29,8 +29,8 @@ html {width:100vw;overflow-x:hidden;}
 #overview img {display:block;height:100%;margin:0 auto;opacity:.1;position:absolute;top:0;left:0;z-index:-1;}
 @media screen and (min-width:375px) {
 	#overview h1 {font-size:37px;line-height:inherit;}
-	#overview h1 span {font-size:31.1px;height:1em;line-height:0.6;margin-top:-2px;overflow-y:hidden;}
-	#overview h3 {letter-spacing:3.8px;}
+	#overview h1 span {font-size:31.1px;height:1em;line-height:0.5;margin-top:-2px;overflow-y:hidden;}
+	#overview h3 {letter-spacing:4px;}
 }
 @media screen and (min-width:500px) {
 	#overview h1 {font-size:46px;}
@@ -42,8 +42,8 @@ html {width:100vw;overflow-x:hidden;}
 @media screen and (min-width:670px) {
 	#overview h1 {font-size:60px;letter-spacing:4px;}
 	#overview h1 i {font-style:normal;letter-spacing:0;margin-left:-4px;}
-	#overview h1 span {color:var(--text-ultra-faint);font-size:42px;font-weight:700;height:1em;letter-spacing:8px;line-height:0.52em;margin-top:-15px;padding-left:1px;}
-	#overview h3 {color:var(--text-med);font-weight:300;letter-spacing:4.57px;margin-top:-14px;margin-bottom:7vh;padding-left:23px;}
+	#overview h1 span {color:var(--text-ultra-faint);font-size:41.2px;font-weight:700;height:1em;letter-spacing:8.1px;line-height:0.5em;margin-top:-7px;padding-left:1px;}
+	#overview h3 {color:var(--text-med);font-size:1em;font-weight:300;margin-top:-12px;margin-bottom:7vh;padding-left:20px;}
 	#overview img {float:right;margin:-30px 0 0;max-width:270px;width:24vw;shape-outside:url(brian.png);height:unset;opacity:unset;position:unset;top:unset;right:unset;z-index:unset;}
 }
 @media screen and (min-width:768px) {
