@@ -3,7 +3,7 @@
 .ad-banner, .ad-banner-container, [data-id*="Promotion"], [data-id*="jobPosting"], [data-id*="lyndaCourse"], .right-rail {display:none!important;}
 /* news feed */
 .authentication-outlet {min-width:unset!important;}
-#voyager-feed {margin:0 auto!important;padding:30px!important;}
+#voyager-feed {margin:0 auto!important;padding:30px!important;overflow-x:hidden;}
 .neptune-grid {max-width:calc(100% - 60px)!important;box-sizing:initial!important;padding:0!important;width:unset!important;}
 .core-rail {width:calc(100% - 240px)!important;}
 .feed-shared-image--multi-image .feed-shared-image__container {max-height:340px;}
@@ -28,13 +28,101 @@
   section.course-body__player-area {width:80%!important;}
   .course-body__info {width:20%!important;min-width:unset!important;}
   .video-body__video-player.media-player.ember-view {max-width:unset!important;min-width:unset!important;max-height:calc(100vh - 52px)!important;}
-  .video-js .vjs-tech, .course-body__media-container .thumbnail,
+  .course-body .video-js .vjs-tech, .course-body__media-container .thumbnail,
   .course-body__media-container video {width:auto!important;min-width:80vw!important;max-height:unset!important;height:calc(100vh - 52px)!important;margin:0 auto!important;}
-  .video-js.vjs-1-1, .video-js.vjs-16-9, .video-js.vjs-4-3 {height:unset!important;}
-  .video-js.vjs-16-9 {padding-top:unset!important;}
-  .video-js.vjs-1-1 .vjs-tech, .video-js.vjs-16-9 .vjs-tech, .video-js.vjs-4-3 .vjs-tech {position:static!important;max-width:80vw!important;}
+  .course-body .video-js.vjs-1-1, .course-body .video-js.vjs-16-9, .course-body .video-js.vjs-4-3 {height:unset!important;}
+  .course-body .video-js.vjs-16-9 {padding-top:unset!important;}
+  .course-body .video-js.vjs-1-1 .vjs-tech, .course-body .video-js.vjs-16-9 .vjs-tech, .course-body .video-js.vjs-4-3 .vjs-tech {position:static!important;max-width:80vw!important;}
 }
 /* network */
 #mynetwork > *:first-child {padding-top:30px!important;}
 #mynetwork .mn-left-rail.left-rail, #mynetwork .neptune-grid.two-column-with-left-rail .left-rail, #mynetwork .neptune-grid.two-column-with-left-rail .left-rail .left-rail-container {width:210px!important;}
 #mynetwork .core-rail {margin-left:30px!important;width:calc(100vw - 300px)!important;max-width:calc(100vw - 300px)!important;}
+
+/* dark mode in development */
+/* global dark mode */
+/*
+:root {
+  --text:#fff;
+  --text-med:#bbb;
+  --text-faint:#aaa;
+  --text-ultra-faint:#444;
+  --bg:#000;
+  --bg-faint:#181818;
+  --brand:#2B689B;
+  --brand-highlight:#665ed0;
+}
+@media (prefers-color-scheme:dark) {
+  html.artdeco.osx body,
+  .msg-messaging-container__core-rail,
+  .msg-s-thread-actions-tray__item,
+  .shared-title-bar__title.msg-title-bar__title-bar-title,
+  .msg-search-form__search-field[type=search],
+  .msg-form,
+  .msg-form--thread .msg-form__footer,
+  .msg-overlay-list-bubble {background:var(--bg)!important;color:var(--text-med)!important;}
+
+  // :active
+  .msg-conversations-container__convo-item:hover .msg-conversations-container__convo-item-link,
+  .msg-conversations-container__convo-item-link.active,
+  .msg-overlay-list-bubble__convo-item--hoverable:focus,
+  .msg-overlay-list-bubble__convo-item--hoverable:hover,
+  .msg-overlay-list-bubble__convo-item--selected,
+  .msg-s-event-listitem__message-bubble.msg-s-event-listitem__message-bubble--msg-fwd-enabled:focus-within .msg-s-event-listitem__body,
+  .msg-s-event-listitem__message-bubble.msg-s-event-listitem__message-bubble--msg-fwd-enabled:focus-within .msg-s-event-listitem__subject,
+  .msg-s-event-listitem__message-bubble.msg-s-event-listitem__message-bubble--msg-fwd-enabled:hover .msg-s-event-listitem__body,
+  .msg-s-event-listitem__message-bubble.msg-s-event-listitem__message-bubble--msg-fwd-enabled:hover .msg-s-event-listitem__subject {background:var(--bg-faint)!important;color:var(--text)!important;}
+
+  // text
+  .EntityLockup-circle-2 dt,
+  .EntityLockup-circle-2 dt h2,
+  .EntityLockup-circle-2 dt h3,
+  .EntityLockup-circle-2 dt h4,
+  .EntityLockup-circle-2 dt h5,
+  .EntityLockup-circle-2 dt h6 {color:var(--text)!important;}
+  input[type=date],
+  input[type=datetime-local],
+  input[type=datetime],
+  input[type=email],
+  input[type=month],
+  input[type=number],
+  input[type=password],
+  input[type=search],
+  input[type=tel],
+  input[type=text],
+  input[type=time],
+  input[type=url],
+  input[type=week],
+  textarea,
+  ::placeholder {color:var(--text)!important;}
+  .t-black {color:var(--text)!important;}
+  .t-black--light {color:var(--text-med)!important;}
+  .msg-form__msg-content-container .msg-form__contenteditable b,
+  .msg-form__msg-content-container .msg-form__contenteditable em,
+  .msg-form__msg-content-container .msg-form__contenteditable i,
+  .msg-form__msg-content-container .msg-form__contenteditable p {color:var(--text)!important;}
+  html.artdeco.osx a:visited:active,
+  html.artdeco.osx a:visited:hover,
+  html.artdeco.osx a:visited {color:var(--brand)!important;}
+  html.artdeco.osx a:active,
+  html.artdeco.osx a:hover,
+  html.artdeco.osx a:focus {color:var(--brand-highlight)!important;}
+
+  // icons
+  .artdeco-button--muted.artdeco-button--tertiary,
+  li-icon .inactive-item, li-icon .large-icon {color:var(--text-med)!important;}
+
+  .artdeco-button--muted.artdeco-button--tertiary:active,
+  .artdeco-button--muted.artdeco-button--tertiary:hover,
+  .artdeco-button--muted.artdeco-button--tertiary:focus,
+  li-icon .inactive-item:active,
+  li-icon .inactive-item:hover,
+  li-icon .inactive-item:focus,
+  li-icon .large-icon:active,
+  li-icon .large-icon:hover,
+  li-icon .large-icon:focus,
+  .msg-search-form {color:var(--text)!important;}
+
+  // links
+  .feed-shared-article {background:var(--bg-faint)!important;}
+}*/
