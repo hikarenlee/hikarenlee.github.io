@@ -1,11 +1,22 @@
 <html>
 <head>
+<meta property='og:image' content='../images/amazon-preview.png'/>
 <style type="text/css">
 /* AMAZON CASE STUDY */
-#userdata > header {background-color:#f90;}
-#userdata > header h1 {margin-top:4.2rem;}
-#userdata > header p {border-color:#fff;}
-#userdata h2 {color:#232f3e;border-color:#f90;}
+.case-study > header {background-color:#f90;}
+.case-study > header h1 {margin-top:4.2rem;}
+.case-study > header p {border-color:#fff;}
+.case-study h2 {color:#232f3e;border-color:#f90;}
+
+@media (prefers-color-scheme:dark){
+	.case-study header {background-color:#0a2a56;}
+	.case-study a[href] {color:#3fabff;border-bottom-color:#3fabff;}
+	.case-study h2 {color:#f90;border-color:#f90;}
+}
+@media (prefers-color-scheme:dark) and (min-width:850px){
+	.case-study > * {box-shadow:0 3px 15px -3px rgba(0,130,252,0.6);;}
+	.case-study > *:not(header) {border-color:#304c66;}
+}
 </style>
 <script type="text/javascript">
 	<!--
@@ -18,16 +29,15 @@
 <script id="case-study-page.js" type="text/javascript" src="../case-study-page.js"></script>
 </head>
 <body>
-<img id="previewImg" src="../images/amazon-preview.png" alt=""/>
 <article class="case-study">
 <header>
-	<img src="images/amazon-white.svg" alt="Amazon.com Logo" />
+	<img src="../images/amazon-white.svg" alt="Amazon.com Logo" />
 	<h1>Case Study: <br />Collecting User Data</h1>
 	<p>Learning about customers in ways that build trust</p>
 	<time datetime="2017-03-14">March 14, 2017</time>
 </header>
 <section>
-	<h2 id="overview">Overview</h2>
+	<h2>Overview</h2>
 	<p>During my time at Amazon, one of my major projects revolved around learning how to collect demographic data from customers. The research I conducted is protected under NDA, so I can't disclose any specifics, but I can share the process and general learnings.</p>
 </section>
 <section>
