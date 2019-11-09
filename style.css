@@ -83,8 +83,6 @@ approach {display:none;}
 #footer a {margin-right:20px;}
 #footer a:hover {text-decoration:underline;}
 
-
-
 @media (prefers-color-scheme:dark) {
 :root {
   --text:#fff;
@@ -95,7 +93,7 @@ approach {display:none;}
   --bg-faint:#181818;
 }
 b {font-size:1.15em;line-height:1em;}
-img.invert {filter:invert(100%) hue-rotate(192deg) saturate(55);}
+img.invert {filter:invert(100%);}
 }
 
 
