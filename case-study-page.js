@@ -37,9 +37,6 @@ $('document').ready(function(){
 		$(this).toggleClass('zoom');
 
 		activeArticle = $(this).parents('.case-study');
-		window.setTimeout(function(){
-			adjustPageHeight(activeArticle);
-		}, 500);
 	});
 
 	//Video/Animation Overlay
@@ -59,9 +56,6 @@ $('document').ready(function(){
 				$(this).removeClass('expand');
 				galleryImages.removeClass('static focus');
 				$(this).parent('section').find('.static.zoom').slideUp(function(){$(this).remove()});
-				window.setTimeout(function(){
-					adjustPageHeight(galleryImages.parents('article'));
-				}, 500);
 				return;
 			}
 			if (e.target.tagName === "IMG") {
@@ -74,9 +68,6 @@ $('document').ready(function(){
 					$(this).before(zoom);
 					zoom.slideDown();
 				}
-				window.setTimeout(function(){
-					adjustPageHeight(galleryImages.parents('article'));
-				}, 500);
 			}
 			// Creates consistency between mobile and desktop views
 			// Normalizes for window resizing
@@ -100,9 +91,6 @@ $('document').ready(function(){
 					};
 				}(i), 400*(1/(i+2)));
 			}
-			window.setTimeout(function(){
-				adjustPageHeight(gallery.parents('article'));
-			}, 300);
 		}
 	});
 	$('.case-study').on('click','.static.zoom',function(){
