@@ -114,7 +114,7 @@ $('document').ready(function(){
 		$('head')
 			.append($('<link rel="stylesheet" type="text/css" href="../style.css">'))
 			.append($('<link href="https://fonts.googleapis.com/css?family=Raleway:300,600,700&display=swap" rel="stylesheet">'))
-			.append($('<link rel="stylesheet" href="https://use.fontawesome.com/5d44595dd9.css" media="all">'))
+			.append($('<link rel="stylesheet" href="../fontawesome/css/all.css" media="all">'))
 			.append($('<link rel="stylesheet" type="text/css" href="../case-study-page.css">'))
 			.append($('<title>Brian Donahue - UX Design with Engineering in Mind</title>'))
 			.append($('<meta charset="UTF-8">'))
