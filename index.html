@@ -137,7 +137,7 @@ a.player::after {content:'\f144';vertical-align:middle;}
 .case-study .highlight::before {border-top-color:#fffdcc;border-right-color:#fffdcc;border-left-width:1px;border-right-width:1px;left:-2px;}
 .case-study .highlight::after {border-bottom-color:#fffdcc;border-left-color:#fffdcc;border-left-width:1px;border-right-width:1px;right:-1px;}
 .case-study .highlight + .highlight {margin-top:3px;}
-.case-study section :last-child {margin-bottom:0;} /* add * > ?*/
+.case-study section :last-child {margin-bottom:0;}
 
 /* GALLERY */
 .zoom.static {margin:0 auto;max-height:70vh;display:block;border:1px solid #bbb;}
@@ -815,7 +815,7 @@ $('document').ready(function(){
 	function toggleNavPad () {
 		if ((window.screen.width === 375  && window.screen.height === 812)  // iPhone X portrait
 		 || (window.screen.width === 414  && window.screen.height === 896)  // iPhone Xs Max portrait
-		 || (window.screen.width === 834 && window.screen.height === 1194) // iPad Pro 11" portrait
+		 || (window.screen.width === 834 && window.screen.height === 1194)  // iPad Pro 11" portrait
 		 || (window.screen.width === 1024 && window.screen.height === 1366) // iPad Pro 12.9" portrait
 		 ){
 		   // special code for avoiding bottom bar on iOS
