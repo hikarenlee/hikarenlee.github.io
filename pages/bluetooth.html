@@ -1,5 +1,42 @@
+<html>
+<head>
+<style type="text/css">
+figure {margin:0;}
+picture.full-width source, picture.full-width img {width:100%;margin:0 auto;}
+</style>
+<script type="text/javascript">
+	<!--
+	// This code will add a new <script> element just after the current one
+	// It is important to wrap this code in an HTML comment tag to avoid the closing script tag in the lines below to be parsed by the browser
+	if (typeof jQuery == 'undefined')
+		document.write('<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>');
+	-->
+</script>
+<script id="case-study-page.js" type="text/javascript" src="../case-study-page.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var chart = $('#design-dev-chart'),
+		data = $('.design-dev-chart-data');;
+
+	chart.on('click','a',function(){
+		//toggle highlight on chart
+		chart.children().removeClass('focus');
+		$(this).addClass('focus');
+		//toggle highlight on needs/pain points
+		data.find('li').removeClass('focus');
+		data.find('.'+$(this).attr('id')).addClass('focus');
+	});
+	chart.on('click','i',function(){
+		chart.children().removeClass('focus');
+		data.find('li').addClass('focus');
+	});
+});
+</script>
+</head>
+<body>
+<article class="case-study">
 <header>
-	<img src="images/bluetooth.svg" alt="Bluetooth Logo" />
+	<img src="../images/bluetooth.svg" alt="Bluetooth Logo" />
 	<h1>Case Study: <br />UX Style Guide</h1>
 	<p>Building a self-documenting style guide for Bluetooth</p>
 	<time datetime="2017-09-30">September 30, 2017</time>
@@ -75,14 +112,14 @@
 </section>
 <section>
 	<h2>Research: Prototyping</h2>
-	<div class="gallery"><img src="images/uxsg1.png" alt="Style Guide 'elements'"/><img src="images/uxsg2.png" alt="Style Guide 'components'"/><img src="images/uxsg3.png" alt="Style Guide 'utilities'"/><span>(click to expand)</span><span class="collapse"><i class="fa fa-times"></i> collapse</span></div>
+	<div class="gallery"><img class="invert" src="../images/uxsg1.png" alt="Style Guide 'elements'"/><img class="invert" src="../images/uxsg2.png" alt="Style Guide 'components'"/><img class="invert" src="../images/uxsg3.png" alt="Style Guide 'utilities'"/><span>(click to expand)</span><span class="collapse"><i class="fa fa-times"></i> collapse</span></div>
 	<p>After the initial round of interviews, I created a set of low-fi mock-ups in Balsamiq based on the feedback we'd received.</p>
 	<p>Using these mock-ups, I facilitated discussions with the UX team around features and content. Together we determined which features were necessary and which could be cut.</p>
 	<p>Between discussions, I researched a number of existing 'pattern library' solutions and eventually built prototypes using the 3 platforms that seemed like they would get us closest to our defined goals. The platforms I built prototypes on were: <b>Fabricator</b>, <b>AtomicDocs</b>, and <b>Swanky Docs</b>.</p>
 </section>
 <section>
 	<h2>Research: Usability Study</h2>
-	<img src="images/uxsg4.png" class="can-zoom" alt="Usability Study Mock-up" />
+	<img src="../images/uxsg4.png" class="can-zoom invert" alt="Usability Study Mock-up" />
 	<p>After reviewing the pros and cons for each platform, the UX team and I decided on moving forward with Fabricator.</p>
 	<p>Before making any major modifications to the platform, I planned a usability study to determine how well the platform met the developers' needs.</p>
 	<p>Each study session began with a brief overview of the tool, followed by an explanation of the exercise. The participant's goal was to find the corresponding code that was necessary to reproduce the mock-up I'd provided.</p>
@@ -91,7 +128,7 @@
 </section>
 <section>
 	<h2>Conclusion</h2>
-	<div class="gallery"><img src="images/uxsg1f.png" alt="Final Product: Overview" /><img src="images/uxsg2f.png" alt="Final Product: Components" /><img src="images/uxsg3f.png" alt="Final Product: Form Builder" /><span>(click to expand)</span><span class="collapse"><i class="fa fa-times"></i> collapse</span></div>
+	<div class="gallery"><img class="invert" src="../images/uxsg1f.png" alt="Final Product: Overview" /><img class="invert" src="../images/uxsg2f.png" alt="Final Product: Components" /><img class="invert" src="../images/uxsg3f.png" alt="Final Product: Form Builder" /><span>(click to expand)</span><span class="collapse"><i class="fa fa-times"></i> collapse</span></div>
 	<p>After discussing my study observations with the team, I proposed a few modifications to the tool including an updated information architecture, and more robust content. The UX team also requested a number of features around navigation and content labels.</p>
 	<p>While the UX Engineer on staff migrated the remaining content from the old guides, I built out and documented a robust framework for generating content and supporting future updates.</p>
 	<p>Finally, I gave a presentation to the designers, developers, and product managers describing the goals of the project, and the features of the final product.</p>
@@ -100,3 +137,6 @@
 	<p><a href="http://bluetooth-ux.github.io" class="external-link" target="_blank">Bluetooth UX Style Guide</a></p>
 	<p>My final code commit was September 29, 2017.</p>
 </section>
+</article>
+</body>
+</html>
