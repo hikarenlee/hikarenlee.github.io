@@ -24,14 +24,6 @@ body {padding:0;}
 .case-study .highlight::before, .case-study .highlight::after {position:absolute;content:'';border:12px solid transparent;}
 .case-study .highlight::before {border-top-color:#fffdcc;border-right-color:#fffdcc;border-left-width:1px;border-right-width:1px;left:-2px;}
 .case-study .highlight::after {border-bottom-color:#fffdcc;border-left-color:#fffdcc;border-left-width:1px;border-right-width:1px;right:-1px;bottom:0;}
-
-@media (prefers-color-scheme:dark){
-	.case-study a[href] {color:#3fabff;border-bottom-color:#3fabff;}
-	.case-study .highlight {background-color:#5e5a00;}
-	.case-study .highlight::before {border-top-color:#5e5a00;border-right-color:#5e5a00;}
-	.case-study .highlight::after {border-bottom-color:#5e5a00;border-left-color:#5e5a00;}
-}
-
 .case-study .highlight + .highlight {margin-top:3px;}
 .case-study section :last-child {margin-bottom:0;}
 @media (min-width:650px){
@@ -92,6 +84,16 @@ body {padding:0;}
 	.case-study > *:not(header) {padding:5%;}
 	.case-study > *:not(header)::after {content:'';display:block;clear:both;}
 	.case-study header::after {content:"Case Study";color:#796c07;position:absolute;top:85px;left:-78px;line-height:2rem;font-size:1.1rem;background-color:#ffe838;transform:rotate(-90deg);z-index:30;padding:0 15px;}
+}
+
+@media (prefers-color-scheme:dark){
+	.case-study header {background-color:#134b82;}
+	.case-study > * {box-shadow:0 3px 15px -3px rgba(0,130,252,0.6);;}
+	.case-study > *:not(header) {border-color:#304c66;}
+	.case-study a[href] {color:#3fabff;border-bottom-color:#3fabff;}
+	.case-study .highlight {background-color:#5e5a00;}
+	.case-study .highlight::before {border-top-color:#5e5a00;border-right-color:#5e5a00;}
+	.case-study .highlight::after {border-bottom-color:#5e5a00;border-left-color:#5e5a00;}
 }
 
 /* BLUETOOTH CASE STUDY */
@@ -186,3 +188,12 @@ img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
 #userdata > header h1 {margin-top:4.2rem;}
 #userdata > header p {border-color:#fff;}
 #userdata h2 {color:#232f3e;border-color:#f90;}
+
+.case-study > footer a[href] {border:none;vertical-align:middle;display:inline-block;}
+.fa-linkedin:hover {color:#3177B0;}
+.fa-mailbox:hover {color:#db0029;}
+.fa-sms:hover {color:#54B852;}
+
+@media (prefers-color-scheme:dark){
+	.case-study > footer a[href] {color:#777;}
+}

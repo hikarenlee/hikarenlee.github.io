@@ -126,7 +126,7 @@ $('document').ready(function(){
 
 		$('.case-study')
 			.prepend($('<nav><i class="fa fa-angle-left"></i> <a href="../index.html">Back to portfolio</a></nav>'))
-			.append('<footer><p>Made by <a href="https://linkedin.com/in/donahuebrian" target="_blank">B Donahue</a></p></footer>');
+			.append('<footer><p>Made by B Donahue</p><p><a href="https://linkedin.com/in/donahuebrian" target="_blank"><i class="fab fa-linkedin fa-2x" aria-label="linkedin"></i></a> &bullet; <a href="mailto:brimwd@gmail.com" target="_blank"><i class="fad fa-mailbox fa-2x" aria-label="email"></i></a> &bullet; <a href="sms:971-222-9892" target="_blank"><i class="fas fa-sms fa-2x" aria-label="email"></i></a></p></footer>');
 	}
 	else { $('#case-study-page.js').remove(); }
 });
