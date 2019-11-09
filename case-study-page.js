@@ -100,17 +100,17 @@ $('document').ready(function(){
   /* configure independent case study page */
 	if (window.location.pathname.includes('pages')) {
 		$('head')
-			.append($('<link rel="stylesheet" type="text/css" href="../style.css">'))
-			.append($('<link href="https://fonts.googleapis.com/css?family=Raleway:300,600,700&display=swap" rel="stylesheet">'))
-			.append($('<link rel="stylesheet" href="../fontawesome/css/all.css" media="all">'))
-			.append($('<link rel="stylesheet" type="text/css" href="../case-study-page.css">'))
-			.append($('<title>Brian Donahue - UX Design with Engineering in Mind</title>'))
-			.append($('<meta charset="UTF-8">'))
-			.append($('<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">'))
-			.append($('<meta name="author" content="Brian Donahue">'))
-			.append($('<meta name="description" content="UX, web design, & front-end development portfolio for Brian Donahue, Product Designer based in Silicon Valley, California">'))
-			.append($('<meta name="keywords" content="product,product design,manager,UX,UX design,UX designer,user experience,design,designer,UI,HTML,CSS,JavaScript,Illustrator,Adobe,Photoshop,freelance,contractor,developer,front-end,front end,portfolio,graphic design,graphics,web,web development,for hire,resume,jQuery,storyboarding,prototyping,research,user research,researcher,information architecture,taxonomy">'))
-			.append($('<meta name="format-detection" content="telephone=no">;'));
+			.prepend($('<link rel="stylesheet" type="text/css" href="../style.css">'))
+			.prepend($('<link href="https://fonts.googleapis.com/css?family=Raleway:300,600,700&display=swap" rel="stylesheet">'))
+			.prepend($('<link rel="stylesheet" href="../fontawesome/css/all.css" media="all">'))
+			.prepend($('<link rel="stylesheet" type="text/css" href="../case-study-page.css">'))
+			.prepend($('<title>Brian Donahue - UX Design with Engineering in Mind</title>'))
+			.prepend($('<meta charset="UTF-8">'))
+			.prepend($('<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">'))
+			.prepend($('<meta name="author" content="Brian Donahue">'))
+			.prepend($('<meta name="description" content="UX, web design, & front-end development portfolio for Brian Donahue, Product Designer based in Silicon Valley, California">'))
+			.prepend($('<meta name="keywords" content="product,product design,manager,UX,UX design,UX designer,user experience,design,designer,UI,HTML,CSS,JavaScript,Illustrator,Adobe,Photoshop,freelance,contractor,developer,front-end,front end,portfolio,graphic design,graphics,web,web development,for hire,resume,jQuery,storyboarding,prototyping,research,user research,researcher,information architecture,taxonomy">'))
+			.prepend($('<meta name="format-detection" content="telephone=no">;'));
 
 		$('.case-study')
 			.prepend($('<nav><i class="fa fa-angle-left"></i> <a href="../index.html">Back to portfolio</a></nav>'))
