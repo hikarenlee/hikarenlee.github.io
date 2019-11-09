@@ -1,6 +1,11 @@
 body {padding:0;}
 #previewImg {position:absolute;top:-500px;left:-500px;width:0;height:0;}
 .case-study > nav, .case-study > footer {border:none!important;box-shadow:none!important;padding:10px!important;}
+@media (min-width:650px){
+	body {padding:20px 0 50px;}
+	.case-study > nav, .case-study > footer {margin:unset;}
+}
+
 .case-study > nav {margin:20px 0 50px;}
 .case-study > footer {margin:50px 0 20px;text-align:center;}
 /* CASE STUDY - GENERAL STYLES */
@@ -27,10 +32,6 @@ body {padding:0;}
 .case-study .highlight::after {border-bottom-color:#fffdcc;border-left-color:#fffdcc;border-left-width:1px;border-right-width:1px;right:-1px;bottom:0;}
 .case-study .highlight + .highlight {margin-top:3px;}
 .case-study section :last-child {margin-bottom:0;}
-@media (min-width:650px){
-	body {padding:50px 0;}
-	.case-study > nav, .case-study > footer {margin:unset;}
-}
 
 /* GALLERY */
 .zoom.static {margin:0 auto;max-height:70vh;display:block;border:1px solid #bbb;}
@@ -74,12 +75,12 @@ body {padding:0;}
 }
 
 @media (min-width:650px){
-	.case-study > * {padding:5%}
+	.case-study > *, .case-study > *:not(header) {padding:5%;}
 	.case-study header {padding:50px 5% 10px;}
 	.case-study header br {display:none;}
 }
 @media (min-width:810px){.case-study {max-width:810px;margin:0 auto;}}
-@media (min-width:1030px){
+@media (min-width:850px){
 	.case-study {width:810px;box-shadow:none;border:none;}
 	.case-study > * {box-shadow:0 3px 15px -3px rgba(0,0,0,0.4);border:1px solid transparent;margin-bottom:2rem;min-width:650px;}
 	.case-study > *:not(header)::after {content:'';display:block;clear:both;}
@@ -93,7 +94,7 @@ body {padding:0;}
 	.case-study .highlight::before {border-top-color:#5e5a00;border-right-color:#5e5a00;}
 	.case-study .highlight::after {border-bottom-color:#5e5a00;border-left-color:#5e5a00;}
 }
-@media (prefers-color-scheme:dark) and (min-width:1030px){
+@media (prefers-color-scheme:dark) and (min-width:850px){
 	.case-study > * {box-shadow:0 3px 15px -3px rgba(0,130,252,0.6);;}
 	.case-study > *:not(header) {border-color:#304c66;}
 }
