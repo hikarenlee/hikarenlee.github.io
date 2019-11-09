@@ -1,5 +1,5 @@
 body {padding:0;}
-#previewImg {position:absolute;top:-500px;left:-500px;width:1px;height:1px;}
+#previewImg {position:absolute;z-index:-1;opacity:0}
 .case-study > nav, .case-study > footer {border:none!important;box-shadow:none!important;padding:10px!important;}
 @media (min-width:650px){
 	body {padding:20px 0 50px;}
