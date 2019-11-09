@@ -1,8 +1,72 @@
 <html>
 <head>
 <style type="text/css">
-figure {margin:0;}
-picture.full-width source, picture.full-width img {width:100%;margin:0 auto;}
+/* BLUETOOTH CASE STUDY */
+#bluetooth > header {background-image:url('../images/chevrons-blue-transp.png');background-size:78px 78px;}
+#bluetooth #roles {list-style-type:none;}
+@media (max-width:429px) {
+	#roles {padding-left:0;}
+	#roles li::before {content:'';margin-right:5px;width:10px;height:10px;border:1px solid grey;display:inline-block;border-radius:10px;}
+	#roles .bootstrap::before {background-color:#ff8484;}
+	#roles .other::before {background-color:#a973ff;}
+	#roles .designers::before {background-color:#9ce8ff;}
+}
+/* BLUETOOTH VENN DIAGARAM */
+#design-dev-chart {display:none;}
+@media (min-width:430px) {
+	#bluetooth #roles {list-style-type:decimal;}
+	#design-dev-chart {display:block;position:relative;text-align:center;white-space:nowrap;}
+	#design-dev-chart a {width:240px;padding-top:100px;height:140px;vertical-align:top;display:inline-block;border-radius:300px;text-align:left;position:relative;}
+	#design-dev-chart a.focus {font-weight:bold;}
+	#design-dev-chart * {cursor:pointer;}
+	#design-dev-chart u {display:block;text-decoration:none;}
+	#design-dev-chart i {display:none;position:absolute;right:0;bottom:0;z-index:10;}
+	#design-dev-chart i:hover {text-decoration:underline;}
+	#design-dev-chart a.focus ~ i {display:inline-block;}
+
+	#design-dev-chart #bootstrap {background-color:rgba(255,220,240,.6);margin-right:280px;padding-left:30px;width:210px;z-index:5;border:1px solid grey;margin-top:-1px;}
+	#design-dev-chart #bootstrap:hover, #design-dev-chart #bootstrap:focus, #design-dev-chart #bootstrap.focus {background-color:#ffdcf0;border-color:red;}
+
+	#design-dev-chart #other {margin-left:-400px;background-color:transparent;overflow:hidden;padding:0;width:120px;height:240px;z-index:10;}
+	#design-dev-chart #other span {padding:100px 0 90px 40px;display:block;border-radius:300px;}
+	#design-dev-chart #other div {position:absolute;position:absolute;top:0;right:0;bottom:0;width:240px;border-radius:300px;overflow:hidden;}
+	#design-dev-chart #other div::after {content:'';position:absolute;top:0;right:-120px;bottom:0;width:240px;border-radius:300px;background-color:#eee0fd;z-index:-1}
+	#design-dev-chart #other:hover div::after, #design-dev-chart #other:focus div::after, #design-dev-chart #other.focus div::after {background-color:#dfbcf5;}
+
+	#design-dev-chart #designers {padding-top:110px;height:130px;padding-right:25px;width:95px;text-align:right;z-index:1;}
+	#design-dev-chart #designers::after {content:'';position:absolute;top:-1px;right:0;bottom:-1px;left:-120px;background-color:rgba(220,240,255,.6);border-radius:300px;z-index:-1;border:1px solid grey;}
+	#design-dev-chart #designers:hover::after, #design-dev-chart #designers:focus::after, #design-dev-chart #designers.focus::after {background-color:#dcf0ff;border-color:blue;}
+}
+
+@media (prefers-color-scheme:dark){
+	#design-dev-chart #bootstrap {background-color:rgba(255,220,240,.2);}
+	#design-dev-chart #bootstrap:hover, #design-dev-chart #bootstrap:focus, #design-dev-chart #bootstrap.focus {background-color:rgba(255,220,240,.45);}
+	#design-dev-chart #other div::after {background-color:rgba(238, 224, 253,.2);}
+	#design-dev-chart #other:hover div::after, #design-dev-chart #other:focus div::after, #design-dev-chart #other.focus div::after {background-color:rgba(223, 188, 245,.45);}
+	#design-dev-chart #designers::after {background-color:rgba(220,240,255,.2);}
+	#design-dev-chart #designers:hover::after, #design-dev-chart #designers:focus::after, #design-dev-chart #designers.focus::after {background-color:rgba(220,240,255,.45);}
+}
+@media (min-width:820px) {#design-dev-chart {float:right;width:390px;}}
+/* BLUETOOTH VENN DIAGARAM DATA */
+.design-dev-chart-data {list-style-type:none;padding-left:0;}
+.design-dev-chart-data li {position:relative;opacity:.4;}
+.design-dev-chart-data li:not(.focus) {}
+.design-dev-chart-data li.focus {opacity:1;}
+.design-dev-chart-data ::before, .design-dev-chart-data .bootstrap.other.designers::after, .design-dev-chart-data .bootstrap.other::after, .design-dev-chart-data .bootstrap.designers::after, .design-dev-chart-data .other.designers::after {vertical-align:top;margin-top:5px;margin-right:5px;width:10px;height:10px;border:1px solid grey;display:inline-block;border-radius:10px;}
+
+.design-dev-chart-data .bootstrap::before {content:'';background-color:#ff8484;margin-right:20px;}
+.design-dev-chart-data .other::before {content:'';background-color:#a973ff;margin-right:20px;}
+.design-dev-chart-data .designers::before {content:'';background-color:#9ce8ff;margin-right:20px;}
+
+.design-dev-chart-data .bootstrap.other::after, .design-dev-chart-data .bootstrap.designers::after, .design-dev-chart-data .other.designers::after, .design-dev-chart-data .all::after {content:'';position:absolute;top:0;left:15px;}
+.design-dev-chart-data .bootstrap.other::before {content:'';background-color:#ff8484;}
+.design-dev-chart-data .bootstrap.other::after {background-color:#a973ff;}
+.design-dev-chart-data .bootstrap.designers::before {content:'';background-color:#ff8484;}
+.design-dev-chart-data .bootstrap.designers::after {background-color:#9ce8ff;}
+.design-dev-chart-data .other.designers::before {content:'';background-color:#a973ff;}
+.design-dev-chart-data .other.designers::after {background-color:#9ce8ff;}
+.design-dev-chart-data .bootstrap.other.designers::before {content:'';background-color:transparent;margin-right:16px;margin-left:4px;}
+.design-dev-chart-data .bootstrap.other.designers::after {content:'';background-color:transparent;left:10px;}
 </style>
 <script type="text/javascript">
 	<!--
@@ -34,6 +98,7 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+<img id="previewImg" src="../images/bluetooth-preview.png" alt=""/>
 <article class="case-study">
 <header>
 	<img src="../images/bluetooth.svg" alt="Bluetooth Logo" />
