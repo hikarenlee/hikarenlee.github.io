@@ -39,5 +39,6 @@ function renderPage (pageHTML) {
   // minimize nav
   // create content section
   // populate content section
-  $('body').append($('<section>').innerHTML(pageHTML));
+  $('body').append($('<section id="dynamicLoad">').html(pageHTML));
+  $('#dynamicLoad script.case-study-page, #dynamicLoad title, #dynamicLoad meta').remove();
 }
