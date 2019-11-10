@@ -1,19 +1,32 @@
-function showPlayer ($targetVid, $vidPos, eventTarget){
-	var $div = '<div id="demo-player"><div class="container"><span><img src="" alt=""/><footer>(click anywhere to close this overlay)</footer></span><p>Loading...</p></div></div>';
+function configureSinglePage() {
+	$('head')
+		.prepend($('<link rel="stylesheet" type="text/css" href="../style.css">'))
+		.prepend($('<link href="https://fonts.googleapis.com/css?family=Raleway:300,600,700&display=swap" rel="stylesheet">'))
+		.prepend($('<link rel="stylesheet" href="../fontawesome/css/all.css" media="all">'))
+		.prepend($('<link rel="stylesheet" type="text/css" href="../case-study-page.css">'))
+		.prepend($('<meta charset="UTF-8">'))
+		.prepend($('<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">'))
+		.prepend($('<meta name="author" content="Brian Donahue">'))
+		.prepend($('<meta name="description" content="UX, web design, & front-end development portfolio for Brian Donahue, Product Designer based in Silicon Valley, California">'))
+		.prepend($('<meta name="keywords" content="product,product design,manager,UX,UX design,UX designer,user experience,design,designer,UI,HTML,CSS,JavaScript,Illustrator,Adobe,Photoshop,freelance,contractor,developer,front-end,front end,portfolio,graphic design,graphics,web,web development,for hire,resume,jQuery,storyboarding,prototyping,research,user research,researcher,information architecture,taxonomy">'))
+		.prepend($('<meta name="format-detection" content="telephone=no">;'));
 
-	$($div).prependTo($(eventTarget).parents('section')).fadeTo("slow", 1.0);
+	$('.case-study')
+		.prepend($('<nav><i class="fa fa-angle-left"></i> <a href="../index.html">Back to portfolio</a></nav>'))
+		.append('<footer><p>Made by B Donahue</p><p><a href="https://linkedin.com/in/donahuebrian" target="_blank"><i class="fab fa-linkedin fa-2x" aria-label="linkedin"></i></a> &bullet; <a href="mailto:brimwd@gmail.com"><i class="fad fa-mailbox fa-2x" aria-label="email"></i></a> &bullet; <a href="sms:971-222-9892"><i class="fas fa-sms fa-2x" aria-label="email"></i></a></p></footer>');
 
-	var vidPlayer = $('#demo-player');
-
-	vidPlayer.find('.container').css('bottom',$vidPos);
-	if ($targetVid === 'bluetooth-presentation') {
-		vidPlayer.find('img').after($('<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTxQqvmgk8c1hy0LxPBQ6RWURbNxQ5FqCdg9OqPxPriwsZEyLgRB470g9ABmVXygYpIxwzQZtG5S9fU/embed?start=false&loop=false&delayms=60000" frameborder="0" width="90%" height="450" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>'));
-	} else {
-		vidPlayer.find('img').attr('src',$targetVid);
+	// handle redirect hashes
+	switch(location.hash) {
+		case '#dynamicLoadFailed' :
+			// handle case
+			console.log(location.hash);
+			break;
+		case '#asyncError' :
+			// handle case
+			console.log(location.hash);
+			break;
 	}
-	vidPlayer.on('click',function(){
-		this.remove();
-	});
+	history.replaceState(null, document.title, window.location.pathname);
 }
 
 $('document').ready(function(){
@@ -98,23 +111,24 @@ $('document').ready(function(){
 	});
 
   /* configure independent case study page */
-	if (window.location.pathname.includes('pages')) {
-		$('head')
-			.prepend($('<link rel="stylesheet" type="text/css" href="../style.css">'))
-			.prepend($('<link href="https://fonts.googleapis.com/css?family=Raleway:300,600,700&display=swap" rel="stylesheet">'))
-			.prepend($('<link rel="stylesheet" href="../fontawesome/css/all.css" media="all">'))
-			.prepend($('<link rel="stylesheet" type="text/css" href="../case-study-page.css">'))
-			.prepend($('<title>Brian Donahue - UX Design with Engineering in Mind</title>'))
-			.prepend($('<meta charset="UTF-8">'))
-			.prepend($('<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">'))
-			.prepend($('<meta name="author" content="Brian Donahue">'))
-			.prepend($('<meta name="description" content="UX, web design, & front-end development portfolio for Brian Donahue, Product Designer based in Silicon Valley, California">'))
-			.prepend($('<meta name="keywords" content="product,product design,manager,UX,UX design,UX designer,user experience,design,designer,UI,HTML,CSS,JavaScript,Illustrator,Adobe,Photoshop,freelance,contractor,developer,front-end,front end,portfolio,graphic design,graphics,web,web development,for hire,resume,jQuery,storyboarding,prototyping,research,user research,researcher,information architecture,taxonomy">'))
-			.prepend($('<meta name="format-detection" content="telephone=no">;'));
-
-		$('.case-study')
-			.prepend($('<nav><i class="fa fa-angle-left"></i> <a href="../index.html">Back to portfolio</a></nav>'))
-			.append('<footer><p>Made by B Donahue</p><p><a href="https://linkedin.com/in/donahuebrian" target="_blank"><i class="fab fa-linkedin fa-2x" aria-label="linkedin"></i></a> &bullet; <a href="mailto:brimwd@gmail.com"><i class="fad fa-mailbox fa-2x" aria-label="email"></i></a> &bullet; <a href="sms:971-222-9892"><i class="fas fa-sms fa-2x" aria-label="email"></i></a></p></footer>');
-	}
+	if (window.location.pathname.includes('pages')) { configureSinglePage(); }
 	else { $('#case-study-page.js').remove(); }
 });
+
+function showPlayer ($targetVid, $vidPos, eventTarget){
+	var $div = '<div id="demo-player"><div class="container"><span><img src="" alt=""/><footer>(click anywhere to close this overlay)</footer></span><p>Loading...</p></div></div>';
+
+	$($div).prependTo($(eventTarget).parents('section')).fadeTo("slow", 1.0);
+
+	var vidPlayer = $('#demo-player');
+
+	vidPlayer.find('.container').css('bottom',$vidPos);
+	if ($targetVid === 'bluetooth-presentation') {
+		vidPlayer.find('img').after($('<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTxQqvmgk8c1hy0LxPBQ6RWURbNxQ5FqCdg9OqPxPriwsZEyLgRB470g9ABmVXygYpIxwzQZtG5S9fU/embed?start=false&loop=false&delayms=60000" frameborder="0" width="90%" height="450" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>'));
+	} else {
+		vidPlayer.find('img').attr('src',$targetVid);
+	}
+	vidPlayer.on('click',function(){
+		this.remove();
+	});
+}
