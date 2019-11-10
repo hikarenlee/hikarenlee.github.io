@@ -39,5 +39,5 @@ function renderPage (pageHTML) {
   // minimize nav
   // create content section
   // populate content section
-
+  $('body').append($('<section>').innerHTML(pageHTML));
 }
