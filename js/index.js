@@ -24,12 +24,10 @@ async function loadPage (targetPage, attempts) {
     else { // failed twice
       // redirect to selected page
       location.assign(targetPage+'#dynamicLoadFailed');
-      // TODO: AFTER REDIRECT handle hash and remove with `location.hash = ''`;
     }
   } catch(err) {
     console.log(err);
     location.assign(targetPage+'#asyncError');
-    // TODO: AFTER REDIRECT handle hash and remove with `location.hash = ''`;
   }
 }
 
@@ -39,7 +37,7 @@ function getPage (pageName) {
   // retrieve page from server
   $.ajax({
     url: pageName,
-    dataType: 'json',
+    dataType: 'html',
     success: function(response) {
       window.openPage = pageName;
       // TODO: Add support for deep-linking?
