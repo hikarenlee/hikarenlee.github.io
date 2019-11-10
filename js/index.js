@@ -32,29 +32,23 @@ async function loadPage (targetPage, attempts) {
 }
 
 function getPage (pageName) {
-  var pageLoaded = undefined;
-
   // retrieve page from server
   $.ajax({
     url: pageName,
-    dataType: 'html',
     success: function(response) {
       window.openPage = pageName;
       // TODO: Add support for deep-linking?
 
       // renders the new content
       renderPage(response);
-      pageLoaded = true;
+      return true;
     },
     error: function(xhr, status, error) {
       console.log(xhr, status, error);
-      pageLoaded = false;
+      return false;
     },
     type: 'GET'
   });
-
-  // inform loadPage function
-  return pageLoaded;
 }
 
 function renderPage (pageHTML) {
