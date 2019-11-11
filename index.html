@@ -299,7 +299,7 @@ img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
 </style>
 </head>
 <body>
-<nav><a class="active">Résumé</a><a><span>Case </span>Study<span> 1</span></a><a><span>Case </span>Study<span> 2</span></a><a><span>Case </span>Study<span> 3</span></a><a>Portfolio</a></nav>
+<nav><a class="active">Résumé</a><a><span>Case </span>Study<span> 1</span></a></nav>
 <div id="container">
 	<article id="resume" class="active">
 		<header>
@@ -417,161 +417,6 @@ img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
 			<p>I'm also an avid reader, cartoonist, writer, farmer's-market enthusiast, and I build hobby websites and products.</p>
 		</section> -->
 	</article>
-
-	<article class="case-study" id="bluetooth">
-		<header>
-			<img src="images/bluetooth.svg" alt="Bluetooth Logo" />
-			<h1>Case Study: <br />UX Style Guide</h1>
-			<p>Building a self-documenting style guide for Bluetooth</p>
-			<time datetime="2017-09-30">September 30, 2017</time>
-		</header>
-		<section>
-			<h2>Overview</h2>
-			<p><strong>Role:</strong> UX Engineer - contractor - 3 months</p>
-			<p><strong>Task:</strong> Design &amp; develop a style guide that the entire company can leverage</p>
-			<p>I was contracted to improve the existing style guide tool, but there were many issues with the tool as described below. In the following sections I'll discuss a few of these issues and what steps I took to address them.</p>
-			<p>The problems, impacts, and goals were determined during a project planning phase. Many of the problems were complaints that the UX team had received but were unable to address with the existing implementation.</p>
-			<p>Although I was hired to make recommendations and to complete work on the existing tool, after conducting user interviews it quickly became apparent that the tool they had was too much work to maintain and was inadequate to meet their needs.</p>
-			<p>Through the interview process, the UX team was able to identify a number of issues surrounding the style guide and its usage, and the primary issues are documented in the next section.</p>
-		</section>
-		<section>
-			<h2>Problem &amp; Goal Statements</h2>
-			<p>The problems we felt we could address through improvements to the style guide are highlighted in yellow below. The remainder of the issues will be addressed by the UX team through policy updates and content inventories.</p>
-			<p class="list-header">Problems:</p>
-			<ul>
-				<li>Developers aren't implementing styles from the guide</li>
-				<li class="highlight">There are too many disparate styles and style sheets</li>
-				<li>There are disparate styles and UI components across platforms and tools</li>
-				<li class="highlight">The style guide provides no definition on when/why to use components</li>
-				<li class="highlight">The style guide website is not fully responsive</li>
-				<li class="highlight">The existing style guide is poorly coded</li>
-			</ul>
-			<p class="list-header">Impacts:</p>
-			<ul>
-				<li>User interfaces are inconsistently implemented and harder to maintain</li>
-				<li>Multiple style sheets decreases performance and creates confusion around which styles belong to which properties</li>
-				<li>Users of our products and tools are subject to an inconsistent, poor user experience</li>
-				<li>The style guide website is inconvenient for developers to use</li>
-				<li>The style guide website is difficult for designers to use and maintain</li>
-			</ul>
-			<p class="list-header">Goals:</p>
-			<ul>
-				<li>Improved consistency of style implementation</li>
-				<li>Develop a unified set of styles</li>
-				<li>Clearly define usage guidelines around components</li>
-				<li class="highlight">Remove obstacles to style guide usage</li>
-				<li class="highlight">Improve underlying style guide code</li>
-				<li class="highlight">Minimize maintenance effort</li>
-			</ul>
-		</section>
-		<section>
-			<h2>Research: User Interviews</h2>
-			<p>Our initial round of interviews conducted with influential developers helped us identify some workflow issues and a general lack of awareness of the intent of the style guide. We were also able to confirm the frustrations with the guide that had been expressed by its few users prior to my start.</p>
-			<p>Reviewing our research data, I was able to identify 3 unique user personas:</p>
-			<ol id="roles">
-				<li class="bootstrap">Developers using Bootstrap</li>
-				<li class="other">Developers on other platforms</li>
-				<li class="designers">Designers, Marketing, QA, and Management</li>
-			</ol>
-			<aside id="design-dev-chart"><a id="bootstrap">Bootstrap<u>Devs</u></a><a id="other"><span>Other<u>Devs</u></span><div></div></a><a id="designers">Designers</a><i>clear</i></aside>
-			<p class="list-header">Needs:</p>
-			<ul class="design-dev-chart-data">
-				<li class="focus bootstrap other designers">Visual reference for styles</li>
-				<li class="focus bootstrap">CSS class names</li>
-				<li class="focus other designers">Element properties (full CSS)</li>
-				<li class="focus bootstrap other">(Occasionally) HTML snippets</li>
-				<li class="focus bootstrap other">Clear documentation about changes</li>
-				<li class="focus designers">Component usage guidelines</li>
-				<li class="focus designers">Pattern files</li>
-			</ul>
-			<p class="list-header">Pain Points:</p>
-			<ul class="design-dev-chart-data">
-				<li class="focus bootstrap other designers">Difficult to find style guide when needed</li>
-				<li class="focus bootstrap designers">Difficult to reference (too much code)</li>
-				<li class="focus other">Difficult to reference (not enough code)</li>
-				<li class="focus bootstrap other designers">Insufficient content (usage guidelines &amp; components)</li>
-				<li class="focus bootstrap designers">Lack of communication about style guide updates</li>
-				<li class="focus designers">Visual styles are not consistent between style guides</li>
-			</ul>
-		</section>
-		<section>
-			<h2>Research: Prototyping</h2>
-			<div class="gallery"><img src="images/uxsg1.png" alt="Style Guide 'elements'"/><img src="images/uxsg2.png" alt="Style Guide 'components'"/><img src="images/uxsg3.png" alt="Style Guide 'utilities'"/><span>(click to expand)</span><span class="collapse"><i class="fa fa-times"></i> collapse</span></div>
-			<p>After the initial round of interviews, I created a set of low-fi mock-ups in Balsamiq based on the feedback we'd received.</p>
-			<p>Using these mock-ups, I facilitated discussions with the UX team around features and content. Together we determined which features were necessary and which could be cut.</p>
-			<p>Between discussions, I researched a number of existing 'pattern library' solutions and eventually built prototypes using the 3 platforms that seemed like they would get us closest to our defined goals. The platforms I built prototypes on were: <b>Fabricator</b>, <b>AtomicDocs</b>, and <b>Swanky Docs</b>.</p>
-		</section>
-		<section>
-			<h2>Research: Usability Study</h2>
-			<img src="images/uxsg4.png" class="can-zoom" alt="Usability Study Mock-up" />
-			<p>After reviewing the pros and cons for each platform, the UX team and I decided on moving forward with Fabricator.</p>
-			<p>Before making any major modifications to the platform, I planned a usability study to determine how well the platform met the developers' needs.</p>
-			<p>Each study session began with a brief overview of the tool, followed by an explanation of the exercise. The participant's goal was to find the corresponding code that was necessary to reproduce the mock-up I'd provided.</p>
-			<p>While the participants worked, I took notes on the ways that they interacted with the tool and asked probing questions around their intent when they got stuck.</p>
-			<p>The observations I made during the study were invaluable to improving the usability of the tool, especially because each participant seemed to have a unique approach to navigating the content.</p>
-		</section>
-		<section>
-			<h2>Conclusion</h2>
-			<div class="gallery"><img src="images/uxsg1f.png" alt="Final Product: Overview" /><img src="images/uxsg2f.png" alt="Final Product: Components" /><img src="images/uxsg3f.png" alt="Final Product: Form Builder" /><span>(click to expand)</span><span class="collapse"><i class="fa fa-times"></i> collapse</span></div>
-			<p>After discussing my study observations with the team, I proposed a few modifications to the tool including an updated information architecture, and more robust content. The UX team also requested a number of features around navigation and content labels.</p>
-			<p>While the UX Engineer on staff migrated the remaining content from the old guides, I built out and documented a robust framework for generating content and supporting future updates.</p>
-			<p>Finally, I gave a presentation to the designers, developers, and product managers describing the goals of the project, and the features of the final product.</p>
-			<p>Over the course of our research, we'd discovered that many developers were aware of discrepancies in the guides and had a mild fear of relying too heavily on the content as a result. Faith in the tool was the final piece of the puzzle to improve adoption among development teams, and I used the presentation as an opportunity to build faith by explaining how the guide content is generated in a way that significantly reduces the opportunity for errors.</p>
-			<p><a class="player" id="bluetooth-presentation">Final Presentation Deck</a></p>
-			<p><a href="http://bluetooth-ux.github.io" class="external-link" target="_blank">Bluetooth UX Style Guide</a></p>
-			<p>My final code commit was September 29, 2017.</p>
-		</section>
-	</article>
-	<article class="case-study" id="game">
-		<header>
-			<img src="images/bob.svg" alt="Bob Books Logo" />
-			<h1>Case Study: <br />Game Prototyping</h1>
-			<p>Building a Concept Game for Bob Books</p>
-			<time datetime="2017-01-20">January 20, 2017</time>
-		</header>
-		<section>
-			<h2>Overview</h2>
-			<p>Thrilled with my work on their new font, Adam, the marketing director at Bob Books asked me to make a bid for their next game development contract.</p>
-			<p>Adam asked me to create a proposal that would demonstrate other gameplay methods and generally make the games more engaging.</p>
-			<p>Over the following month I designed a variety of spelling games; wrote a script; created illustrations, sound effects, and animations; and programmed a game in Unity with my friend Michael Afrides.</p>
-		</section>
-		<section>
-			<h2>Research</h2>
-			<img src="https://lh3.googleusercontent.com/q798hsCzwv-SMnaYH9j4YabUyt8J6gtTclBiYeGYtmi6R9nwmxL3FFpgLBeKrwkI9w=h900" class="can-zoom" alt="Bob Books' original game" />
-			<p>Bob Books' existing games feature a single gameplay concept and individual spelling challenges. Each level is composed of simple line drawings and lacks any animation or color.</p>
-			<p>I believe that by telling a story with the challenges interspersed, the curiosity about story could become the compelling reason for progressing through the levels as opposed to simply completing each challenge for its own sake.</p>
-			<p><a href="https://play.google.com/store/apps/details?id=com.learningtouch.bobbooksrm1&hl=en" class="external-link" target="_blank">Click here</a> to see Bob Books' original app that we were competing against.</p>
-		</section>
-		<section>
-			<h2 id="#concept1">Gameplay Concept 1</h2>
-			<div class="gallery"><img src="images/caddog1.jpg" alt="Dog Level Concept"/><img src="images/caddog2.png" alt="Dog Level Assets"/><img src="images/caddog3.png" alt="Dog Level Final"/><span>(click to expand)</span><span class="collapse"><i class="fa fa-times"></i> collapse</span></div>
-			<p>To win the contract, we would need to show a better UX while also proving that we could reproduce their current gameplay modes.</p>
-			<p>The basic gameplay mode required spelling a word in left-to-right order. This is an easy task, so we spiced it up a little with some 3D animations.</p>
-			<p><a class="player" id="images/caddog.gif">Watch Gameplay (16s)</a></p>
-		</section>
-		<section>
-			<h2 id="#concept2">Gameplay Concept 2</h2>
-			<div class="gallery"><img src="images/cadcat1.jpg" alt="Cat Level Concept"/><img src="images/cadcat2.png" alt="Cat Level Assets"/><img src="images/cadcat3.png" alt="Cat Level Final"/><span>(click to expand)</span><span class="collapse"><i class="fa fa-times"></i> collapse</span></div>
-			<p>We also wanted to show something new and different that would still be something a young child could accomplish.</p>
-			<p>Our second gameplay mode drops "random" letters from the top of the screen. To add a little silliness and playfulness, the letters are trapped inside raindrops, which the player has to catch and drop onto sponges to wring out the water.</p>
-			<p>We also used this opportunity to create an animated 'cut-scene' - a feature the existing games don't have.</p>
-			<p><a class="player" id="images/cadcat.gif">Watch Gameplay (26s)</a></p>
-		</section>
-		<section>
-			<h2 id="#concept3">Gameplay Concept 3</h2>
-			<div class="gallery"><img src="images/cadhome1.png" alt="Game Home Screen Concept"/><img src="images/cadhome2.png" alt="Game Home Screen Assets"/><img src="images/cadhome3.png" alt="Game Home Screen Final"/><span>(click to expand)</span><span class="collapse"><i class="fa fa-times"></i> collapse</span></div>
-			<p>To create a sense of accomplishment, I wanted each section of our proposed game to feel like an immersive experience with hidden animations and environmental changes that reflect game progress.</p>
-			<p>We created a challenge navigation screen (this farm scene) where the rain diminishes and the cats and dogs stop 'raining' once you save them.</p>
-			<p>By the end of the demo the rain has cleared and the scene is pleasant and sunny.</p>
-			<p><a class="player" id="images/cadhome.gif">Watch Home Screen Interaction (15s)</a></p>
-		</section>
-		<section>
-			<h2 id="conclusion">Conclusion</h2>
-			<p>In the end the client decided to stick with their overseas developers who work for far less than we were willing to, so we didn't get the contract. Although it was disappointing that we weren't hired, it was a great experience creating this game from scratch on a new platform, and Michael used his experience here and at his next job to get a full-time game development role.</p>
-			<p><a href="./candd.html" class="external-link" target="_blank">Play the final demo</a> (requires free Unity Web Player plug-in)</p>
-			<p><a href="./candd-journal.pdf" class="external-link" target="_blank">Development Journal</a> (low-fis &amp; concepts - PDF)</p>
-		</section>
-	</article>
 	<article class="case-study" id="userdata">
 		<header>
 			<img src="images/amazon-white.svg" alt="Amazon.com Logo" />
@@ -634,74 +479,9 @@ img.zoom {max-width:100%;border-width:0;margin-left:0;cursor:zoom-out;}
 			<p>Each interaction your customers have with you contributes to your cumulative relationship. Handle with care.</p>
 		</section>
 	</article>
-	<article id="portfolio" class="case-study">
-		<section>
-			<h2>Select Visual Design Work</h2>
-			<p>Logos <time>2012 - 2019</time></p>
-			<div class="portfolio">
-				<img src="images/portfolio/sux-logo.png" alt="ScheduleUX logo - 2018" />
-				<img src="images/portfolio/logo-mw2.png" alt="Moving Worlds Impact Teams - 2017" />
-				<img src="images/portfolio/logo-mw1.png" alt="Moving Worlds Institute - 2016" />
-				<img src="images/portfolio/logo-basebone.png" alt="Basebone - 2015" />
-				<img src="images/portfolio/logo-prideidol.png" alt="Pride Idol - 2014" />
-				<img src="images/portfolio/logo-jcccw.png" alt="Japanese Cultural and Community Center - 2014" />
-				<img src="images/portfolio/logo-worthen.png" alt="Worthen Creative - 2013" />
-				<img src="images/portfolio/logo-transit.jpg" alt="Transit Assembly - 2013" />
-				<img src="images/portfolio/logo-galaxy.png" alt="Galaxy - 2012" />
-			</div>
-			<p>Landing Pages<time>2015</time></p>
-			<div class="portfolio">
-				<img src="images/portfolio/landing-oldportfolio.png" alt="My old portfolio site - 2014" />
-				<img src="images/portfolio/landing-cwd.png" alt="Criminal Watchdog - 2015" />
-				<img src="images/portfolio/landing-docs.png" alt="DOCS Education Membership - 2015" />
-				<img src="images/portfolio/landing-physics.png" alt="Physics Foreceps - 2015" />
-				<img src="images/portfolio/landing-acero.png" alt="Acero Crowns - 2015" />
-			</div>
-			<p>Emails<time>2015</time></p>
-			<div class="portfolio">
-				<img class="after" src="images/portfolio/email-incisor.png" alt="Incisor Newsletter - 2015" />
-				<img class="after" src="images/portfolio/email-physics.png" alt="Physics Foreceps Course Invitation - 2015" />
-				<img class="after" src="images/portfolio/email-meddent.png" alt="MedDent Safety Newsletter - 2015" />
-			</div>
-			<p>MovingWorlds Presentation Template<time datetime="2014-10-31">Oct 2014</time></p>
-			<div class="portfolio">
-				<img src="images/portfolio/mw-b2b1.png" alt="Cover Slide" />
-				<img src="images/portfolio/mw-b2b2.png" alt="Title Slide" />
-				<img src="images/portfolio/mw-b2b3.png" alt="Content Slide" />
-			</div>
-			<p>MovingWorlds Document Template<time datetime="2014-10-31">Oct 2014</time></p>
-			<div class="portfolio">
-				<img src="images/portfolio/mw-concept.png" alt="Concept Sketch" />
-				<img src="images/portfolio/mw-doc1.png" alt="Cover Page" />
-				<img src="images/portfolio/mw-doc2.png" alt="Index Page" />
-				<img src="images/portfolio/mw-doc3.png" alt="Content Page" />
-			</div>
-			<p>Seattle Pride<time datetime="2014-07-31">July 2014</time></p>
-			<div class="portfolio">
-				<img src="images/portfolio/pride-1974posterad.png" alt="Remastered Poster Ad" />
-				<img src="images/portfolio/pride-1974poster.png" alt="1974 Remastered Poster" />
-				<img src="images/portfolio/pride-map.png" alt="Parade Map" />
-				<img src="images/portfolio/pride-sponsorsad.png" alt="Sponsors Ad" />
-				<img src="images/portfolio/pride-takei.png" alt="Parade Marshal Badge" />
-				<img src="images/portfolio/pride-badge.png" alt="ID Badge" />
-				<img src="images/portfolio/pride-announcersad.png" alt="Announcers Ad" />
-				<img src="images/portfolio/pride-idolbanner.jpg" alt="Pride Idol Banner" />
-				<img src="images/portfolio/pride-judgesbanner.png" alt="Parade Judges Banner" />
-			</div>
-			<p>Miscellaneous Print<time>2012 - 2014</time></p>
-			<div class="portfolio">
-				<img src="images/portfolio/print-oak.png" alt="Oak Restaurant Menu" />
-				<img src="images/portfolio/print-tabletop.jpg" alt="JCCCW Tabletop Display" />
-				<img src="images/portfolio/print-museum.png" alt="Nikkei Museum Signage" />
-				<img src="images/portfolio/print-bob.png" alt="BOB Books Font" />
-				<img src="images/portfolio/print-ninebit.png" alt="Nine-Bit Font" />
-			</div>
-		</section>
-	</article>
 </div>
 <footer>
 	<p>Built with <i class="fa fa-heart" title="love"></i> by Brian Donahue</p>
-	<div id="mobile-qr"><img src="images/url-qrcode.png" alt="QR Code linking to this site" /></div>
 </footer>
 <link rel="stylesheet" href="https://use.fontawesome.com/5d44595dd9.css" media="all">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
