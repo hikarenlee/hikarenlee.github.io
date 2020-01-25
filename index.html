@@ -308,49 +308,55 @@ The plan that included several smaller projects was approved and I was assigned 
     
 		<section>
 			<h2 id="overview">Overview</h2>
-			<p>The Cisco Marketing Team spanned 5 regions and 7 business units, all tasked with reporting the performance of their digital marketing efforts to their respective leadership. An internal tool called the OCID Generator (OmniChannel ID Generator) was built a year before by an agency, to create tracking IDs for content and campaign performance. The Marketing Tech Stack team was given the responsibility of maintaining the tool.  The focus of this case study is how I enhanced and reimagined the tool to align with company initiatives and managed it as a program.
-  </p></section>
+			<p>The Cisco Marketing Team spanned 5 regions and 7 business units, all tasked with reporting the performance of their digital marketing efforts to their respective leadership.  An internal tool called the OCID Generator (OmniChannel ID Generator) was built a year before by an agency, to create tracking IDs for content and campaign performance.  The Marketing Tech Stack team was given the responsibility of maintaining the tool.  The focus of this case study is how I enhanced and reimagined the tool to align with company initiatives and managed it as a program.</p></section>
  
     <section>
 			<h2 id="discovery">Discovery</h2>
 
-<p>There were loose guidelines around when and where to use the IDs. But after a year of using the tool, each of the regions and business units implemented the IDs in different ways.</p>
+<p>There were loose guidelines around when and where to use the IDs. But after a year of using the tool, each of the regions and business units implemented the IDs in different ways.</p> 
 
-<p>To add additional confusion, there was a legacy way of tracking campaign and content performance called GTM Program Codes. They were still being used by the Sales team, and .COM for their pages, and many teams were still being measured by those metrics.</p>
+<p>To add additional confusion, there was a legacy way of tracking campaign and content performance called GTM Program Codes.  They were still being used by the Sales team, and .COM for their pages, and many teams were still being measured against those metrics.</p>
 
-<p>There were two different ways to attach codes - by appending the codes to the end of a URL string, or to tag content in the platform it resides in. No one was entirely sure which way to attach codes to their efforts. Many things were tagged but were not captured by the metrics team and some codes and tags directly conflicted with one another, resulting in double-counting.</p>
+<p>There were two different ways to attach codes - by appending the codes to the end of a URL string, or to tag content in the platform it resided in.  No one was entirely sure which way to attach codes to their efforts.  Many things were tagged but were not captured by the metrics team and some codes and tags directly conflicted with one another, resulting in double-counting.</p> 
 
-<p>The Metrics and Analytics teams were overrun with one-off requests for manual reports and dashboards by the regions and business units. Campaign managers could not understand why their efforts were not showing up in the reports, and the Publishing team had been tasked to prioritize work requests without knowing what business initiative was prompting the work coming down the pipeline.</p>
+<p>The Metrics and Analytics teams were overrun with one-off requests for manual reports and dashboards by the regions and business units. Campaign managers could not understand why their efforts were not showing up in the reports, and the Publishing team had been tasked to prioritize work requests without knowing what business initiative was prompting the work coming down the pipeline.
+</p>
  
 		</section>
   <section>
  <h2 id="approach">Approach</h2>
-    <p>My discoveries were a result of hours of interviews and process documentation that I collected from all the Business Unit teams, and Metrics & Analytics team.  They were also a result of data analysis pulled from DOMO and other sources that showed me how people were tagging their IDs, where they were using it, and on what assets and pages.  I divided the findings into three buckets: Leadership, Training and Technology.</p>
+    <p>My discoveries were a result of hours of interviews and process documentation that I collected from all the Business Unit teams, and Metrics & Analytics team.  I analyzed data pulled from DOMO and other sources that showed me how people were tagging their IDs, where they were using it, and on what assets and pages.  I compiled the findings into a presentation and divided the recommendations into three buckets: Leadership, Training and Technology.  </p>
     
     <h3>Leadership</h3>
-<p>There was also confusion around campaign strategy and how a campaign is defined and how channels and offers rolled up to campaigns.</p>
+<p>A recurring theme among my interviews was that there was confusion around campaign strategy and how a campaign was defined and how channels and offers rolled up to campaigns.</p>
 
-<p>I created a deck that presented to leadership all the different ways teams were using campaign IDs, offer IDs and channel IDs. Some teams were creating campaigns around product launches.  These were time sensitive and the assets, pages and go-to-market activities had a shelf life.  As a result, one could expect to see a big surge of metrics that might taper off. Other teams created campaigns that were "always-on" as in the case of targeting a persona. These campaigns, created by different regions or different business units, might make use of the same assets and pages. There needed to be a strategy or hierarchy on how "always-on" campaigns related to “event-based” campaigns and how they rolled up.  Incentives, or "credit" needed to be aligned to the strategy so that teams weren’t competing against each other in a way that would negatively affect customer experience.</p>
+<p>I created a deck that presented to leadership all the different ways teams were using campaign IDs, offer IDs and channel IDs.  Some teams were creating campaigns around product launches.  These were time sensitive and the assets, pages and go-to-market activities had a shelf life.  As a result, one could expect to see a big surge of metrics that might taper off.  Other teams created campaigns that were “always-on” as in the case of targeting a persona.  These campaigns, created by different regions or different business units, might make use of the same assets and pages.  There needed to be a strategy or hierarchy on how “always-on” campaigns related to “event-based” campaigns and how they rolled up.  Incentives, or “credit” needed to be aligned to the strategy so that teams weren’t competing against each other in a way that would negatively affect customer experience.</p>
 
-<p>As a result, leadership created a tiger team to explore this strategy and hierarchy, which I used to inform the rules and validations of the OCID generator.</p>
+<p>As a result, leadership assigned a tiger team to explore a strategy and hierarchy, which I used to inform the rules and validations of the OCID generator.
+</p>
 
     <h3>Training and Governance</h3>
 <p>There were many problems that stemmed from inconsistent use of the tool and lack of current training documentation.</p>
 
-<p>The tiger team mentioned above piloted several iterations of a global marketing campaign strategy which I participated in. I used their strategy to create a community site that housed training and self-serve documentation for both technical and non-technical users. I held office hours and ad-hoc trainings to teams that were about to launch campaigns on how to use the tools and served as a liason between them and the Metrics and Analytics team.</p>
+<p>The tiger team mentioned above piloted several iterations of a global marketing campaign strategy which I participated in.  I used their strategy to create a community site that housed training and self-serve documentation for both technical and non-technical users.  I held office hours and consultation sessions for teams that were about to launch campaigns. These services helped ensure success for the teams and served as a communication line between campaign execution (Metrics and Analytics team, publishers, dev team) and the campaign planners.</p>
 
-<p>I set up a bi-weekly team that involved members from the Change Management Team, the Metrics and Analytics Team, and members of the Development team where we would review usage data, feature requests and review tickets.</p>
+<p>I set up a bi-monthly check-in that involved members from the Change Management Team, the Metrics and Analytics Team, and members of the Development team where we would review usage data, feature requests and review tickets.
+</p>
     
     <h3>Technology</h3>
-<p>On the technology side, the tool was often unstable and very slow.  The UI was cumbersome and there was ample opportunity to put in place validations that would improve the information being passed between systems. There were many places where integrations with other platforms in the tech stack would allow for automation and reduce the burden for many of the users. I worked closely with the developers to address the stability issue and define use cases for the APIs.</p>
+<p>OOn the technology side, the tool was a victim of its own success.  The problem wasn’t the lack of use, but the lack of governance and scalability built into the original model.  The platform was often unstable and very slow.  The UI was cumbersome and there was ample opportunity to put in place validations that would improve the information being passed between systems.  There were many places where integrations with other platforms in the tech stack would allow for automation and reduce the burden for many of the users.</p>  
+
+<p>I worked closely with the developers to address the stability issue and define wrote the epics for user stories for bug fixes, enhancements and integrations with other platforms.  I sat in on the bi-weekly scrums the Dev team held to clarify any stories, make decisions on proposed solutions, and escalated any issues they brought up to leadership. I also communicated any changes or plans to the roadmap from my leadership to them.
+</p>
     </section>
  <section>
  <h2 id="summary">Summary</h2>   
-<p>What started out as "taking over a tool" became a very unique and exciting project that touched on so many of my interests, including how people consume metrics, taxonomy and metadata governance, product management and training. What made it extremely satisfying for me was that I was able to understand how a tool was being used end-to-end, align it to what the company was trying to achieve, and then explain it in terms that helped users see the benefit.</p>
+<p>What started out as “taking over a tool” became a very unique and exciting project that touched on many of my interests; including how people consume metrics, taxonomy and metadata governance, product management and training.  As a result, I was considered the expert on the tool and was invited to be a stakeholder in other related projects.</p>
 
-<p>By doing that, I was able to see first-hand how it made users happier by reducing their manual work, achieving their teams’ goals, and helping them understand a tool and a process that was previously confusing.</p>
+<p>What made it most satisfying for me was that I was able to understand how a tool was being used end-to-end, align it to what the company was trying to achieve, and then explain it in terms that helped users see the benefit.  By doing that, I was able to see first-hand how it made users happier by reducing their manual work, achieving their teams’ goals, and helping them understand a tool and a process that was previously confusing.</p>
 
-<p>As the leadership adjusts their campaign strategy and as different tools evolve in the Tech Stack, I feel confident that the OCID Generator Program, and its future iterations, will continue to evolve because of my work in aligning it with its core purpose, and helping connect teams work together in understand how each fit into the larger picture.</p>
+<p>As the leadership adjusts their campaign strategy and as different tools evolve in the Tech Stack, I feel confident that the OCID Generator Program, and its future iterations, will continue to evolve because of my work in aligning it with its core purpose, and helping connect teams with each other to understand how each fit into the larger picture.
+</p>
     </section>
   
 	</article>	
